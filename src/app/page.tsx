@@ -4,11 +4,9 @@ import { useMemo, useState } from "react";
 
 import { TetrisLabContextProvider } from "@/context/TetrisLabContext";
 
-import Button from "@mui/material/Button";
-
 import Tetris from "@/components/Tetris";
-import ActionRequiringNotification from "@/components/ActionRequiringNotification/ActionRequiringNotification";
-import PassiveNotification from "@/components/PassiveNotification/PassiveNotification";
+// import ActionRequiringNotification from "@/components/ActionRequiringNotification/ActionRequiringNotification";
+// import PassiveNotification from "@/components/PassiveNotification/PassiveNotification";
 
 export default function Home() {
   const [openActionRequiringNotification, setOpenActionRequiringNotification] =
