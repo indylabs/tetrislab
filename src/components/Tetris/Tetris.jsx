@@ -1,22 +1,24 @@
-import Stage from './Stage';
-import Display from './Display';
-import StartButton from './StartButton';
 import { useState } from 'react';
 
-//styled components
-import styled, { css } from 'styled-components';
+import Alert from '@mui/material/Alert';
+import Button from '@mui/material/Button';
+
+import Stage from '../Stage/Stage';
 
 // custom hooks
-import { usePlayer } from '../hooks/usePlayer';
-import { useStage } from '../hooks/useStage';
-import { useInterval } from '../hooks/useInterval';
-import { useGameStatus } from '../hooks/useGameStatus';
+import { usePlayer } from '../../hooks/usePlayer';
+import { useStage } from '../../hooks/useStage';
+import { useInterval } from '../../hooks/useInterval';
+import { useGameStatus } from '../../hooks/useGameStatus';
 
 //utils
-import { createStage, checkCollision } from '../utils/gameHelpers';
+import { createStage, checkCollision } from '../../utils/gameHelpers';
+
+import styles from './Tetris.module.scss';
 
 function Tetris() {
   const [droptime, setDroptime] = useState(null);
+  const [playing, setPlaying] = useState(null);
   const [gameover, setGameover] = useState(false);
 
   const [player, updatePlayerPosition, resetPlayer, playerRotate] = usePlayer();
@@ -24,12 +26,7 @@ function Tetris() {
   const [score, setScore, rows, setRows, level, setLevel] =
     useGameStatus(rowsCleared);
 
-  console.log('stagex:', stage);
-  console.log('player.position:', player?.position);
-
   function movePlayer(direction) {
-    console.log('direction:', typeof(direction));
-    console.log('check:', checkCollision(player, stage, { x: direction, y: 0 }));
     if (!checkCollision(player, stage, { x: direction, y: 0 })) {
       updatePlayerPosition({ x: direction, y: 0 });
     }
@@ -39,6 +36,7 @@ function Tetris() {
     // reset stage
     setStage(createStage());
     setDroptime(1000);
+    setPlaying(true);
     resetPlayer();
     setGameover(false);
     setScore(0);
@@ -59,6 +57,7 @@ function Tetris() {
       // Gameover
       if (player.position.y < 1) {
         // console.log('Gameover');
+        setPlaying(false);
         setGameover(true);
         setDroptime(null);
       }
@@ -102,57 +101,39 @@ function Tetris() {
   }, droptime);
 
   return (
-    <TetrisWrapper
+    <div
       role="button"
       tabIndex="0"
       onKeyUp={keyUp}
       onKeyDown={(e) => move(e)}
+      className={styles.tetris}
     >
-      <div className={`second-wrapper`}>
-        <Stage stage={stage} />
 
-        <aside>
-          {/* ternary */}
-          {gameover ? (
-            <Display
-              gameover={gameover}
-              text="Game Over"
-            />
-          ) : (
-            <div>
-              <Display text={`Score: ${score}`} />
-              <Display text={`Rows: ${rows}`} />
-              <Display text={`Level: ${level}`} />
-            </div>
-          )}
+      {gameover && (
+        <Alert severity="error">Game Over!</Alert>
+      )}
 
-          <StartButton callback={startGame} />
-        </aside>
-      </div>
-    </TetrisWrapper>
+      {playing && (
+        <>
+          <ul className={styles.info}>
+            <li>Score: {score}</li>
+            <li>Rows: {rows}</li>
+            <li>Level: {level}</li>
+          </ul>
+          <Stage stage={stage} />
+        </>
+      )}
+
+      {!playing && (
+        <Button
+          onClick={startGame}
+
+        >
+          Start Game
+        </Button>
+      )}
+    </div>
   );
 }
-
-const TetrisWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  overflow: hidden;
-  position: relative;
-
-  & .second-wrapper {
-    display: flex;
-    align-items: flex-start;
-    padding: 20px 0 10px 0;
-    margin: 0 auto;
-    max-width: 900px;
-    aside {
-      width: 100%;
-      max-width: 200px;
-      display: block;
-      padding: 0 20px;
-    }
-  }
-`;
 
 export default Tetris;

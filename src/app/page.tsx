@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 
 import { TetrisLabContextProvider } from "@/context/TetrisLabContext";
 
-import Tetris from "@/components/Tetris";
+import Tetris from "@/components/Tetris/Tetris";
 // import ActionRequiringNotification from "@/components/ActionRequiringNotification/ActionRequiringNotification";
 // import PassiveNotification from "@/components/PassiveNotification/PassiveNotification";
 

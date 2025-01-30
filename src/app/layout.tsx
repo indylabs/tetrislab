@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import "./normalize.css";
+
+import "./layout.scss";
 
 export const metadata: Metadata = {
   title: "TetrisLab",
