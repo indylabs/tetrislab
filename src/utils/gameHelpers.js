@@ -9,9 +9,6 @@ export const createStage = () => {
 };
 
 export const checkCollision = (player, stage, { x: moveX, y: moveY }) => {
-
-  console.log('moveX:', moveX);
-
   for (let y = 0; y < player.tetromino.length; y += 1) {
     for (let x = 0; x < player.tetromino[y].length; x += 1) {
       // check that the cell isnt 0

@@ -1,9 +1,14 @@
 import Cell from '../Cell/Cell';
-import PropTypes from 'prop-types';
+
+import type { Stage } from '@/types';
 
 import styles from './Stage.module.scss'
 
-function Stage({ stage }) {
+type StageProps = {
+  stage: Stage
+}
+
+function Stage({ stage }: StageProps) {
   return (
     <div
       className={styles.stage}
@@ -14,9 +19,9 @@ function Stage({ stage }) {
     >
       {
         stage.map((row) =>
-          row.map((cell, x) => (
+          row.map((cell) => (
             <Cell
-              key={x}
+              key={cell[0]}
               type={cell[0]}
             />
           )),
@@ -25,9 +30,5 @@ function Stage({ stage }) {
     </div >
   );
 }
-
-Stage.propTypes = {
-  stage: PropTypes.array.isRequired,
-};
 
 export default Stage;

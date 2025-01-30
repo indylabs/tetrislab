@@ -1,11 +1,17 @@
 
 import React from 'react';
+
+import type { TetrominoKey } from '@/types';
+
 import { TETROMINOS } from '../../utils/tetrominos';
-import PropTypes from 'prop-types';
 
 import styles from './Cell.module.scss';
 
-function Cell({ type }) {
+type CellProps = {
+  type: TetrominoKey;
+}
+
+function Cell({ type }: CellProps) {
   return (
     <div
       className={styles.cell}
@@ -15,9 +21,5 @@ function Cell({ type }) {
     ></div>
   );
 }
-
-Cell.propTypes = {
-  type: PropTypes.object.isRequired,
-};
 
 export default React.memo(Cell);

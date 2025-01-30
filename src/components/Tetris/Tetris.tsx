@@ -17,16 +17,15 @@ import { createStage, checkCollision } from '../../utils/gameHelpers';
 import styles from './Tetris.module.scss';
 
 function Tetris() {
-  const [droptime, setDroptime] = useState(null);
-  const [playing, setPlaying] = useState(null);
+  const [droptime, setDroptime] = useState<number | null>(null);
+  const [playing, setPlaying] = useState<boolean | null>(null);
   const [gameover, setGameover] = useState(false);
 
   const [player, updatePlayerPosition, resetPlayer, playerRotate] = usePlayer();
   const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
-  const [score, setScore, rows, setRows, level, setLevel] =
-    useGameStatus(rowsCleared);
+  const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared);
 
-  function movePlayer(direction) {
+  function movePlayer(direction: number) {
     if (!checkCollision(player, stage, { x: direction, y: 0 })) {
       updatePlayerPosition({ x: direction, y: 0 });
     }
@@ -65,7 +64,7 @@ function Tetris() {
     }
   }
 
-  const keyUp = ({ keyCode }) => {
+  const keyUp = ({ keyCode }: { keyCode: number }) => {
     if (!gameover) {
       if (keyCode === 40) {
         // console.log('interval on');
@@ -80,7 +79,7 @@ function Tetris() {
     drop();
   }
 
-  const move = ({ keyCode }) => {
+  const move = ({ keyCode }: { keyCode: number }) => {
     if (!gameover) {
       if (keyCode === 37) {
         movePlayer(-1);
@@ -103,7 +102,7 @@ function Tetris() {
   return (
     <div
       role="button"
-      tabIndex="0"
+      tabIndex={0}
       onKeyUp={keyUp}
       onKeyDown={(e) => move(e)}
       className={styles.tetris}
@@ -116,9 +115,9 @@ function Tetris() {
       {playing && (
         <>
           <ul className={styles.info}>
-            <li>Score: {score}</li>
-            <li>Rows: {rows}</li>
-            <li>Level: {level}</li>
+            <li>Score: {score.toString()}</li>
+            <li>Rows: {rows.toString()}</li>
+            <li>Level: {level.toString()}</li>
           </ul>
           <Stage stage={stage} />
         </>
