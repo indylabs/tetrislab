@@ -1,9 +1,5 @@
 import { useCallback, useState } from "react";
-import {
-  checkCollision,
-  STAGE_HEIGHT,
-  STAGE_WIDTH,
-} from "../utils/gameHelpers";
+import { checkCollision, STAGE_WIDTH } from "../utils/gameHelpers";
 import { randomTetromino, TETROMINOS } from "../utils/tetrominos";
 
 import type { Matrix, Player, Position, Stage } from "@/types";
