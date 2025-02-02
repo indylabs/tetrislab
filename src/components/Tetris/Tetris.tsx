@@ -38,7 +38,17 @@ function Tetris() {
     setScore(0);
     setRows(0);
     setLevel(0);
-  }, [playing]);
+  }, [
+    playing,
+    setStage,
+    createStage,
+    setDroptime,
+    resetPlayer,
+    setGameover,
+    setScore,
+    setRows,
+    setLevel,
+  ]);
 
   function movePlayer(direction: number) {
     if (!checkCollision(player, stage, { x: direction, y: 0 })) {
