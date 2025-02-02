@@ -5,11 +5,11 @@ export type Tetromino = {
   color: string;
 };
 
-export type Cell = [(TetrominoKey | 0), string];
+export type Cell = [TetrominoKey, string];
 export type Row = Cell[];
 export type Stage = Row[];
 
-export type Matrix = [(TetrominoKey | 0)[]][]
+export type Matrix = [TetrominoKey][][]
 
 export type Position = {
   x: number,
