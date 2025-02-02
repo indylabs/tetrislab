@@ -1,47 +1,50 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 
-import Alert from '@mui/material/Alert';
-import Button from '@mui/material/Button';
+import Alert from "@mui/material/Alert";
 
-import Stage from '../Stage/Stage';
+import Stage from "../Stage/Stage";
+
+import { useTetrisLabContext } from "@/context/TetrisLabContext";
 
 // custom hooks
-import { usePlayer } from '../../hooks/usePlayer';
-import { useStage } from '../../hooks/useStage';
-import { useInterval } from '../../hooks/useInterval';
-import { useGameStatus } from '../../hooks/useGameStatus';
+import { usePlayer } from "../../hooks/usePlayer";
+import { useStage } from "../../hooks/useStage";
+import { useInterval } from "../../hooks/useInterval";
+import { useGameStatus } from "../../hooks/useGameStatus";
 
 //utils
-import { createStage, checkCollision } from '../../utils/gameHelpers';
+import { createStage, checkCollision } from "../../utils/gameHelpers";
 
-import styles from './Tetris.module.scss';
+import styles from "./Tetris.module.scss";
 
 function Tetris() {
   const [droptime, setDroptime] = useState<number | null>(null);
-  const [playing, setPlaying] = useState<boolean | null>(null);
-  const [gameover, setGameover] = useState(false);
+  const [gameover, setGameover] = useState<boolean>(false);
+
+  const { state } = useTetrisLabContext();
+  const { playing } = state;
 
   const [player, updatePlayerPosition, resetPlayer, playerRotate] = usePlayer();
   const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
-  const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared);
+  const [score, setScore, rows, setRows, level, setLevel] =
+    useGameStatus(rowsCleared);
+
+  useEffect(() => {
+    // reset stage
+    setStage(createStage());
+    setDroptime(1000);
+    resetPlayer();
+    setGameover(false);
+    setScore(0);
+    setRows(0);
+    setLevel(0);
+  }, [playing]);
 
   function movePlayer(direction: number) {
     if (!checkCollision(player, stage, { x: direction, y: 0 })) {
       updatePlayerPosition({ x: direction, y: 0 });
     }
   }
-
-  const startGame = () => {
-    // reset stage
-    setStage(createStage());
-    setDroptime(1000);
-    setPlaying(true);
-    resetPlayer();
-    setGameover(false);
-    setScore(0);
-    setRows(0);
-    setLevel(0);
-  };
 
   function drop() {
     // increase lvl when player clears 10 rows
@@ -55,8 +58,6 @@ function Tetris() {
     } else {
       // Gameover
       if (player.position.y < 1) {
-        // console.log('Gameover');
-        setPlaying(false);
         setGameover(true);
         setDroptime(null);
       }
@@ -107,30 +108,14 @@ function Tetris() {
       onKeyDown={(e) => move(e)}
       className={styles.tetris}
     >
+      {gameover && <Alert severity="error">Game Over!</Alert>}
 
-      {gameover && (
-        <Alert severity="error">Game Over!</Alert>
-      )}
-
-      {playing && (
-        <>
-          <ul className={styles.info}>
-            <li>Score: {score.toString()}</li>
-            <li>Rows: {rows.toString()}</li>
-            <li>Level: {level.toString()}</li>
-          </ul>
-          <Stage stage={stage} />
-        </>
-      )}
-
-      {!playing && (
-        <Button
-          onClick={startGame}
-
-        >
-          Start Game
-        </Button>
-      )}
+      {/* <ul className={styles.info}>
+        <li>Score: {score.toString()}</li>
+        <li>Rows: {rows.toString()}</li>
+        <li>Level: {level.toString()}</li>
+      </ul> */}
+      <Stage stage={stage} />
     </div>
   );
 }

@@ -1,10 +1,24 @@
 export type TetrominoKey = '0' | 'I' | 'J' | 'L' | 'O' | 'S' | 'T' | 'Z';
 
 export type Tetromino = {
-  shape: (string | 0)[][];
+  shape: TetrominoKey[][];
   color: string;
 };
 
 export type Cell = [TetrominoKey, string];
 export type Row = Cell[];
 export type Stage = Row[];
+
+export type Matrix = [TetrominoKey[]][]
+
+export type Position = {
+  x: number,
+  y: number
+}
+
+export type Player = {
+  position: Position,
+  tetromino: Tetromino['shape'],
+  collided?: boolean,
+}
+
