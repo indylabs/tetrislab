@@ -5,7 +5,7 @@ export type Tetromino = {
   color: string;
 };
 
-export type Cell = [TetrominoKey, string];
+export type Cell = [(TetrominoKey | 0), string];
 export type Row = Cell[];
 export type Stage = Row[];
 
