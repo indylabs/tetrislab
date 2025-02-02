@@ -41,7 +41,6 @@ function Tetris() {
   }, [
     playing,
     setStage,
-    createStage,
     setDroptime,
     resetPlayer,
     setGameover,
