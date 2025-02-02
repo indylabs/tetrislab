@@ -3,7 +3,7 @@ import { createStage } from "../utils/gameHelpers";
 
 import type { Player, Stage, Row } from "@/types";
 
-export const useStage = (player: Player, resetPlayer: Function) => {
+export const useStage = (player: Player, resetPlayer: () => void) => {
   const [stage, setStage] = useState<Stage>(createStage());
   const [rowsCleared, setRowsCleared] = useState<number>(0);
 
