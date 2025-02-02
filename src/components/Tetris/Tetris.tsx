@@ -110,12 +110,13 @@ function Tetris() {
     >
       {gameover && <Alert severity="error">Game Over!</Alert>}
 
-      {/* <ul className={styles.info}>
+      <Stage stage={stage} />
+
+      <ul className={styles.info}>
         <li>Score: {score.toString()}</li>
         <li>Rows: {rows.toString()}</li>
         <li>Level: {level.toString()}</li>
-      </ul> */}
-      <Stage stage={stage} />
+      </ul>
     </div>
   );
 }
