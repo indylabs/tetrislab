@@ -1,22 +1,21 @@
+import React from "react";
 
-import React from 'react';
+import type { TetrominoKey } from "@/types";
 
-import type { TetrominoKey } from '@/types';
+import { TETROMINOS } from "../../utils/tetrominos";
 
-import { TETROMINOS } from '../../utils/tetrominos';
-
-import styles from './Cell.module.scss';
+import styles from "./Cell.module.scss";
 
 type CellProps = {
-  type: TetrominoKey;
-}
+  type: TetrominoKey | 0;
+};
 
 function Cell({ type }: CellProps) {
   return (
     <div
       className={styles.cell}
       style={{
-        background: `rgba(${TETROMINOS[type].color}, 0.8)`
+        background: `rgba(${TETROMINOS[type].color}, 0.8)`,
       }}
     ></div>
   );
