@@ -7,7 +7,7 @@ import { TETROMINOS } from "../../utils/tetrominos";
 import styles from "./Cell.module.scss";
 
 type CellProps = {
-  type: TetrominoKey | 0;
+  type: TetrominoKey;
 };
 
 function Cell({ type }: CellProps) {

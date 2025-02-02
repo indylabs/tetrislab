@@ -1,11 +1,11 @@
-export type TetrominoKey = '0' | 'I' | 'J' | 'L' | 'O' | 'S' | 'T' | 'Z';
+export type TetrominoKey = '0' | 'I' | 'J' | 'L' | 'O' | 'S' | 'T' | 'Z' | 0;
 
 export type Tetromino = {
-  shape: (TetrominoKey | 0)[][];
+  shape: TetrominoKey[][];
   color: string;
 };
 
-export type Cell = [(TetrominoKey | 0), string];
+export type Cell = [TetrominoKey, string];
 export type Row = Cell[];
 export type Stage = Row[];
 
