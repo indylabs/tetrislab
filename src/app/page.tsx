@@ -5,10 +5,14 @@ import { useMemo, useState } from "react";
 import { TetrisLabContextProvider } from "@/context/TetrisLabContext";
 
 import Tetris from "@/components/Tetris/Tetris";
+import Start from "@/components/Start/Start";
+
 // import ActionRequiringNotification from "@/components/ActionRequiringNotification/ActionRequiringNotification";
 // import PassiveNotification from "@/components/PassiveNotification/PassiveNotification";
 
 export default function Home() {
+  const [playing, setPlaying] = useState<boolean>(true);
+
   const [openActionRequiringNotification, setOpenActionRequiringNotification] =
     useState(false);
 
@@ -17,6 +21,8 @@ export default function Home() {
   const providerValue = useMemo(
     () => ({
       state: {
+        playing,
+        setPlaying,
         openActionRequiringNotification,
         setOpenActionRequiringNotification,
         openPassiveNotification,
@@ -24,6 +30,8 @@ export default function Home() {
       },
     }),
     [
+      playing,
+      setPlaying,
       openActionRequiringNotification,
       setOpenActionRequiringNotification,
       openPassiveNotification,
@@ -33,7 +41,7 @@ export default function Home() {
 
   return (
     <TetrisLabContextProvider value={providerValue}>
-      <Tetris />
+      {playing ? <Tetris /> : <Start />}
     </TetrisLabContextProvider>
   );
 }

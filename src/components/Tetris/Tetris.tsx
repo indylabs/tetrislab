@@ -1,48 +1,59 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 
-import Alert from '@mui/material/Alert';
-import Button from '@mui/material/Button';
+import Alert from "@mui/material/Alert";
 
-import Stage from '../Stage/Stage';
+import Stage from "../Stage/Stage";
+
+import { useTetrisLabContext } from "@/context/TetrisLabContext";
 
 // custom hooks
-import { usePlayer } from '../../hooks/usePlayer';
-import { useStage } from '../../hooks/useStage';
-import { useInterval } from '../../hooks/useInterval';
-import { useGameStatus } from '../../hooks/useGameStatus';
+import { usePlayer } from "../../hooks/usePlayer";
+import { useStage } from "../../hooks/useStage";
+import { useInterval } from "../../hooks/useInterval";
+import { useGameStatus } from "../../hooks/useGameStatus";
 
 //utils
-import { createStage, checkCollision } from '../../utils/gameHelpers';
+import { createStage, checkCollision } from "../../utils/gameHelpers";
 
-import styles from './Tetris.module.scss';
+import styles from "./Tetris.module.scss";
 
 function Tetris() {
-  const [droptime, setDroptime] = useState(null);
-  const [playing, setPlaying] = useState(null);
-  const [gameover, setGameover] = useState(false);
+  const [droptime, setDroptime] = useState<number | null>(null);
+  const [gameover, setGameover] = useState<boolean>(false);
+
+  const { state } = useTetrisLabContext();
+  const { playing } = state;
 
   const [player, updatePlayerPosition, resetPlayer, playerRotate] = usePlayer();
   const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
   const [score, setScore, rows, setRows, level, setLevel] =
     useGameStatus(rowsCleared);
 
-  function movePlayer(direction) {
-    if (!checkCollision(player, stage, { x: direction, y: 0 })) {
-      updatePlayerPosition({ x: direction, y: 0 });
-    }
-  }
-
-  const startGame = () => {
+  useEffect(() => {
     // reset stage
     setStage(createStage());
     setDroptime(1000);
-    setPlaying(true);
     resetPlayer();
     setGameover(false);
     setScore(0);
     setRows(0);
     setLevel(0);
-  };
+  }, [
+    playing,
+    setStage,
+    setDroptime,
+    resetPlayer,
+    setGameover,
+    setScore,
+    setRows,
+    setLevel,
+  ]);
+
+  function movePlayer(direction: number) {
+    if (!checkCollision(player, stage, { x: direction, y: 0 })) {
+      updatePlayerPosition({ x: direction, y: 0 });
+    }
+  }
 
   function drop() {
     // increase lvl when player clears 10 rows
@@ -56,8 +67,6 @@ function Tetris() {
     } else {
       // Gameover
       if (player.position.y < 1) {
-        // console.log('Gameover');
-        setPlaying(false);
         setGameover(true);
         setDroptime(null);
       }
@@ -65,7 +74,7 @@ function Tetris() {
     }
   }
 
-  const keyUp = ({ keyCode }) => {
+  const keyUp = ({ keyCode }: { keyCode: number }) => {
     if (!gameover) {
       if (keyCode === 40) {
         // console.log('interval on');
@@ -80,7 +89,7 @@ function Tetris() {
     drop();
   }
 
-  const move = ({ keyCode }) => {
+  const move = ({ keyCode }: { keyCode: number }) => {
     if (!gameover) {
       if (keyCode === 37) {
         movePlayer(-1);
@@ -103,35 +112,20 @@ function Tetris() {
   return (
     <div
       role="button"
-      tabIndex="0"
+      tabIndex={0}
       onKeyUp={keyUp}
       onKeyDown={(e) => move(e)}
       className={styles.tetris}
     >
+      {gameover && <Alert severity="error">Game Over!</Alert>}
 
-      {gameover && (
-        <Alert severity="error">Game Over!</Alert>
-      )}
+      <Stage stage={stage} />
 
-      {playing && (
-        <>
-          <ul className={styles.info}>
-            <li>Score: {score}</li>
-            <li>Rows: {rows}</li>
-            <li>Level: {level}</li>
-          </ul>
-          <Stage stage={stage} />
-        </>
-      )}
-
-      {!playing && (
-        <Button
-          onClick={startGame}
-
-        >
-          Start Game
-        </Button>
-      )}
+      <ul className={styles.info}>
+        <li>Score: {score.toString()}</li>
+        <li>Rows: {rows.toString()}</li>
+        <li>Level: {level.toString()}</li>
+      </ul>
     </div>
   );
 }

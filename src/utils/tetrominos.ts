@@ -1,6 +1,8 @@
-export const TETROMINOS = {
-  0: { shape: [[0]], color: '0,0,0' },
-  I: {
+import type { TetrominoKey, Tetromino } from '@/types';
+
+export const TETROMINOS: Record<TetrominoKey, Tetromino> = {
+  '0': { shape: [[0]], color: '0,0,0' },
+  'I': {
     shape: [
       ['I', 'I', 'I', 'I'],
       [0, 0, 0, 0],
@@ -9,7 +11,7 @@ export const TETROMINOS = {
     ],
     color: '80, 227, 230',
   },
-  J: {
+  'J': {
     shape: [
       ['J', 0, 0],
       ['J', 'J', 'J'],
@@ -17,7 +19,7 @@ export const TETROMINOS = {
     ],
     color: '36, 95, 223',
   },
-  L: {
+  'L': {
     shape: [
       [0, 0, 'L'],
       ['L', 'L', 'L'],
@@ -25,14 +27,14 @@ export const TETROMINOS = {
     ],
     color: '175, 103, 59',
   },
-  O: {
+  'O': {
     shape: [
       ['O', 'O'],
       ['O', 'O'],
     ],
     color: '223,217,36',
   },
-  S: {
+  'S': {
     shape: [
       [0, 'S', 'S'],
       ['S', 'S', 0],
@@ -40,7 +42,7 @@ export const TETROMINOS = {
     ],
     color: '48,211,56',
   },
-  T: {
+  'T': {
     shape: [
       [0, 'T', 0],
       ['T', 'T', 'T'],
@@ -48,7 +50,7 @@ export const TETROMINOS = {
     ],
     color: '132, 61,198',
   },
-  Z: {
+  'Z': {
     shape: [
       ['Z', 'Z', 0],
       [0, 'Z', 'Z'],
@@ -62,5 +64,5 @@ export const randomTetromino = () => {
   const tetrominos = 'IJLOSTZ';
   const randomTetromino =
     tetrominos[Math.floor(Math.random() * tetrominos.length)];
-  return TETROMINOS[randomTetromino];
+  return TETROMINOS[randomTetromino as TetrominoKey];
 };

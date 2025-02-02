@@ -7,6 +7,8 @@ import React, {
 } from "react";
 
 export interface TetrisLabContextStateTypes {
+  playing: boolean;
+  setPlaying: Dispatch<SetStateAction<boolean>>;
   openActionRequiringNotification: boolean;
   setOpenActionRequiringNotification: Dispatch<SetStateAction<boolean>>;
   openPassiveNotification: boolean;

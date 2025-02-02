@@ -1,3 +1,5 @@
+@import "@/styles/breakpoints.mixin.scss";
+
 .stage {
   display: grid;
   grid-gap: 1px;
@@ -5,4 +7,9 @@
   width: 100%;
   max-width: 25vw;
   background: #111;
+
+  // @include media("md", min) {
+  //   max-width: 25vw;
+  // }
+  
 }
