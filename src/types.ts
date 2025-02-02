@@ -1,7 +1,7 @@
 export type TetrominoKey = '0' | 'I' | 'J' | 'L' | 'O' | 'S' | 'T' | 'Z';
 
 export type Tetromino = {
-  shape: TetrominoKey[][];
+  shape: (TetrominoKey | 0)[][];
   color: string;
 };
 
