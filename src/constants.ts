@@ -1,0 +1,1 @@
+export const VARIANTS = ["control", "a", "b"];

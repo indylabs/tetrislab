@@ -7,6 +7,8 @@ import { TetrisLabContextProvider } from "@/context/TetrisLabContext";
 import Tetris from "@/components/Tetris/Tetris";
 import Start from "@/components/Start/Start";
 
+import { VARIANTS } from "@/constants";
+
 // import ActionRequiringNotification from "@/components/ActionRequiringNotification/ActionRequiringNotification";
 // import PassiveNotification from "@/components/PassiveNotification/PassiveNotification";
 
@@ -17,6 +19,10 @@ export default function Home() {
     useState(false);
 
   const [openPassiveNotification, setOpenPassiveNotification] = useState(false);
+
+  var variant = VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
+
+  console.log("variant:", variant);
 
   const providerValue = useMemo(
     () => ({
