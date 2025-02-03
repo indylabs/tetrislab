@@ -1,7 +1,7 @@
 import type { TetrominoKey, Tetromino } from '@/types';
 
 export const TETROMINOS: Record<TetrominoKey, Tetromino> = {
-  '0': { shape: [[0]], color: '0,0,0' },
+  0: { shape: [[0]], color: '0,0,0' },
   'I': {
     shape: [
       ['I', 'I', 'I', 'I'],

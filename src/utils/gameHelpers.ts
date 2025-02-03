@@ -14,7 +14,7 @@ export const checkCollision = (player: Player, stage: Stage, { x: moveX, y: move
   for (let y = 0; y < player.tetromino.length; y += 1) {
     for (let x = 0; x < player.tetromino[y].length; x += 1) {
       // check that the cell isnt 0
-      if (player.tetromino[y][x] !== '0') {
+      if (player.tetromino[y][x] !== 0) {
         if (
           //check that movement is inside the stage height(y)
           !stage[y + player.position.y + moveY] ||

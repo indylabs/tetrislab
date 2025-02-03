@@ -2,6 +2,12 @@
 
 import Tetris from "@/components/Tetris/Tetris";
 
+import styles from "./page.module.scss";
+
 export default function Game() {
-  return <Tetris />;
+  return (
+    <div className={styles.game}>
+      <Tetris />
+    </div>
+  );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Alert from "@mui/material/Alert";
 
@@ -20,6 +20,8 @@ import { createStage, checkCollision } from "../../utils/gameHelpers";
 import styles from "./Tetris.module.scss";
 
 function Tetris() {
+  const tetrisRef = useRef<HTMLButtonElement | null>(null);
+
   const [droptime, setDroptime] = useState<number | null>(null);
   const [gameover, setGameover] = useState<boolean>(false);
 
@@ -111,24 +113,25 @@ function Tetris() {
     drop();
   }, droptime);
 
+  console.log("Score:", score.toString());
+  console.log("Rows:", rows.toString());
+  console.log("Level:", level.toString());
+
   return (
-    <div
-      role="button"
+    <button
       tabIndex={0}
+      autoFocus={true}
       onKeyUp={keyUp}
       onKeyDown={(e) => move(e)}
       className={styles.tetris}
+      ref={tetrisRef}
+      onBlur={() => {
+        tetrisRef.current?.focus();
+      }}
     >
-      {gameover && <Alert severity="error">Game Over!</Alert>}
-
       <Stage stage={stage} />
-
-      <ul className={styles.info}>
-        <li>Score: {score.toString()}</li>
-        <li>Rows: {rows.toString()}</li>
-        <li>Level: {level.toString()}</li>
-      </ul>
-    </div>
+      {gameover && <Alert severity="error">Game Over!</Alert>}
+    </button>
   );
 }
 
