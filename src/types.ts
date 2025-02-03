@@ -24,12 +24,6 @@ export type Player = {
 
 export type TetrisLabContextType = {
   state: {
-    variant: string;
-    playing: boolean;
-    setPlaying: (playing: boolean) => void;
-    openActionRequiringNotification: boolean;
-    setOpenActionRequiringNotification: (playing: boolean) => void;
-    openPassiveNotification: boolean;
-    setOpenPassiveNotification: (playing: boolean) => void;
+    variant: string | null;
   };
 };

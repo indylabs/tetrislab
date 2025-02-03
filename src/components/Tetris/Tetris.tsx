@@ -6,8 +6,6 @@ import Alert from "@mui/material/Alert";
 
 import Stage from "../Stage/Stage";
 
-import { useTetrisLabContext } from "@/context/TetrisLabContext";
-
 // custom hooks
 import { usePlayer } from "../../hooks/usePlayer";
 import { useStage } from "../../hooks/useStage";
@@ -25,9 +23,6 @@ function Tetris() {
   const [droptime, setDroptime] = useState<number | null>(null);
   const [gameover, setGameover] = useState<boolean>(false);
 
-  const { state } = useTetrisLabContext();
-  const { playing } = state;
-
   const [player, updatePlayerPosition, resetPlayer, playerRotate] = usePlayer();
   const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
   const [score, setScore, rows, setRows, level, setLevel] =
@@ -42,16 +37,7 @@ function Tetris() {
     setScore(0);
     setRows(0);
     setLevel(0);
-  }, [
-    playing,
-    setStage,
-    setDroptime,
-    resetPlayer,
-    setGameover,
-    setScore,
-    setRows,
-    setLevel,
-  ]);
+  }, []);
 
   function movePlayer(direction: number) {
     if (!checkCollision(player, stage, { x: direction, y: 0 })) {

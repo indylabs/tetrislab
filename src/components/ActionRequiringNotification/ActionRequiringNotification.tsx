@@ -1,4 +1,4 @@
-import { useTetrisLabContext } from "@/context/TetrisLabContext";
+import { useEffect, useState } from "react";
 
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -7,12 +7,19 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
+import { ACTION_REQUIRING_INTERVAL } from "@/constants";
+
 const ActionRequiringNotification = () => {
-  const { state } = useTetrisLabContext();
-  const {
-    openActionRequiringNotification,
-    setOpenActionRequiringNotification,
-  } = state;
+  const [openActionRequiringNotification, setOpenActionRequiringNotification] =
+    useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setOpenActionRequiringNotification(true);
+    }, ACTION_REQUIRING_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Dialog

@@ -1,6 +1,13 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useMemo,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
 
 import { VARIANTS } from "@/constants";
 import type { TetrisLabContextType } from "@/types";
@@ -14,35 +21,26 @@ export const TetrisLabContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [playing, setPlaying] = useState<boolean>(true);
+  const [variant, setVariant] = useState<string | null>(null);
 
-  const [openActionRequiringNotification, setOpenActionRequiringNotification] =
-    useState(false);
+  useEffect(() => {
+    const randomVariant =
+      Object.values(VARIANTS)[
+        Math.floor(Math.random() * Object.values(VARIANTS).length)
+      ];
 
-  const [openPassiveNotification, setOpenPassiveNotification] = useState(false);
+    setVariant(randomVariant);
+  }, []);
 
-  const variant = VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
+  console.log("variant:", variant);
 
   const providerValue = useMemo(
     () => ({
       state: {
         variant,
-        playing,
-        setPlaying,
-        openActionRequiringNotification,
-        setOpenActionRequiringNotification,
-        openPassiveNotification,
-        setOpenPassiveNotification,
       },
     }),
-    [
-      playing,
-      setPlaying,
-      openActionRequiringNotification,
-      setOpenActionRequiringNotification,
-      openPassiveNotification,
-      setOpenPassiveNotification,
-    ]
+    [variant]
   );
 
   return (
