@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import "./normalize.css";
+import { TetrisLabContextProvider } from "@/context/TetrisLabContext";
 
+import "./normalize.css";
 import "./layout.scss";
 
 export const metadata: Metadata = {
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <TetrisLabContextProvider>{children}</TetrisLabContextProvider>
+      </body>
     </html>
   );
 }
