@@ -111,24 +111,23 @@ function Tetris() {
     drop();
   }, droptime);
 
+  console.log("Score:", score.toString());
+  console.log("Rows:", rows.toString());
+  console.log("Level:", level.toString());
+
   return (
-    <div
-      role="button"
-      tabIndex={0}
-      onKeyUp={keyUp}
-      onKeyDown={(e) => move(e)}
-      className={styles.tetris}
-    >
+    <>
+      <div
+        role="button"
+        tabIndex={0}
+        onKeyUp={keyUp}
+        onKeyDown={(e) => move(e)}
+        className={styles.tetris}
+      >
+        <Stage stage={stage} />
+      </div>
       {gameover && <Alert severity="error">Game Over!</Alert>}
-
-      <Stage stage={stage} />
-
-      {/* <ul className={styles.info}>
-        <li>Score: {score.toString()}</li>
-        <li>Rows: {rows.toString()}</li>
-        <li>Level: {level.toString()}</li>
-      </ul> */}
-    </div>
+    </>
   );
 }
 
