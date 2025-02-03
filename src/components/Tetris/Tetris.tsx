@@ -123,11 +123,11 @@ function Tetris() {
 
       <Stage stage={stage} />
 
-      <ul className={styles.info}>
+      {/* <ul className={styles.info}>
         <li>Score: {score.toString()}</li>
         <li>Rows: {rows.toString()}</li>
         <li>Level: {level.toString()}</li>
-      </ul>
+      </ul> */}
     </div>
   );
 }
