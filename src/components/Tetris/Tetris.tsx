@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import Alert from "@mui/material/Alert";
+import Button from "@mui/material/Button";
 
 import Stage from "../Stage/Stage";
 
@@ -17,7 +18,13 @@ import { createStage, checkCollision } from "../../utils/gameHelpers";
 
 import styles from "./Tetris.module.scss";
 
+import insertParticipant from "@/app/actions/insertParticipant";
+import { useTetrisLabContext } from "@/context/TetrisLabContext";
+
 function Tetris() {
+  const { state } = useTetrisLabContext();
+  const { variant } = state;
+
   const tetrisRef = useRef<HTMLButtonElement | null>(null);
 
   const [droptime, setDroptime] = useState<number | null>(null);
@@ -27,6 +34,31 @@ function Tetris() {
   const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
   const [score, setScore, rows, setRows, level, setLevel] =
     useGameStatus(rowsCleared);
+
+  // useEffect(() => {
+  //   const saveGame = async () => {
+  //     console.log("saveGame");
+
+  //     const participant = await insertParticipant({ variant });
+
+  //     console.log("participant:", participant);
+  //   };
+  //   if (gameover) {
+  //     saveGame();
+  //   }
+  // }, [gameover]);
+
+  const handleClick = async () => {
+    if (variant) {
+      const participant = await insertParticipant({
+        variant,
+      });
+
+      if (participant) {
+        // save to notifications tables
+      }
+    }
+  };
 
   useEffect(() => {
     // reset stage
@@ -99,9 +131,9 @@ function Tetris() {
     drop();
   }, droptime);
 
-  console.log("Score:", score.toString());
-  console.log("Rows:", rows.toString());
-  console.log("Level:", level.toString());
+  // console.log("Score:", score.toString());
+  // console.log("Rows:", rows.toString());
+  // console.log("Level:", level.toString());
 
   return (
     <button
@@ -117,6 +149,8 @@ function Tetris() {
     >
       <Stage stage={stage} />
       {gameover && <Alert severity="error">Game Over!</Alert>}
+
+      <Button onClick={handleClick}>Click</Button>
     </button>
   );
 }
