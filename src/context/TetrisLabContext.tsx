@@ -21,7 +21,7 @@ export const TetrisLabContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [variant, setVariant] = useState<string | null>(null);
+  const [variant, setVariant] = useState<VARIANTS | null>(null);
 
   useEffect(() => {
     const randomVariant =

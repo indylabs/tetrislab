@@ -1,3 +1,5 @@
+import { VARIANTS } from "./constants";
+
 export type TetrominoKey = '0' | 'I' | 'J' | 'L' | 'O' | 'S' | 'T' | 'Z' | 0;
 
 export type Tetromino = {
@@ -24,6 +26,11 @@ export type Player = {
 
 export type TetrisLabContextType = {
   state: {
-    variant: string | null;
+    variant: VARIANTS | null;
   };
 };
+
+export type Participant = {
+  id?: number;
+  variant: VARIANTS | null;
+}
