@@ -6,14 +6,9 @@ import InfoIcon from "@mui/icons-material/Info";
 
 import Logo from "@/components/Logo/Logo";
 
-import { useTetrisLabContext } from "@/context/TetrisLabContext";
-
 import styles from "./Start.module.scss";
 
 function Start() {
-  const { state } = useTetrisLabContext();
-  const { setPlaying } = state;
-
   return (
     <div className={styles.start}>
       <Logo />

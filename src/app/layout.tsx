@@ -1,12 +1,8 @@
-// import { useMemo, useState } from "react";
-import { VARIANTS } from "@/constants";
+import type { Metadata } from "next";
 import { TetrisLabContextProvider } from "@/context/TetrisLabContext";
 
 import "./normalize.css";
-
 import "./layout.scss";
-
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "TetrisLab",

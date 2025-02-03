@@ -3,17 +3,7 @@
 import { createContext, useContext, useMemo, useState, ReactNode } from "react";
 
 import { VARIANTS } from "@/constants";
-
-type TetrisLabContextType = {
-  state: {
-    playing: boolean;
-    setPlaying: (playing: boolean) => void;
-    openActionRequiringNotification: boolean;
-    setOpenActionRequiringNotification: (playing: boolean) => void;
-    openPassiveNotification: boolean;
-    setOpenPassiveNotification: (playing: boolean) => void;
-  };
-};
+import type { TetrisLabContextType } from "@/types";
 
 const TetrisLabContext = createContext<TetrisLabContextType | undefined>(
   undefined
@@ -31,11 +21,12 @@ export const TetrisLabContextProvider = ({
 
   const [openPassiveNotification, setOpenPassiveNotification] = useState(false);
 
-  var variant = VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
+  const variant = VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
 
   const providerValue = useMemo(
     () => ({
       state: {
+        variant,
         playing,
         setPlaying,
         openActionRequiringNotification,

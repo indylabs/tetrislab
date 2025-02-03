@@ -22,3 +22,14 @@ export type Player = {
   collided?: boolean,
 }
 
+export type TetrisLabContextType = {
+  state: {
+    variant: string;
+    playing: boolean;
+    setPlaying: (playing: boolean) => void;
+    openActionRequiringNotification: boolean;
+    setOpenActionRequiringNotification: (playing: boolean) => void;
+    openPassiveNotification: boolean;
+    setOpenPassiveNotification: (playing: boolean) => void;
+  };
+};
