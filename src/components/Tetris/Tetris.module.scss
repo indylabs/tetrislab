@@ -1,20 +1,8 @@
 @import "@/styles/breakpoints.mixin.scss";
 
 .tetris {
-  display: block;
-  margin: auto 0;
-  width: 25vw;
-
-  // .info {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   width: 100%;
-  //   max-width: 25vw;
-  //   padding: 0;
-
-  //   li {
-  //     color: white;
-  //     list-style: none;
-  //   }
-  // }
+  margin: auto;
+  outline: none;
+  border: none;
+  padding: 0;
 }
