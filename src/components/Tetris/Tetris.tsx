@@ -131,9 +131,9 @@ function Tetris() {
     drop();
   }, droptime);
 
-  // console.log("Score:", score.toString());
-  // console.log("Rows:", rows.toString());
-  // console.log("Level:", level.toString());
+  console.log("Score:", score.toString());
+  console.log("Rows:", rows.toString());
+  console.log("Level:", level.toString());
 
   return (
     <button

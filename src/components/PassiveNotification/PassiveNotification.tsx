@@ -12,10 +12,8 @@ const PassiveNotification = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // NOTE: If not already open, open notification
-      if (!openPassiveNotification) {
-        setOpenPassiveNotification(true);
-      }
+      // TODO: If already open, don't trigger notification
+      setOpenPassiveNotification(true);
     }, PASSIVE_NOTIFICATION_INTERVAL);
 
     return () => clearInterval(interval);
