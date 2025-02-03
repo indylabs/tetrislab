@@ -1,7 +1,12 @@
-import type { Metadata } from "next";
+// import { useMemo, useState } from "react";
+import { VARIANTS } from "@/constants";
+import { TetrisLabContextProvider } from "@/context/TetrisLabContext";
+
 import "./normalize.css";
 
 import "./layout.scss";
+
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "TetrisLab",
@@ -15,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <TetrisLabContextProvider>{children}</TetrisLabContextProvider>
+      </body>
     </html>
   );
 }
