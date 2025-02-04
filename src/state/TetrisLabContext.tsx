@@ -1,13 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import {
-  createContext,
-  Suspense,
-  useContext,
-  ReactNode,
-  useReducer,
-} from "react";
+import { createContext, useContext, ReactNode, useReducer } from "react";
 
 import { reducer } from "./TetrisLabReducer";
 
@@ -40,11 +34,9 @@ export const TetrisLabContextProvider = ({
   console.log("state:", state);
 
   return (
-    <Suspense>
-      <TetrisLabContext.Provider value={{ state, dispatch }}>
-        {children}
-      </TetrisLabContext.Provider>
-    </Suspense>
+    <TetrisLabContext.Provider value={{ state, dispatch }}>
+      {children}
+    </TetrisLabContext.Provider>
   );
 };
 
