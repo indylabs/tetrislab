@@ -1,9 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-
-import Alert from "@mui/material/Alert";
-import Button from "@mui/material/Button";
 
 import Stage from "../Stage/Stage";
 
@@ -13,17 +11,15 @@ import { useStage } from "../../hooks/useStage";
 import { useInterval } from "../../hooks/useInterval";
 import { useGameStatus } from "../../hooks/useGameStatus";
 
-//utils
+import insertParticipant from "@/app/actions/insertParticipant";
+import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { createStage, checkCollision } from "../../utils/gameHelpers";
 
 import styles from "./Tetris.module.scss";
 
-import insertParticipant from "@/app/actions/insertParticipant";
-import { useTetrisLabContext } from "@/context/TetrisLabContext";
-
 function Tetris() {
-  const { state } = useTetrisLabContext();
-  const { variant } = state;
+  const router = useRouter();
+  const { state, dispatch } = useTetrisLabContext();
 
   const tetrisRef = useRef<HTMLButtonElement | null>(null);
 
@@ -35,29 +31,25 @@ function Tetris() {
   const [score, setScore, rows, setRows, level, setLevel] =
     useGameStatus(rowsCleared);
 
-  // useEffect(() => {
-  //   const saveGame = async () => {
-  //     console.log("saveGame");
-
-  //     const participant = await insertParticipant({ variant });
-
-  //     console.log("participant:", participant);
-  //   };
-  //   if (gameover) {
-  //     saveGame();
-  //   }
-  // }, [gameover]);
-
-  const handleClick = async () => {
-    if (variant) {
-      const participant = await insertParticipant({
-        variant,
-      });
-
-      if (participant) {
-        // save to notifications tables
-      }
+  useEffect(() => {
+    if (gameover) {
+      insertParticipant(state); // Save state data to database
+      router.push("/gameover");
     }
+  }, [gameover]);
+
+  const handleGameOver = async () => {
+    await dispatch({
+      type: "ADD_GAME_END",
+      game: {
+        score,
+        rows,
+        level,
+      },
+    });
+
+    setGameover(true);
+    setDroptime(null);
   };
 
   useEffect(() => {
@@ -69,6 +61,8 @@ function Tetris() {
     setScore(0);
     setRows(0);
     setLevel(0);
+
+    dispatch({ type: "ADD_GAME_START" });
   }, []);
 
   function movePlayer(direction: number) {
@@ -89,8 +83,7 @@ function Tetris() {
     } else {
       // Gameover
       if (player.position.y < 1) {
-        setGameover(true);
-        setDroptime(null);
+        handleGameOver();
       }
       updatePlayerPosition({ x: 0, y: 0, collided: true });
     }
@@ -131,10 +124,6 @@ function Tetris() {
     drop();
   }, droptime);
 
-  console.log("Score:", score.toString());
-  console.log("Rows:", rows.toString());
-  console.log("Level:", level.toString());
-
   return (
     <button
       tabIndex={0}
@@ -148,9 +137,6 @@ function Tetris() {
       }}
     >
       <Stage stage={stage} />
-      {gameover && <Alert severity="error">Game Over!</Alert>}
-
-      <Button onClick={handleClick}>Click</Button>
     </button>
   );
 }

@@ -1,30 +1,26 @@
-import { useEffect, useState } from "react";
-
 import Snackbar from "@mui/material/Snackbar";
 
+import { useNotification } from "@/hooks/useNotification";
+import { passiveNotifications } from "@/data/notifications";
 import {
+  NotificationType,
   PASSIVE_NOTIFICATION_AUTO_HIDE_DURATION,
   PASSIVE_NOTIFICATION_INTERVAL,
 } from "@/constants";
 
 const PassiveNotification = () => {
-  const [openPassiveNotification, setOpenPassiveNotification] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // TODO: If already open, don't trigger notification
-      setOpenPassiveNotification(true);
-    }, PASSIVE_NOTIFICATION_INTERVAL);
-
-    return () => clearInterval(interval);
-  }, []);
+  const [notification, open, onClose] = useNotification(
+    passiveNotifications,
+    NotificationType.PASSIVE,
+    PASSIVE_NOTIFICATION_INTERVAL
+  );
 
   return (
     <Snackbar
-      open={openPassiveNotification}
+      open={open}
       autoHideDuration={PASSIVE_NOTIFICATION_AUTO_HIDE_DURATION}
-      onClose={() => setOpenPassiveNotification(false)}
-      message="This Snackbar will be dismissed in 5 seconds."
+      onClose={() => onClose()}
+      message={notification?.text}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
       ClickAwayListenerProps={{ onClickAway: () => null }}
     />
