@@ -24,13 +24,38 @@ export type Player = {
   collided?: boolean,
 }
 
-export type TetrisLabContextType = {
-  state: {
-    variant: VARIANTS | null;
-  };
+export type TetrisLabNotification = {
+  type?: "active" | "passive";
+  id?: number;
+  text?: string;
+  start?: Date;
+  end?: Date;
+  response?: string;
 };
 
-export type Participant = {
-  id?: number;
-  variant: VARIANTS | null;
+export type EndGame = {
+  score: number;
+  level: number;
+  rows: number;
 }
+
+export type TetrisLabAction =
+  { type: "ADD_GAME_START" }
+  | { type: "ADD_GAME_END", game: EndGame}
+  | { type: "ADD_NOTIFICATION", notification: TetrisLabNotification }
+
+export type TetrisLabState = {
+  variant: VARIANTS | null;
+  notifications: TetrisLabNotification[];
+  start?: Date | null;
+  end?: Date | null;
+  score?: number;
+  level?: number;
+  rows?: number;
+};
+
+export type TetrisLabContextType = {
+  state: TetrisLabState;
+  dispatch: React.Dispatch<TetrisLabAction>;
+
+};

@@ -1,8 +1,8 @@
 "use client";
-import { useTetrisLabContext } from "@/context/TetrisLabContext";
+import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
 import PassiveNotification from "@/components/PassiveNotification/PassiveNotification";
-import ActionRequiringNotification from "@/components/ActionRequiringNotification/ActionRequiringNotification";
+import ActiveNotification from "@/components/ActiveNotification/ActiveNotification";
 import Tetris from "@/components/Tetris/Tetris";
 
 import { VARIANTS } from "@/constants";
@@ -17,7 +17,7 @@ export default function Game() {
     <div className={styles.game}>
       <Tetris />
       {variant === VARIANTS.A && <PassiveNotification />}
-      {variant === VARIANTS.B && <ActionRequiringNotification />}
+      {variant === VARIANTS.B && <ActiveNotification />}
     </div>
   );
 }
