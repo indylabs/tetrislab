@@ -25,7 +25,7 @@ export default function About() {
       >
         TetrisLab is an experimental application which will form part of a
         research project exploring the Differential Effects of Interrupting 📢
-        and Distracting 👋 UI Notifications on Flow🚰 and Performance 📈.
+        and Distracting 👋 UI Notifications on Flow 🧘 and Performance 📈.
       </Typography>
 
       <Typography
