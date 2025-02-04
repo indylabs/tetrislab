@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 import Header from "@/components/Header/Header";
 import { TetrisLabContextProvider } from "@/state/TetrisLabContext";
@@ -17,15 +18,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const variant = getRandomVariant();
+  const randomVariant = getRandomVariant();
 
   return (
     <html lang="en">
       <body>
-        <Header />
-        <TetrisLabContextProvider variant={variant}>
-          {children}
-        </TetrisLabContextProvider>
+        <Suspense>
+          <Header />
+          <TetrisLabContextProvider randomVariant={randomVariant}>
+            {children}
+          </TetrisLabContextProvider>
+        </Suspense>
       </body>
     </html>
   );
