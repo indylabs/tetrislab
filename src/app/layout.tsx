@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { TetrisLabContextProvider } from "@/state/TetrisLabContext";
 
+import Header from "@/components/Header/Header";
+import { TetrisLabContextProvider } from "@/state/TetrisLabContext";
 import getRandomVariant from "@/utils/getRandomVariant";
 
 import "./normalize.css";
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Header />
         <TetrisLabContextProvider variant={variant}>
           {children}
         </TetrisLabContextProvider>
