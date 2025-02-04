@@ -1,4 +1,4 @@
-.start {
+.gameover {
   display: flex;
   height: 100vh;
   flex-direction: column;
@@ -6,6 +6,8 @@
   align-items: center;
   gap: 2.5rem;
   position: relative;
+  max-width: 65vw;
+  margin: auto;
 
   h1, p {
     color: white;

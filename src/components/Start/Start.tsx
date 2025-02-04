@@ -1,8 +1,8 @@
 import React from "react";
 
+import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
-import InfoIcon from "@mui/icons-material/Info";
 
 import Logo from "@/components/Logo/Logo";
 
@@ -12,15 +12,19 @@ function Start() {
   return (
     <div className={styles.start}>
       <Logo />
-      <div>
-        <Button startIcon={<SportsEsportsIcon />} href="/game">
-          Start Game
-        </Button>
+      <Typography
+        color="primary"
+        align="center"
+        gutterBottom={true}
+        variant="h3"
+        component="p"
+      >
+        Welcome to TetrisLab
+      </Typography>
 
-        <Button startIcon={<InfoIcon />} href="/about">
-          About
-        </Button>
-      </div>
+      <Button href="/game" startIcon={<SportsEsportsIcon />}>
+        Start Game
+      </Button>
     </div>
   );
 }
