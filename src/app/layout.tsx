@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 
-import Logo from "@/components/Logo/Logo";
 import Header from "@/components/Header/Header";
-
 import { TetrisLabContextProvider } from "@/state/TetrisLabContext";
-
 import getRandomVariant from "@/utils/getRandomVariant";
 
 import "./normalize.css";

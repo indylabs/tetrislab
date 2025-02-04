@@ -34,7 +34,7 @@ export default function About() {
         gutterBottom={true}
         component="p"
       >
-        This is being conducted as part of IADT's{" "}
+        This is being conducted as part of IADT&apos;s{" "}
         <Link href="https://iadt.ie/courses/cyberpsychology/">
           MSc Cyberpsychology
         </Link>{" "}
