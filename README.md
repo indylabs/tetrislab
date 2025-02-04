@@ -1,4 +1,4 @@
-TetrisLab is an experimental application which will form part of a research project exploring the Differential Effects of Interrupting 📢 and Distracting 👋 UI Notifications on Flow🚰 and Performance 📈.
+TetrisLab is an experimental application which will form part of a research project exploring the Differential Effects of Interrupting 📢 and Distracting 👋 UI Notifications on Flow 🧘 and Performance 📈.
 
 This is being conducted as part of IADT's [MSc Cyberpsychology](https://iadt.ie/courses/cyberpsychology/) programme.
 

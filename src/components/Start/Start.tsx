@@ -22,6 +22,17 @@ function Start() {
         Welcome to TetrisLab
       </Typography>
 
+      <Typography
+        color="primary"
+        align="center"
+        gutterBottom={true}
+        component="p"
+      >
+        TetrisLab is an experimental application which will form part of a
+        research project exploring the Differential Effects of Interrupting 📢
+        and Distracting 👋 UI Notifications on Flow 🧘 and Performance 📈.
+      </Typography>
+
       <Button href="/game" startIcon={<SportsEsportsIcon />}>
         Start Game
       </Button>
