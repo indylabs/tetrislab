@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { createContext, useContext, ReactNode, useReducer } from "react";
 
 import { reducer } from "./TetrisLabReducer";
@@ -12,20 +13,25 @@ const TetrisLabContext = createContext<TetrisLabContextType | undefined>(
 );
 
 export const TetrisLabContextProvider = ({
-  variant,
+  randomVariant,
   children,
 }: {
-  variant: VARIANTS;
+  randomVariant: VARIANTS;
   children: ReactNode;
 }) => {
+  const searchParams = useSearchParams();
+  const variant = (searchParams.get("variant") as VARIANTS) || randomVariant;
+
   const initialState = {
-    variant: variant,
+    variant,
     start: null,
     end: null,
     notifications: [],
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  console.log("state:", state);
 
   return (
     <TetrisLabContext.Provider value={{ state, dispatch }}>

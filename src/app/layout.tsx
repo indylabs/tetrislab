@@ -17,13 +17,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const variant = getRandomVariant();
+  const randomVariant = getRandomVariant();
 
   return (
     <html lang="en">
       <body>
         <Header />
-        <TetrisLabContextProvider variant={variant}>
+        <TetrisLabContextProvider randomVariant={randomVariant}>
           {children}
         </TetrisLabContextProvider>
       </body>
