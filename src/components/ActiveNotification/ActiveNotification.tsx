@@ -3,7 +3,6 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 
 import { useNotification } from "@/hooks/useNotification";
 import { activeNotifications } from "@/data/notifications";
@@ -26,7 +25,6 @@ const ActiveNotification = () => {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <DialogTitle id="alert-dialog-title">Active Notification</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
           {notification?.text}
