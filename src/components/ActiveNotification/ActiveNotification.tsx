@@ -26,7 +26,6 @@ const ActiveNotification = () => {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <DialogTitle id="alert-dialog-title">Active Notification</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
           {notification?.text}
