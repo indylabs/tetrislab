@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import getRandomNotification from "@/utils/getRandomNotification";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
@@ -14,20 +14,23 @@ export const useNotification = (
 
   const [notification, setNotification] =
     useState<TetrisLabNotification | null>(null);
-  const [open, setOpen] = useState<boolean>(false);
+
+  const open = useRef(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setNotification({
-        ...getRandomNotification(notifications), // Assign random passive notification
-        type, // Set type
-        start: new Date(), // Set start timestamp
-      });
-      // Open notification
-      setOpen(true);
-      // TODO: If already open, don't trigger notification
-      // TODO: If gameover, don't trigger notification
-      // TODO: If game paused, don't trigger notification
+      if (!open.current) {
+        setNotification({
+          ...getRandomNotification(notifications), // Assign random passive notification
+          type, // Set type
+          start: new Date(), // Set start timestamp
+        });
+
+        // Open notification
+        open.current = true;
+
+        // TODO: If game paused, don't trigger notification
+      }
     }, delay);
 
     return () => clearInterval(interval);
@@ -42,8 +45,8 @@ export const useNotification = (
         ...(response ? { response } : {}),
       },
     });
-    setOpen(false);
+    open.current = false;
   };
 
-  return [notification, open, onClose] as const;
+  return [notification, open.current, onClose] as const;
 };

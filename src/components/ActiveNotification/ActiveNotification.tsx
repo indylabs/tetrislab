@@ -20,11 +20,7 @@ const ActiveNotification = () => {
   );
 
   return (
-    <Dialog
-      open={open}
-      aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description"
-    >
+    <Dialog open={open}>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
           {notification?.text}

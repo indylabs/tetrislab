@@ -132,9 +132,6 @@ function Tetris() {
       onKeyDown={(e) => move(e)}
       className={styles.tetris}
       ref={tetrisRef}
-      onBlur={() => {
-        tetrisRef.current?.focus();
-      }}
     >
       <Stage stage={stage} />
     </button>
