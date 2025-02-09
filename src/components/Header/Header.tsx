@@ -99,9 +99,9 @@ export default function Header() {
             },
             {
               id: 5,
-              text: "Literature Review (Draft)",
+              text: "Thesis (Draft)",
               icon: <SchoolIcon style={{ color: "#ffffff" }} />,
-              link: "https://www.tetrislab.study/des-mcdonnell/Cyberpsychology/Thesis/Literature+Review+-+DRAFT",
+              link: "/thesis",
             },
             {
               id: 6,
