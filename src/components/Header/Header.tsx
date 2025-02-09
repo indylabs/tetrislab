@@ -19,6 +19,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import InfoIcon from "@mui/icons-material/Info";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import SchoolIcon from "@mui/icons-material/School";
 import ChatIcon from "@mui/icons-material/Chat";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 
@@ -98,12 +99,18 @@ export default function Header() {
             },
             {
               id: 5,
+              text: "Literature Review (Draft)",
+              icon: <SchoolIcon style={{ color: "#ffffff" }} />,
+              link: "/thesis/Literature+Review+-+DRAFT",
+            },
+            {
+              id: 6,
               text: "Feedback",
               icon: <ChatIcon style={{ color: "#ffffff" }} />,
               link: "mailto:des.mcdonnell@gmail.com",
             },
             {
-              id: 6,
+              id: 7,
               text: "Admin",
               icon: <DashboardIcon style={{ color: "#ffffff" }} />,
               link: "https://supabase.com/dashboard/project/gohjqnxbwxvtlwspyqvc",
