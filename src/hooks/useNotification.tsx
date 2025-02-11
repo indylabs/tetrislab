@@ -1,24 +1,31 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { useInterval } from "usehooks-ts";
 
 import getRandomNotification from "@/utils/getRandomNotification";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { NotificationType } from "@/constants";
 import type { TetrisLabNotification } from "@/types";
 
-export const useNotification = (
-  notifications: TetrisLabNotification[],
-  type: NotificationType,
-  delay: number
-) => {
-  const { dispatch } = useTetrisLabContext();
+type UseNotificationType = {
+  notifications: TetrisLabNotification[];
+  type: NotificationType;
+  delay: number;
+};
+
+export const useNotification = ({
+  notifications,
+  type,
+  delay,
+}: UseNotificationType) => {
+  const { dispatch, isPaused, setIsPaused } = useTetrisLabContext();
 
   const [notification, setNotification] =
     useState<TetrisLabNotification | null>(null);
 
   const open = useRef(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
+  useInterval(
+    () => {
       if (!open.current) {
         setNotification({
           ...getRandomNotification(notifications), // Assign random passive notification
@@ -29,12 +36,12 @@ export const useNotification = (
         // Open notification
         open.current = true;
 
-        // TODO: If game paused, don't trigger notification
+        // If active notification, toggle isPaused
+        type === NotificationType.ACTIVE && setIsPaused(true);
       }
-    }, delay);
-
-    return () => clearInterval(interval);
-  }, []);
+    },
+    isPaused ? null : delay,
+  )
 
   const onClose = (response?: string) => {
     dispatch({
@@ -45,7 +52,12 @@ export const useNotification = (
         ...(response ? { response } : {}),
       },
     });
+
+    // Close notification
     open.current = false;
+
+    // If active notification, toggle isPaused
+    type === NotificationType.ACTIVE && setIsPaused(false);
   };
 
   return [notification, open.current, onClose] as const;

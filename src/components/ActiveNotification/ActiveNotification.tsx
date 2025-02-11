@@ -13,11 +13,11 @@ import {
 } from "@/constants";
 
 const ActiveNotification = () => {
-  const [notification, open, onClose] = useNotification(
-    activeNotifications,
-    NotificationType.ACTIVE,
-    ACTIVE_NOTIFICATION_INTERVAL
-  );
+  const [notification, open, onClose] = useNotification({
+    notifications: activeNotifications,
+    type: NotificationType.ACTIVE,
+    delay: ACTIVE_NOTIFICATION_INTERVAL,
+  });
 
   return (
     <Dialog open={open}>

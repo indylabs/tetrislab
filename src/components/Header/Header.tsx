@@ -81,7 +81,7 @@ export default function Header() {
             },
             {
               id: 2,
-              text: "Start Game",
+              text: "Start Pilot",
               icon: <SportsEsportsIcon style={{ color: "#ffffff" }} />,
               link: "/game",
             },

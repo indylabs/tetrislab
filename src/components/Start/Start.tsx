@@ -34,7 +34,7 @@ function Start() {
       </Typography>
 
       <Button href="/game" startIcon={<SportsEsportsIcon />}>
-        Start Game
+        Start Pilot
       </Button>
     </div>
   );

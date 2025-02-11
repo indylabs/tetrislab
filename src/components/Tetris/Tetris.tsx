@@ -19,7 +19,7 @@ import styles from "./Tetris.module.scss";
 
 function Tetris() {
   const router = useRouter();
-  const { state, dispatch } = useTetrisLabContext();
+  const { state, dispatch, isPaused } = useTetrisLabContext();
 
   const tetrisRef = useRef<HTMLButtonElement | null>(null);
 
@@ -66,12 +66,14 @@ function Tetris() {
   }, []);
 
   function movePlayer(direction: number) {
-    if (!checkCollision(player, stage, { x: direction, y: 0 })) {
+    if (!isPaused && !checkCollision(player, stage, { x: direction, y: 0 })) {
       updatePlayerPosition({ x: direction, y: 0 });
     }
   }
 
   function drop() {
+    if (isPaused) return;
+
     // increase lvl when player clears 10 rows
     if (rows > (level + 1) * 10) {
       setLevel((prev) => prev + 1);
