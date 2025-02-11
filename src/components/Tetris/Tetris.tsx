@@ -36,7 +36,7 @@ function Tetris() {
       insertParticipant(state); // Save state data to database
       router.push("/gameover");
     }
-  }, [gameover]);
+  }, [gameover, router, state]);
 
   const handleGameOver = async () => {
     await dispatch({

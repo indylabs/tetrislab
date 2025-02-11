@@ -37,7 +37,9 @@ export const useNotification = ({
         open.current = true;
 
         // If active notification, toggle isPaused
-        type === NotificationType.ACTIVE && setIsPaused(true);
+        if (type === NotificationType.ACTIVE) {
+          setIsPaused(true);
+        }
       }
     },
     isPaused ? null : delay,
@@ -57,7 +59,9 @@ export const useNotification = ({
     open.current = false;
 
     // If active notification, toggle isPaused
-    type === NotificationType.ACTIVE && setIsPaused(false);
+    if (type === NotificationType.ACTIVE) {
+      setIsPaused(false);
+    }
   };
 
   return [notification, open.current, onClose] as const;
