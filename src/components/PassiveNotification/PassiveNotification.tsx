@@ -9,11 +9,11 @@ import {
 } from "@/constants";
 
 const PassiveNotification = () => {
-  const [notification, open, onClose] = useNotification(
-    passiveNotifications,
-    NotificationType.PASSIVE,
-    PASSIVE_NOTIFICATION_INTERVAL
-  );
+  const [notification, open, onClose] = useNotification({
+    notifications: passiveNotifications,
+    type: NotificationType.PASSIVE,
+    delay: PASSIVE_NOTIFICATION_INTERVAL,
+  });
 
   return (
     <Snackbar

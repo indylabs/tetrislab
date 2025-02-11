@@ -57,5 +57,6 @@ export type TetrisLabState = {
 export type TetrisLabContextType = {
   state: TetrisLabState;
   dispatch: React.Dispatch<TetrisLabAction>;
-
+  isPaused: boolean;
+  setIsPaused: ( isPaused:boolean ) => void
 };
