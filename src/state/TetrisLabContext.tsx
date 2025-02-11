@@ -31,14 +31,13 @@ export const TetrisLabContextProvider = ({
 
   const initialState = {
     variant,
+    mmrt: [],
     start: null,
     end: null,
     notifications: [],
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  console.log("state:", state);
 
   return (
     <TetrisLabContext.Provider

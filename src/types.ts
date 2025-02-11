@@ -40,13 +40,15 @@ export type EndGame = {
 }
 
 export type TetrisLabAction =
-  { type: "ADD_GAME_START" }
+  { type: "ADD_MMTR", mmtr: (number | null)[] }
+  | { type: "ADD_GAME_START" }
   | { type: "ADD_GAME_END", game: EndGame}
   | { type: "ADD_NOTIFICATION", notification: TetrisLabNotification }
 
 export type TetrisLabState = {
   variant: VARIANTS | null;
-  notifications: TetrisLabNotification[];
+  mmtr?: (number | null)[];
+  notifications?: TetrisLabNotification[];
   start?: Date | null;
   end?: Date | null;
   score?: number;
