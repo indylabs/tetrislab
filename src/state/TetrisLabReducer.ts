@@ -2,6 +2,11 @@ import type { TetrisLabAction, TetrisLabState } from '@/types';
 
 export const reducer = (state: TetrisLabState, action: TetrisLabAction): TetrisLabState => {
   switch (action.type) {
+    case "ADD_MMTR":
+      return {
+        ...state,
+        mmtr: action.mmtr
+      };
     case "ADD_GAME_START":
       return {
         ...state,
