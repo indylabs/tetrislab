@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 
-import Logo from "@/components/Logo/Logo";
+import Logo from "@/components/Logos/LogoMedium";
 
 import styles from "./Start.module.scss";
 
