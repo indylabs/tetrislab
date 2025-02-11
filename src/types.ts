@@ -48,7 +48,7 @@ export type TetrisLabAction =
 export type TetrisLabState = {
   variant: VARIANTS | null;
   mmtr?: (number | null)[];
-  notifications?: TetrisLabNotification[];
+  notifications: TetrisLabNotification[];
   start?: Date | null;
   end?: Date | null;
   score?: number;
