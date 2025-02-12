@@ -31,7 +31,7 @@ export const TetrisLabContextProvider = ({
 
   const initialState = {
     variant,
-    mmrt: [],
+    mmtr: [],
     start: null,
     end: null,
     notifications: [],
