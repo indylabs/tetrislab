@@ -1,0 +1,61 @@
+import Consent from "@/components/Consent/Consent";
+import MMTR from "@/components/MMTR/MMTR";
+
+export enum VARIANTS {
+  CONTROL = "control",
+  A = "a",
+  B = "b",
+}
+
+export enum NotificationType {
+  PASSIVE = "passive",
+  ACTIVE = "active",
+}
+
+export enum ResponseType {
+  YES = "yes",
+  NO = "no",
+}
+
+export const PASSIVE_NOTIFICATION_INTERVAL = 15000; // 15 sec (to allow for 5000 duration)
+export const PASSIVE_NOTIFICATION_AUTO_HIDE_DURATION = 5000; // 5 sec
+
+export const ACTIVE_NOTIFICATION_INTERVAL = 10000; // 10 sec
+
+export const studySteps = [
+  {
+    id: 1,
+    title: "Information Sheet",
+    slug: "/study/info-sheet",
+  },
+  {
+    id: 2,
+    title: "Requirements",
+    slug: "/study/requirements",
+  },
+  {
+    id: 3,
+    title: "Consent",
+    slug: "/study/consent",
+  },
+  {
+    id: 4,
+    title: "MMT-R",
+    slug: "/study/mmtr",
+  },
+  {
+    id: 5,
+    title: "Tetris ",
+    slug: "/study/game",
+  },
+  {
+    id: 6,
+    title: "FSS",
+    slug: "/study/fss",
+  },
+  {
+    id: 7,
+    title: "Debrief",
+    slug: "/study/debrief",
+  },
+];

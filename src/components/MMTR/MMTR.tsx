@@ -19,7 +19,7 @@ import styles from "./mmrt.module.scss";
 
 import { mmtrScale } from "@/data/scales";
 
-export default function MMRT() {
+const MMTR = () => {
   const router = useRouter();
   const { dispatch } = useTetrisLabContext();
 
@@ -43,7 +43,6 @@ export default function MMRT() {
 
   const handleSubmit = () => {
     dispatch({ type: "ADD_MMTR", mmtr });
-    router.push("/game");
   };
 
   return (
@@ -99,4 +98,6 @@ export default function MMRT() {
       <br />
     </div>
   );
-}
+};
+
+export default MMTR;

@@ -1,7 +1,53 @@
 "use client";
 
-import Start from "@/components/Start/Start";
+import { PageContainer } from "@toolpad/core/PageContainer";
+
+import React from "react";
+
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+
+import Logo from "@/components/Logo/Logo";
 
 export default function Home() {
-  return <Start />;
+  return (
+    <PageContainer
+      title=""
+      breadcrumbs={[]}
+      style={{
+        height: "100%",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          textAlign: "center",
+          margin: "auto",
+          gap: "2rem",
+        }}
+      >
+        <Logo />
+        <Typography
+          align="center"
+          gutterBottom={true}
+          variant="h3"
+          component="p"
+        >
+          Welcome to TetrisLab
+        </Typography>
+
+        <Typography align="center" gutterBottom={true} component="p">
+          TetrisLab is an experimental application which will form part of a
+          research project exploring the Differential Effects of Interrupting 📢
+          and Distracting 👋 UI Notifications on Flow 🧘 and Performance 📈.
+        </Typography>
+
+        <Button href="/game" startIcon={<SportsEsportsIcon />}>
+          Join Pilot
+        </Button>
+      </div>
+    </PageContainer>
+  );
 }
