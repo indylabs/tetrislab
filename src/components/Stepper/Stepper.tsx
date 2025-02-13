@@ -3,7 +3,12 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Box from "@mui/material/Box";
 
-export const Stepper = ({ steps, activeStep }) => {
+type StepperProps = {
+  steps: { id: string; title: string }[];
+  activeStep: number;
+};
+
+export const Stepper = ({ steps, activeStep }: StepperProps) => {
   return (
     <Box
       sx={{
