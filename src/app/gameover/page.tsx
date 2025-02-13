@@ -4,11 +4,11 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
-import styles from "./gameover.module.scss";
+import { PageContainer } from "@toolpad/core/PageContainer";
 
 export default function Gameover() {
   return (
-    <div className={styles.gameover}>
+    <PageContainer>
       <Typography
         color="primary"
         align="center"
@@ -31,6 +31,6 @@ export default function Gameover() {
       <Button href={"/"} startIcon={<CheckCircleOutlineIcon />}>
         Finish
       </Button>
-    </div>
+    </PageContainer>
   );
 }

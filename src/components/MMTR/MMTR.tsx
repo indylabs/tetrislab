@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import Button from "@mui/material/Button";
@@ -19,8 +18,7 @@ import styles from "./mmrt.module.scss";
 
 import { mmtrScale } from "@/data/scales";
 
-export default function MMRT() {
-  const router = useRouter();
+const MMTR = () => {
   const { dispatch } = useTetrisLabContext();
 
   const [mmtr, setMmtr] = useState<(number | null)[]>(
@@ -43,7 +41,6 @@ export default function MMRT() {
 
   const handleSubmit = () => {
     dispatch({ type: "ADD_MMTR", mmtr });
-    router.push("/game");
   };
 
   return (
@@ -99,4 +96,6 @@ export default function MMRT() {
       <br />
     </div>
   );
-}
+};
+
+export default MMTR;
