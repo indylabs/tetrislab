@@ -1,6 +1,3 @@
-import Consent from "@/components/Consent/Consent";
-import MMTR from "@/components/MMTR/MMTR";
-
 export enum VARIANTS {
   CONTROL = "control",
   A = "a",
@@ -46,7 +43,7 @@ export const studySteps = [
   {
     id: 5,
     title: "Tetris ",
-    slug: "/study/game",
+    slug: "/study/tetris",
   },
   {
     id: 6,

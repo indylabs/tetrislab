@@ -34,7 +34,7 @@ function Tetris() {
   useEffect(() => {
     if (gameover) {
       insertParticipant(state); // Save state data to database
-      router.push("/gameover");
+      router.push("/debrief");
     }
   }, [gameover, router, state]);
 

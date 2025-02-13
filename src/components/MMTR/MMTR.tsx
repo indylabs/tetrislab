@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import Button from "@mui/material/Button";
@@ -20,7 +19,6 @@ import styles from "./mmrt.module.scss";
 import { mmtrScale } from "@/data/scales";
 
 const MMTR = () => {
-  const router = useRouter();
   const { dispatch } = useTetrisLabContext();
 
   const [mmtr, setMmtr] = useState<(number | null)[]>(
