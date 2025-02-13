@@ -47,9 +47,9 @@ export const InformationSheet = ({ onComplete }) => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Title of Project: "TetrisLab: Exploring the Differential Effects of
-            Interrupting 📢 and Distracting 👋 UI Notifications on Flow 🧘 and
-            Performance 📈"
+            Title of Project: &quot;TetrisLab: Exploring the Differential
+            Effects of Interrupting 📢 and Distracting 👋 UI Notifications on
+            Flow 🧘 and Performance 📈&quot;
           </Typography>
 
           <Typography>
@@ -195,7 +195,7 @@ export const InformationSheet = ({ onComplete }) => {
             overwhelming, you may choose to{" "}
             <font color="red">skip specific parts of the task</font> or opt-out
             completely. You can do so by either closing your web browser or
-            clicking on a provided <strong>"Withdraw"</strong> button.
+            clicking on a provided <strong>&quot;Withdraw&quot;</strong> button.
           </p>
         </AccordionDetails>
       </Accordion>
