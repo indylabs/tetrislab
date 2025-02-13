@@ -63,8 +63,8 @@ export type TetrisLabContextType = {
   setIsPaused: ( isPaused:boolean ) => void
 };
 
-export type StudyStepsType = {
+export type StudyStepType = {
   id: number;
   title: string;
   slug: string;
-}[];
+};
