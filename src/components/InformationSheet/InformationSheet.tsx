@@ -9,7 +9,9 @@ import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
-export const InformationSheet = ({ onComplete }) => {
+type InformationSheetProps = { onComplete: () => void };
+
+export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
   const handleContinue = () => {
     onComplete();
   };
@@ -36,23 +38,18 @@ export const InformationSheet = ({ onComplete }) => {
 
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            color="primary"
-            gutterBottom={true}
-            component="span"
-            fontWeight={700}
-          >
+          <Typography color="primary" component="span" fontWeight={700}>
             Project title and description
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography gutterBottom={true}>
             Title of Project: &quot;TetrisLab: Exploring the Differential
             Effects of Interrupting 📢 and Distracting 👋 UI Notifications on
             Flow 🧘 and Performance 📈&quot;
           </Typography>
 
-          <Typography>
+          <Typography gutterBottom={true}>
             You are invited to take part in research to investigate the impact
             of passive and active notifications on flow state and performance
             within the context of a task-based user interface (UI). This project
@@ -80,12 +77,7 @@ export const InformationSheet = ({ onComplete }) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            color="primary"
-            gutterBottom={true}
-            component="span"
-            fontWeight={700}
-          >
+          <Typography color="primary" component="span" fontWeight={700}>
             What is the purpose of the project?
           </Typography>
         </AccordionSummary>
@@ -101,12 +93,7 @@ export const InformationSheet = ({ onComplete }) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            color="primary"
-            gutterBottom={true}
-            component="span"
-            fontWeight={700}
-          >
+          <Typography color="primary" component="span" fontWeight={700}>
             Why are you being invited to take part?
           </Typography>
         </AccordionSummary>
@@ -120,12 +107,7 @@ export const InformationSheet = ({ onComplete }) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            color="primary"
-            gutterBottom={true}
-            component="span"
-            fontWeight={700}
-          >
+          <Typography color="primary" component="span" fontWeight={700}>
             What is involved?
           </Typography>
         </AccordionSummary>
@@ -153,12 +135,7 @@ export const InformationSheet = ({ onComplete }) => {
 
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            color="primary"
-            gutterBottom={true}
-            component="span"
-            fontWeight={700}
-          >
+          <Typography color="primary" component="span" fontWeight={700}>
             Do I have to take part?
           </Typography>
         </AccordionSummary>
@@ -176,12 +153,7 @@ export const InformationSheet = ({ onComplete }) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            color="primary"
-            gutterBottom={true}
-            component="span"
-            fontWeight={700}
-          >
+          <Typography color="primary" component="span" fontWeight={700}>
             What are the disadvantages and risks (if any) of taking part?
           </Typography>
         </AccordionSummary>
@@ -201,12 +173,7 @@ export const InformationSheet = ({ onComplete }) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            color="primary"
-            gutterBottom={true}
-            component="span"
-            fontWeight={700}
-          >
+          <Typography color="primary" component="span" fontWeight={700}>
             What are the possible benefits of taking part?
           </Typography>
         </AccordionSummary>
@@ -221,12 +188,7 @@ export const InformationSheet = ({ onComplete }) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            color="primary"
-            gutterBottom={true}
-            component="span"
-            fontWeight={700}
-          >
+          <Typography color="primary" component="span" fontWeight={700}>
             How will my information be used?
           </Typography>
         </AccordionSummary>
@@ -253,12 +215,7 @@ export const InformationSheet = ({ onComplete }) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            color="primary"
-            gutterBottom={true}
-            component="span"
-            fontWeight={700}
-          >
+          <Typography color="primary" component="span" fontWeight={700}>
             How will my data be protected?
           </Typography>
         </AccordionSummary>
@@ -311,12 +268,7 @@ export const InformationSheet = ({ onComplete }) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            color="primary"
-            gutterBottom={true}
-            component="span"
-            fontWeight={700}
-          >
+          <Typography color="primary" component="span" fontWeight={700}>
             Who has reviewed the study?
           </Typography>
         </AccordionSummary>
@@ -329,12 +281,7 @@ export const InformationSheet = ({ onComplete }) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            color="primary"
-            gutterBottom={true}
-            component="span"
-            fontWeight={700}
-          >
+          <Typography color="primary" component="span" fontWeight={700}>
             What if you have any questions or there is a problem?
           </Typography>
         </AccordionSummary>
@@ -360,7 +307,6 @@ export const InformationSheet = ({ onComplete }) => {
           <Typography
             color="primary"
             align="left"
-            gutterBottom={true}
             component="span"
             fontWeight={700}
           >

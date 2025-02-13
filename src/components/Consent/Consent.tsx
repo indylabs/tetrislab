@@ -1,6 +1,8 @@
 import Button from "@mui/material/Button";
 
-const Consent = ({ onComplete }) => {
+type ConsentProps = { onComplete: () => void };
+
+const Consent = ({ onComplete }: ConsentProps) => {
   return (
     <>
       <p>This is Consent</p>
