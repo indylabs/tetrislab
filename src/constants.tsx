@@ -1,3 +1,5 @@
+import { StudyStepType } from "./types";
+
 export enum VARIANTS {
   CONTROL = "control",
   A = "a",
@@ -19,7 +21,7 @@ export const PASSIVE_NOTIFICATION_AUTO_HIDE_DURATION = 5000; // 5 sec
 
 export const ACTIVE_NOTIFICATION_INTERVAL = 10000; // 10 sec
 
-export const studySteps = [
+export const studySteps: StudyStepType[] = [
   {
     id: 1,
     title: "Information Sheet",

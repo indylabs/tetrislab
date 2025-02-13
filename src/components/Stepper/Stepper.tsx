@@ -3,8 +3,10 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Box from "@mui/material/Box";
 
+import { StudyStepType } from "@/types";
+
 type StepperProps = {
-  steps: { id: string; title: string }[];
+  steps: StudyStepType[];
   activeStep: number;
 };
 
