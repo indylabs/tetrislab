@@ -124,10 +124,10 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
             Passive notifications will temporarily appear onscreen and can be
             ignored while active notifications will require your attention and
             interaction.{" "}
-            <font color="red">You will be provided with a demo</font> of the
+            <span color="red">You will be provided with a demo</span> of the
             experiment and will be given the opportunity to practise prior to
             commencement and data capture. It is estimated that the task will
-            take approximately <font color="red">20 minutes</font> to complete.
+            take approximately <span color="red">20 minutes</span> to complete.
           </p>
           <p>TODO: Add Post-task here</p>
         </AccordionDetails>
@@ -165,7 +165,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
             expected to alleviate on completion of the experiment. If at any
             point throughout your involvement, you deem this frustration to be
             overwhelming, you may choose to{" "}
-            <font color="red">skip specific parts of the task</font> or opt-out
+            <span color="red">skip specific parts of the task</span> or opt-out
             completely. You can do so by either closing your web browser or
             clicking on a provided <strong>&quot;Withdraw&quot;</strong> button.
           </p>
@@ -242,7 +242,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
             responsible for ensuring that all datasets will be stored in
             accordance with GDPR regulations and those which are not submitted
             to a journal will be fully deleted on or before{" "}
-            <font color="red">April 30th 2032</font>.
+            <span color="red">April 30th 2032</span>.
           </p>
 
           <p>
@@ -255,7 +255,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
             point, the data protection officer in IADT will be informed
             immediately. All data collected and stored will be fully anonymous
             with no identifiable properties. On or before the
-            <font color="red">30th of April 2032</font>, copies of data held by
+            <span color="red">30th of April 2032</span>, copies of data held by
             the researcher and supervisor will be fully deleted. You will find
             contact information for IADT&apos;s Data Protection Officer, Mr
             Bernard Mullarkey, and more information on your rights concerning
