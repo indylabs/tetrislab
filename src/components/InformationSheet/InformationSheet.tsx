@@ -300,9 +300,9 @@ export const InformationSheet = ({ onComplete }) => {
             with no identifiable properties. On or before the
             <font color="red">30th of April 2032</font>, copies of data held by
             the researcher and supervisor will be fully deleted. You will find
-            contact information for IADT's Data Protection Officer, Mr Bernard
-            Mullarkey, and more information on your rights concerning your data
-            at
+            contact information for IADT&apos;s Data Protection Officer, Mr
+            Bernard Mullarkey, and more information on your rights concerning
+            your data at
             <a href="https://iadt.ie/about/your-rights-entitlements/gdpr/">
               https://iadt.ie/about/your-rights-entitlements/gdpr/
             </a>
