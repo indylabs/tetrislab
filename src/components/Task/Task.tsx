@@ -99,6 +99,7 @@ export const Task = ({ onComplete }: TaskProps) => {
           >
             <Button
               variant="outlined"
+              color="secondary"
               endIcon={<ExitToAppIcon />}
               onClick={() => window.alert("TODO: Withdraw and exit flow")}
             >
