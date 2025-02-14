@@ -5,10 +5,6 @@ import CardContent from "@mui/material/CardContent";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 
-import NavigationIcon from "@mui/icons-material/Navigation";
-
-import Fab from "@mui/material/Fab";
-
 import { StepAction } from "@/components/StepAction/StepAction";
 
 import {

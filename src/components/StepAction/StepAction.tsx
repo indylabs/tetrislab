@@ -5,9 +5,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import NavigationIcon from "@mui/icons-material/Navigation";
-
-import Fab from "@mui/material/Fab";
 
 type StepActionProps = {
   info: string;

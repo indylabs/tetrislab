@@ -111,7 +111,7 @@ export const DEBRIEF_DATA = [
         text: (
           <>
             Your data will be treated according to GDPR regulations. You will
-            find contact information for IADT's Data Protection Officer, Mr
+            find contact information for IADT&apos;s Data Protection Officer, Mr
             Bernard Mullarkey, and more information on your rights concerning
             your data at{" "}
             <a
