@@ -8,6 +8,12 @@ export const ACTION_LABEL = "Finish and save data";
 export const DEBRIEF_DATA = [
   {
     id: 1,
-    text: <>TEST</>,
+    title: <>TEST TITLE</>,
+    content: [
+      {
+        id: 1,
+        text: <>TEST CONTENT</>,
+      },
+    ],
   },
 ];

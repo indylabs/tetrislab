@@ -11,7 +11,6 @@ type StepActionProps = {
   onAction: () => void;
   title?: string;
   isValid?: boolean;
-  showAlert?: boolean;
 };
 
 export const StepAction = ({
@@ -20,7 +19,6 @@ export const StepAction = ({
   label,
   onAction,
   isValid,
-  showAlert,
 }: StepActionProps) => {
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between", my: 4 }}>

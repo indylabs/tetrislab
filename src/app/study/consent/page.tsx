@@ -12,9 +12,9 @@ import { useTetrisLabContext } from "@/state/TetrisLabContext";
 export default function ConsentPage() {
   const { step, setStep } = useTetrisLabContext();
 
-  // if (step === 0) {
-  //   return null;
-  // }
+  if (step === 0) {
+    return null;
+  }
 
   return (
     <>

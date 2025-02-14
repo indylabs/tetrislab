@@ -75,7 +75,7 @@ export const FSS = ({ onComplete }: FFSProps) => {
               {dimension}
             </Typography>
             {questions.map(({ id, text, responses }) => (
-              <Card sx={{ minWidth: 275, mb: 4 }}>
+              <Card sx={{ minWidth: 275, mb: 4 }} key={id}>
                 <CardContent>
                   <FormControl key={id}>
                     <FormControlLabel

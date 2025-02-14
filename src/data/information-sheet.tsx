@@ -12,7 +12,7 @@ export const INFORMATION_DATA = [
         id: 1,
         text: (
           <>
-            "Title of Project:
+            Title of Project:
             <strong>
               &quot;TetrisLab: Exploring the Differential Effects of
               Interrupting 📢 and Distracting 👋 UI Notifications on Flow 🧘 and

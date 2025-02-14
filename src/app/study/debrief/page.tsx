@@ -13,6 +13,10 @@ import { useTetrisLabContext } from "@/state/TetrisLabContext";
 export default function DebriefPage() {
   const { step, setStep } = useTetrisLabContext();
 
+  if (step === 0) {
+    return null;
+  }
+
   return (
     <>
       <PageContainer

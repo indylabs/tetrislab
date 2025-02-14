@@ -62,8 +62,6 @@ export const Task = ({ onComplete }: TaskProps) => {
     }
   };
 
-  console.log("open:", open);
-
   return (
     <>
       <StepAction
@@ -72,7 +70,6 @@ export const Task = ({ onComplete }: TaskProps) => {
         label={isComplete ? ACTION_LABEL_COMPLETE : ACTION_LABEL_INIT}
         onAction={handleStepAction}
         isValid={true}
-        showAlert={true}
       />
 
       {!isComplete &&

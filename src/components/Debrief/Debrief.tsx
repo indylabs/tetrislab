@@ -1,8 +1,7 @@
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import { StepAction } from "@/components/StepAction/StepAction";
 
@@ -26,23 +25,20 @@ export const Debrief = ({ onComplete }: DebriefProps) => {
         label={ACTION_LABEL}
         onAction={onComplete}
         isValid={true}
-        showAlert={true}
       />
 
-      <Accordion defaultExpanded>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography variant="h6" sx={{ color: "primary.main" }}>
-            Title of Project
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{ mb: 2 }}>
-            &quot;TetrisLab: Exploring the Differential Effects of Interrupting
-            📢 and Distracting 👋 UI Notifications on Flow 🧘 and Performance
-            📈&quot;
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+      {DEBRIEF_DATA.map(({ id, title, content }) => (
+        <Card sx={{ mb: 4 }} key={id}>
+          <CardHeader title={title} />
+          <CardContent>
+            {content.map(({ id, text }) => (
+              <Typography key={id} sx={{ mb: 2 }}>
+                {text}
+              </Typography>
+            ))}
+          </CardContent>
+        </Card>
+      ))}
     </>
   );
 };

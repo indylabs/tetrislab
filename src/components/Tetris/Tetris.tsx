@@ -40,7 +40,7 @@ function Tetris({ onComplete }: TetrisProps) {
       insertParticipant(state); // Save state data to database
       onComplete();
     }
-  }, [gameover, router, state]);
+  }, [gameover, router, state, onComplete]);
 
   const handleGameOver = async () => {
     await dispatch({
