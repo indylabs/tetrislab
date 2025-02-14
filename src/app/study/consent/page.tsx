@@ -3,13 +3,17 @@
 import { PageContainer } from "@toolpad/core/PageContainer";
 
 import { Stepper } from "@/components/Stepper/Stepper";
-import { InformationSheet } from "@/components/InformationSheet/InformationSheet";
+import { Consent } from "@/components/Consent/Consent";
 
 import { studySteps } from "@/constants";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
-export default function InformationSheetPage() {
+export default function ConsentPage() {
   const { step, setStep } = useTetrisLabContext();
+
+  if (step === 0) {
+    return null;
+  }
 
   return (
     <>
@@ -18,11 +22,11 @@ export default function InformationSheetPage() {
         breadcrumbs={[
           { title: "TetrisLab", path: "/" },
           { title: "Study", path: "/study" },
-          { title: "Information Sheet", path: "/study/info-sheet" },
+          { title: "Consent", path: "/study/consent" },
         ]}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <InformationSheet onComplete={() => setStep(step + 1)} />
+        <Consent onComplete={() => setStep(step + 1)} />
       </PageContainer>
     </>
   );

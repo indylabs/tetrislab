@@ -1,44 +1,32 @@
-import * as React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
-import Box from "@mui/material/Box";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
-type InformationSheetProps = { onComplete: () => void };
+import { StepAction } from "@/components/StepAction/StepAction";
+
+const STEP_ACTION_INFO =
+  "Please read all sections of this information sheet to continue.";
+
+const STEP_ACTION_LABEL = "I have read this information sheet";
+
+type InformationSheetProps = {
+  onComplete: any;
+};
 
 export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
-  const handleContinue = () => {
-    onComplete();
-  };
-
   return (
     <>
-      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
-        <div>
-          <Alert severity="warning">
-            Please read all sections of this information sheet before
-            continuing.
-          </Alert>
-        </div>
-        <div>
-          <Button
-            variant="outlined"
-            onClick={handleContinue}
-            endIcon={<ArrowRightIcon />}
-          >
-            Continue
-          </Button>
-        </div>
-      </Box>
-
+      <StepAction
+        info={STEP_ACTION_INFO}
+        label={STEP_ACTION_LABEL}
+        onComplete={onComplete}
+        isValid={true}
+      />
       <Accordion defaultExpanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary" component="span" fontWeight={700}>
+          <Typography component="span" fontWeight={700}>
             Project title and description
           </Typography>
         </AccordionSummary>
@@ -77,7 +65,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary" component="span" fontWeight={700}>
+          <Typography component="span" fontWeight={700}>
             What is the purpose of the project?
           </Typography>
         </AccordionSummary>
@@ -93,7 +81,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary" component="span" fontWeight={700}>
+          <Typography component="span" fontWeight={700}>
             Why are you being invited to take part?
           </Typography>
         </AccordionSummary>
@@ -107,7 +95,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary" component="span" fontWeight={700}>
+          <Typography component="span" fontWeight={700}>
             What is involved?
           </Typography>
         </AccordionSummary>
@@ -135,7 +123,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
 
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary" component="span" fontWeight={700}>
+          <Typography component="span" fontWeight={700}>
             Do I have to take part?
           </Typography>
         </AccordionSummary>
@@ -153,7 +141,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary" component="span" fontWeight={700}>
+          <Typography component="span" fontWeight={700}>
             What are the disadvantages and risks (if any) of taking part?
           </Typography>
         </AccordionSummary>
@@ -173,7 +161,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary" component="span" fontWeight={700}>
+          <Typography component="span" fontWeight={700}>
             What are the possible benefits of taking part?
           </Typography>
         </AccordionSummary>
@@ -188,7 +176,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary" component="span" fontWeight={700}>
+          <Typography component="span" fontWeight={700}>
             How will my information be used?
           </Typography>
         </AccordionSummary>
@@ -215,7 +203,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary" component="span" fontWeight={700}>
+          <Typography component="span" fontWeight={700}>
             How will my data be protected?
           </Typography>
         </AccordionSummary>
@@ -268,7 +256,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary" component="span" fontWeight={700}>
+          <Typography component="span" fontWeight={700}>
             Who has reviewed the study?
           </Typography>
         </AccordionSummary>
@@ -281,7 +269,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography color="primary" component="span" fontWeight={700}>
+          <Typography component="span" fontWeight={700}>
             What if you have any questions or there is a problem?
           </Typography>
         </AccordionSummary>
@@ -304,12 +292,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       </Accordion>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            color="primary"
-            align="left"
-            component="span"
-            fontWeight={700}
-          >
+          <Typography align="left" component="span" fontWeight={700}>
             Thank you
           </Typography>
         </AccordionSummary>
@@ -318,10 +301,16 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
             Thank you for taking the time to read this information sheet and for
             your involvement in this study should you choose to participate.
           </p>
+          <p>12th February 2025</p>
         </AccordionDetails>
       </Accordion>
 
-      <p>12th February 2025</p>
+      <StepAction
+        info={STEP_ACTION_INFO}
+        label={STEP_ACTION_LABEL}
+        onComplete={onComplete}
+        isValid={true}
+      />
     </>
   );
 };

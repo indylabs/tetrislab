@@ -39,17 +39,17 @@ export const studySteps: StudyStepType[] = [
   },
   {
     id: 4,
-    title: "MMT-R",
+    title: "MMT-R Questionnaire",
     slug: "/study/mmtr",
   },
   {
     id: 5,
-    title: "Tetris ",
-    slug: "/study/tetris",
+    title: "Task ",
+    slug: "/study/task",
   },
   {
     id: 6,
-    title: "FSS",
+    title: "FSS Questionnaire",
     slug: "/study/fss",
   },
   {
