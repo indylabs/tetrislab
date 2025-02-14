@@ -1,10 +1,11 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   createContext,
   ReactNode,
   useContext,
+  useEffect,
   useState,
   useReducer,
 } from "react";
@@ -12,7 +13,7 @@ import {
 import { reducer } from "./TetrisLabReducer";
 
 import type { TetrisLabContextType } from "@/types";
-import { VARIANTS } from "@/constants";
+import { VARIANTS, studySteps } from "@/constants";
 
 const TetrisLabContext = createContext<TetrisLabContextType | undefined>(
   undefined
@@ -25,9 +26,16 @@ export const TetrisLabContextProvider = ({
   randomVariant: VARIANTS;
   children: ReactNode;
 }) => {
+  const router = useRouter();
+
+  const [step, setStep] = useState<number>(0);
   const [isPaused, setIsPaused] = useState(false);
   const searchParams = useSearchParams();
   const variant = (searchParams.get("variant") as VARIANTS) || randomVariant;
+
+  useEffect(() => {
+    router.push(studySteps[step].slug);
+  }, [step]);
 
   const initialState = {
     variant,
@@ -41,7 +49,7 @@ export const TetrisLabContextProvider = ({
 
   return (
     <TetrisLabContext.Provider
-      value={{ state, dispatch, isPaused, setIsPaused }}
+      value={{ state, dispatch, isPaused, setIsPaused, step, setStep }}
     >
       {children}
     </TetrisLabContext.Provider>

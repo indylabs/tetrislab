@@ -6,6 +6,9 @@ import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 import { type Navigation } from "@toolpad/core/AppProvider";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import ChatIcon from "@mui/icons-material/Chat";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import HomeIcon from "@mui/icons-material/Home";
+import Button from "@mui/material/Button";
 
 import tetrisLabTheme from "./theme";
 
@@ -18,7 +21,7 @@ export const NAVIGATION: Navigation = [
   {
     segment: "",
     title: "TetrisLab",
-    icon: <img src="/logo_xs.svg" />,
+    icon: <HomeIcon />,
   },
   {
     segment: "study/info-sheet",
@@ -52,8 +55,34 @@ export default function TetrisLab({ children }: { children: React.ReactNode }) {
           <DashboardLayout
             defaultSidebarCollapsed={true}
             slots={{
-              appTitle: () => void 0,
-              toolbarActions: () => <button>Withdraw</button>,
+              toolbarActions: () => (
+                <Button
+                  variant="outlined"
+                  endIcon={<ExitToAppIcon />}
+                  onClick={() => window.alert("TODO: Withdraw and exit flow")}
+                >
+                  Exit and withdraw
+                </Button>
+              ),
+            }}
+            sx={{
+              boxShadow: 0,
+              borderRadius: 0,
+              borderWidth: 0,
+              header: {
+                border: 0,
+              },
+              drawer: {
+                borderRight: "none", // Removes right border
+                boxShadow: "none", // Ensures no shadow remains
+              },
+              PaperProps: {
+                sx: {
+                  border: 0,
+                  borderRight: "none", // Removes right border
+                  boxShadow: "none", // Ensures no shadow remains
+                },
+              },
             }}
           >
             <TetrisLabContextProvider randomVariant={randomVariant}>

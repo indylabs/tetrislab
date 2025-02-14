@@ -1,26 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
+import { StepAction } from "@/components/StepAction/StepAction";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
 import styles from "./mmrt.module.scss";
 
 import { mmtrScale } from "@/data/scales";
 
-const MMTR = () => {
+const STEP_ACTION_INFO =
+  "Please answer all questions on Media Multitasking-Revised (MMT-R) Questionnaire to continue.";
+
+const STEP_ACTION_LABEL = "Submit questionnaire";
+
+type MMTRProps = {
+  onComplete: () => void;
+};
+
+export const MMTR = ({ onComplete }: MMTRProps) => {
   const { dispatch } = useTetrisLabContext();
 
+  const [isValid, setIsValid] = useState(false);
   const [mmtr, setMmtr] = useState<(number | null)[]>(
     new Array(mmtrScale.length).fill(null)
   );
@@ -41,61 +48,56 @@ const MMTR = () => {
 
   const handleSubmit = () => {
     dispatch({ type: "ADD_MMTR", mmtr });
+    onComplete();
   };
 
-  return (
-    <div className={styles.mmrt}>
-      <Typography
-        color="primary"
-        align="center"
-        gutterBottom={true}
-        variant="h3"
-        component="p"
-      >
-        Media Multitasking-Revised (MMT-R) Scale
-      </Typography>
+  useEffect(() => {
+    // Check if all items are responded to
+    setIsValid(mmtr.every((response) => response));
+  }, [mmtr]);
 
-      <Container maxWidth="md">
-        {mmtrScale.map(({ id, text, responses }) => {
-          return (
-            <FormControl key={id}>
-              <FormLabel>
-                {id}. {text}
-              </FormLabel>
-              <br />
-              <RadioGroup
-                row
-                onChange={(event) => handleChange(id, event)}
-                className={styles.radioGroup}
-              >
-                {responses.map(({ value, label }) => (
-                  <FormControlLabel
-                    value={value}
-                    control={<Radio />}
-                    label={label}
-                    key={value}
-                  />
-                ))}
-              </RadioGroup>
-              <br />
-              <br />
-            </FormControl>
-          );
-        })}
-      </Container>
-      <br />
-      <Button
-        onClick={handleSubmit}
-        variant="contained"
-        endIcon={<NavigateNextIcon />}
-        disabled={mmtr.includes(null)}
-        className={styles.submit}
-      >
-        Continue
-      </Button>
-      <br />
-    </div>
+  return (
+    <>
+      <StepAction
+        info={STEP_ACTION_INFO}
+        label={STEP_ACTION_LABEL}
+        onComplete={handleSubmit}
+        isValid={isValid}
+      />
+
+      {mmtrScale.map(({ id, text, responses }) => {
+        return (
+          <FormControl key={id}>
+            <FormLabel>
+              {id}. {text}
+            </FormLabel>
+            <br />
+            <RadioGroup
+              row
+              onChange={(event) => handleChange(id, event)}
+              className={styles.radioGroup}
+            >
+              {responses.map(({ value, label }) => (
+                <FormControlLabel
+                  value={value}
+                  control={<Radio />}
+                  label={label}
+                  key={value}
+                />
+              ))}
+            </RadioGroup>
+            <br />
+            <br />
+          </FormControl>
+        );
+      })}
+
+      <StepAction
+        info={STEP_ACTION_INFO}
+        label={STEP_ACTION_LABEL}
+        onComplete={onComplete}
+        isValid={isValid}
+      />
+    </>
   );
 };
-
-export default MMTR;

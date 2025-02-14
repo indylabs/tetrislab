@@ -1,8 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-
 import { PageContainer } from "@toolpad/core/PageContainer";
 
 import { Stepper } from "@/components/Stepper/Stepper";
@@ -10,28 +7,27 @@ import { Requirements } from "@/components/Requirements/Requirements";
 
 import { studySteps } from "@/constants";
 
+import { useTetrisLabContext } from "@/state/TetrisLabContext";
+
 export default function RequirementsPage() {
-  const router = useRouter();
-  const [activeStep, setActiveStep] = useState(0);
+  const { step, setStep } = useTetrisLabContext();
 
-  const handleOnComplete = () => {
-    router.push(studySteps[activeStep + 1].slug);
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+  if (step === 0) {
+    return null;
+  }
 
   return (
     <>
       <PageContainer
         title=""
         breadcrumbs={[
-          { title: "TetrisLab" },
-          { title: "Study" },
-          { title: "Requirements" },
+          { title: "TetrisLab", path: "/" },
+          { title: "Study", path: "/study" },
+          { title: "Requirements", path: "/study/requirements" },
         ]}
       >
-        <Stepper steps={studySteps} activeStep={1} />
-        <Requirements onComplete={handleOnComplete} />
+        <Stepper steps={studySteps} activeStep={step} />
+        <Requirements onComplete={() => setStep(step + 1)} />
       </PageContainer>
     </>
   );

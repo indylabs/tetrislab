@@ -14,7 +14,7 @@ export const Stepper = ({ steps, activeStep }: StepperProps) => {
   return (
     <Box
       sx={{
-        py: 4,
+        pt: 4,
         display: "flex",
         flexDirection: "column",
         alignItems: "left",

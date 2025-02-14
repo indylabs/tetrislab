@@ -44,7 +44,14 @@ export default function Home() {
           and Distracting 👋 UI Notifications on Flow 🧘 and Performance 📈.
         </Typography>
 
-        <Button href="/study" startIcon={<SportsEsportsIcon />}>
+        <Button
+          href="/study"
+          variant="outlined"
+          endIcon={<SportsEsportsIcon />}
+          style={{
+            margin: "auto",
+          }}
+        >
           Join Pilot
         </Button>
       </div>

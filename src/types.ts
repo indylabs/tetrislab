@@ -61,6 +61,8 @@ export type TetrisLabContextType = {
   dispatch: React.Dispatch<TetrisLabAction>;
   isPaused: boolean;
   setIsPaused: ( isPaused:boolean ) => void
+  step: number;
+  setStep: ( step:number ) => void;
 };
 
 export type StudyStepType = {
