@@ -7,7 +7,7 @@ const tetrisLabTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#238636',
+      main: '#BE22ED',
     },
     secondary: {
       main: '#00FFFF',
