@@ -3,7 +3,6 @@ import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
 type StepActionProps = {

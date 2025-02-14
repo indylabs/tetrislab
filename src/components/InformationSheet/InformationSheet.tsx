@@ -12,7 +12,7 @@ const STEP_ACTION_INFO =
 const STEP_ACTION_LABEL = "I have read this information sheet";
 
 type InformationSheetProps = {
-  onComplete: any;
+  onComplete: () => void;
 };
 
 export const InformationSheet = ({ onComplete }: InformationSheetProps) => {

@@ -21,7 +21,7 @@ const STEP_ACTION_INFO =
 const STEP_ACTION_LABEL = "Submit questionnaire";
 
 type MMTRProps = {
-  onComplete: any;
+  onComplete: () => void;
 };
 
 export const MMTR = ({ onComplete }: MMTRProps) => {
