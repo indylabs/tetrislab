@@ -34,7 +34,7 @@ export const TetrisLabContextProvider = ({
   const variant = (searchParams.get("variant") as VARIANTS) || randomVariant;
 
   useEffect(() => {
-    // router.push(studySteps[step].slug);
+    router.push(studySteps[step].slug);
   }, [router, step]);
 
   const initialState = {
