@@ -55,13 +55,13 @@ const Logo = ({ className }: LogoProps) => (
         fill="white"
         mask="url(#path-3-outside-2_1_46)"
       />
-      <rect width="35" height="35" fill="#82259E" />
-      <rect x="38" y="38" width="35" height="35" fill="#82259E" />
-      <rect y="38" width="35" height="35" fill="#3B1FB6" />
-      <rect x="38" y="76" width="35" height="35" fill="#3B1FB6" />
-      <rect y="76" width="35" height="35" fill="#3B1FB6" />
-      <rect x="76" width="35" height="35" fill="#82259E" />
-      <rect x="38" width="35" height="35" fill="#82259E" />
+      <rect width="35" height="35" fill="#238636" />
+      <rect x="38" y="38" width="35" height="35" fill="#238636" />
+      <rect y="38" width="35" height="35" fill="#00FFFF" />
+      <rect x="38" y="76" width="35" height="35" fill="#00FFFF" />
+      <rect y="76" width="35" height="35" fill="#00FFFF" />
+      <rect x="76" width="35" height="35" fill="#238636" />
+      <rect x="38" width="35" height="35" fill="#238636" />
     </svg>
   </div>
 );

@@ -6,19 +6,18 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 
 import { StepAction } from "@/components/StepAction/StepAction";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
-import styles from "./mmrt.module.scss";
-
-import { mmtrScale } from "@/data/scales";
-
-const STEP_ACTION_INFO =
-  "Please answer all questions on Media Multitasking-Revised (MMT-R) Questionnaire to continue.";
-
-const STEP_ACTION_LABEL = "Submit questionnaire";
+import {
+  ACTION_TITLE,
+  ACTION_INFO,
+  ACTION_LABEL,
+  MMTR_DATA,
+} from "@/data/mmtr";
 
 type MMTRProps = {
   onComplete: () => void;
@@ -29,7 +28,7 @@ export const MMTR = ({ onComplete }: MMTRProps) => {
 
   const [isValid, setIsValid] = useState(false);
   const [mmtr, setMmtr] = useState<(number | null)[]>(
-    new Array(mmtrScale.length).fill(null)
+    new Array(MMTR_DATA.length).fill(null)
   );
 
   const handleChange = (
@@ -59,43 +58,50 @@ export const MMTR = ({ onComplete }: MMTRProps) => {
   return (
     <>
       <StepAction
-        info={STEP_ACTION_INFO}
-        label={STEP_ACTION_LABEL}
-        onComplete={handleSubmit}
+        title={ACTION_TITLE}
+        info={ACTION_INFO}
+        label={ACTION_LABEL}
+        onAction={handleSubmit}
         isValid={isValid}
       />
 
-      {mmtrScale.map(({ id, text, responses }) => {
+      {MMTR_DATA.map(({ id, text, responses }) => {
         return (
-          <FormControl key={id}>
-            <FormLabel>
-              {id}. {text}
-            </FormLabel>
-            <br />
-            <RadioGroup
-              row
-              onChange={(event) => handleChange(id, event)}
-              className={styles.radioGroup}
-            >
-              {responses.map(({ value, label }) => (
+          <Card sx={{ minWidth: 275, mb: 4 }} key={id}>
+            <CardContent>
+              <FormControl>
                 <FormControlLabel
-                  value={value}
-                  control={<Radio />}
-                  label={label}
-                  key={value}
+                  sx={{
+                    alignItems: "flex-start",
+                  }}
+                  control={
+                    <RadioGroup
+                      row
+                      onChange={(event) => handleChange(id, event)}
+                    >
+                      {responses.map(({ value, label }) => (
+                        <FormControlLabel
+                          value={value}
+                          control={<Radio color="secondary" />}
+                          label={label}
+                          key={value}
+                        />
+                      ))}
+                    </RadioGroup>
+                  }
+                  label={`${id}. ${text}`}
+                  labelPlacement="top"
                 />
-              ))}
-            </RadioGroup>
-            <br />
-            <br />
-          </FormControl>
+              </FormControl>
+            </CardContent>
+          </Card>
         );
       })}
 
       <StepAction
-        info={STEP_ACTION_INFO}
-        label={STEP_ACTION_LABEL}
-        onComplete={onComplete}
+        info={ACTION_INFO}
+        label={ACTION_LABEL}
+        onAction={onComplete}
         isValid={isValid}
       />
     </>

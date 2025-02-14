@@ -1,31 +1,39 @@
 import * as React from "react";
-import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
 type StepActionProps = {
   info: string;
   label: string;
-  onComplete: () => void;
-  isValid: boolean;
+  onAction: () => void;
+  title?: string;
+  isValid?: boolean;
+  showAlert?: boolean;
 };
 
 export const StepAction = ({
+  title,
   info,
   label,
-  onComplete,
+  onAction,
   isValid,
+  showAlert,
 }: StepActionProps) => {
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between", my: 4 }}>
-      {!isValid ? <Alert severity="info">{info}</Alert> : <div />}
+      <Typography sx={{ color: "primary.main", fontSize: "1.6rem" }}>
+        {title}
+      </Typography>
+
       <Tooltip title={isValid ? null : info}>
         <span>
           <Button
+            color="secondary"
             variant="outlined"
-            onClick={() => onComplete()}
+            onClick={() => onAction()}
             endIcon={<ArrowRightIcon />}
             disabled={!isValid}
           >

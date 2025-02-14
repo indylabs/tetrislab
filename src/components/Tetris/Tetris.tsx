@@ -17,7 +17,11 @@ import { createStage, checkCollision } from "../../utils/gameHelpers";
 
 import styles from "./Tetris.module.scss";
 
-function Tetris() {
+type TetrisProps = {
+  onComplete: () => void;
+};
+
+function Tetris({ onComplete }: TetrisProps) {
   const router = useRouter();
   const { state, dispatch, isPaused } = useTetrisLabContext();
 
@@ -34,7 +38,7 @@ function Tetris() {
   useEffect(() => {
     if (gameover) {
       insertParticipant(state); // Save state data to database
-      router.push("/debrief");
+      onComplete();
     }
   }, [gameover, router, state]);
 

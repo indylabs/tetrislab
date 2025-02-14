@@ -2,6 +2,7 @@
 
 import { PageContainer } from "@toolpad/core/PageContainer";
 
+import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 import { Stepper } from "@/components/Stepper/Stepper";
 import { InformationSheet } from "@/components/InformationSheet/InformationSheet";
 
@@ -15,11 +16,16 @@ export default function InformationSheetPage() {
     <>
       <PageContainer
         title=""
-        breadcrumbs={[
-          { title: "TetrisLab", path: "/" },
-          { title: "Study", path: "/study" },
-          { title: "Information Sheet", path: "/study/info-sheet" },
-        ]}
+        slots={{
+          header: () => (
+            <StudyHeader
+              breadcrumbs={[
+                { title: "TetrisLab", path: "/" },
+                { title: "Study", path: "/study" },
+              ]}
+            />
+          ),
+        }}
       >
         <Stepper steps={studySteps} activeStep={step} />
         <InformationSheet onComplete={() => setStep(step + 1)} />

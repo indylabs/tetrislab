@@ -4,17 +4,14 @@ import { PageContainer } from "@toolpad/core/PageContainer";
 
 import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 import { Stepper } from "@/components/Stepper/Stepper";
-import { MMTR } from "@/components/MMTR/MMTR";
+import { Debrief } from "@/components/Debrief/Debrief";
 
 import { studySteps } from "@/constants";
+
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
-export default function MMTRPage() {
+export default function DebriefPage() {
   const { step, setStep } = useTetrisLabContext();
-
-  // if (step === 0) {
-  //   return null;
-  // }
 
   return (
     <>
@@ -32,7 +29,7 @@ export default function MMTRPage() {
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <MMTR onComplete={() => setStep(step + 1)} />
+        <Debrief onComplete={() => setStep(step + 1)} />
       </PageContainer>
     </>
   );
