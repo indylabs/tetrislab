@@ -1,40 +1,26 @@
 import { useEffect, useState } from "react";
 
-import {
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Checkbox,
-} from "@mui/material";
+import { List, ListItem, Checkbox } from "@mui/material";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-
-import AssignmentLateIcon from "@mui/icons-material/AssignmentLate";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
 
 import { StepAction } from "@/components/StepAction/StepAction";
 
-const STEP_ACTION_INFO =
-  "Please check all checkboxes to confirm that you meet these requirements to continue.";
-
-const STEP_ACTION_LABEL = "I meet these requirements";
-
-const REQUIREMENTS_ITEMS = [
-  {
-    id: 1,
-    text: "Must have access to a desktop computer with a modern browser",
-  },
-  { id: 2, text: "etc (TBC)" },
-];
-
+import {
+  REQUIREMENTS_DATA,
+  ACTION_TITLE,
+  ACTION_INFO,
+  ACTION_LABEL,
+} from "@/data/requirements";
 type RequirementsProps = { onComplete: () => void };
 
 export const Requirements = ({ onComplete }: RequirementsProps) => {
   const [isValid, setIsValid] = useState(false);
   const [requirements, setRequirements] = useState<(boolean | null)[]>(
-    new Array(REQUIREMENTS_ITEMS.length).fill(false)
+    new Array(REQUIREMENTS_DATA.length).fill(false)
   );
 
   const handleChange = (id: number) => {
@@ -53,24 +39,29 @@ export const Requirements = ({ onComplete }: RequirementsProps) => {
   return (
     <>
       <StepAction
-        info={STEP_ACTION_INFO}
-        label={STEP_ACTION_LABEL}
-        onComplete={onComplete}
+        title={ACTION_TITLE}
+        info={ACTION_INFO}
+        label={ACTION_LABEL}
+        onAction={onComplete}
         isValid={isValid}
       />
 
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
           <List>
-            {REQUIREMENTS_ITEMS.map(({ id, text }, index) => (
+            {REQUIREMENTS_DATA.map(({ id, text }, index) => (
               <ListItem key={id}>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <AssignmentLateIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                  <Checkbox onChange={() => handleChange(index)} />
-                </ListItemButton>
+                <FormControl>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        onChange={() => handleChange(index)}
+                        color="secondary"
+                      />
+                    }
+                    label={text}
+                  />
+                </FormControl>
               </ListItem>
             ))}
           </List>
@@ -78,9 +69,9 @@ export const Requirements = ({ onComplete }: RequirementsProps) => {
       </Card>
 
       <StepAction
-        info={STEP_ACTION_INFO}
-        label={STEP_ACTION_LABEL}
-        onComplete={onComplete}
+        info={ACTION_INFO}
+        label={ACTION_LABEL}
+        onAction={onComplete}
         isValid={isValid}
       />
     </>

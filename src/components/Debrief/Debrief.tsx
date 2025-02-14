@@ -4,18 +4,19 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
 import { StepAction } from "@/components/StepAction/StepAction";
+
 import {
-  INFORMATION_DATA,
+  DEBRIEF_DATA,
   ACTION_TITLE,
   ACTION_INFO,
   ACTION_LABEL,
-} from "@/data/information-sheet";
+} from "@/data/debrief";
 
-type InformationSheetProps = {
+type DebriefProps = {
   onComplete: () => void;
 };
 
-export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
+export const Debrief = ({ onComplete }: DebriefProps) => {
   return (
     <>
       <StepAction
@@ -26,7 +27,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
         isValid={true}
       />
 
-      {INFORMATION_DATA.map(({ id, title, content }) => (
+      {DEBRIEF_DATA.map(({ id, title, content }) => (
         <Card sx={{ mb: 4 }} key={id}>
           <CardHeader title={title} />
           <CardContent>
@@ -38,18 +39,6 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
           </CardContent>
         </Card>
       ))}
-
-      <span color="red">
-        TODO: Explain in the information sheet why the time/score isnt shown. We
-        can state that it is to prevent distraction from the task.{" "}
-      </span>
-
-      <StepAction
-        info={ACTION_INFO}
-        label={ACTION_LABEL}
-        onAction={onComplete}
-        isValid={true}
-      />
     </>
   );
 };

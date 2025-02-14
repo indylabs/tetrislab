@@ -14,19 +14,19 @@ export const Stepper = ({ steps, activeStep }: StepperProps) => {
   return (
     <Box
       sx={{
-        pt: 4,
+        pt: 1,
         display: "flex",
         flexDirection: "column",
         alignItems: "left",
         textAlign: "left",
       }}
     >
-      <MUIStepper activeStep={activeStep}>
+      <MUIStepper activeStep={activeStep} sx={{ p: 0 }}>
         {steps.map(({ id, title }) => {
           const stepProps: { completed?: boolean } = {};
 
           return (
-            <Step key={id} {...stepProps}>
+            <Step key={id} {...stepProps} sx={{ p: 0 }}>
               <StepLabel color="textPrimary">{title}</StepLabel>
             </Step>
           );

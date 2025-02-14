@@ -10,7 +10,7 @@ const tetrisLabTheme = createTheme({
       main: '#238636',
     },
     secondary: {
-      main: '#3B1FB6',
+      main: '#00FFFF',
     },
   },
 });

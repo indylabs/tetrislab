@@ -57,11 +57,12 @@ export default function TetrisLab({ children }: { children: React.ReactNode }) {
             slots={{
               toolbarActions: () => (
                 <Button
+                  color="secondary"
                   variant="outlined"
                   endIcon={<ExitToAppIcon />}
                   onClick={() => window.alert("TODO: Withdraw and exit flow")}
                 >
-                  Exit and withdraw
+                  Withdraw from study
                 </Button>
               ),
             }}
@@ -69,19 +70,9 @@ export default function TetrisLab({ children }: { children: React.ReactNode }) {
               boxShadow: 0,
               borderRadius: 0,
               borderWidth: 0,
-              header: {
-                border: 0,
-              },
               drawer: {
                 borderRight: "none", // Removes right border
                 boxShadow: "none", // Ensures no shadow remains
-              },
-              PaperProps: {
-                sx: {
-                  border: 0,
-                  borderRight: "none", // Removes right border
-                  boxShadow: "none", // Ensures no shadow remains
-                },
               },
             }}
           >

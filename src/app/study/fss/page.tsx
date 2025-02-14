@@ -4,17 +4,14 @@ import { PageContainer } from "@toolpad/core/PageContainer";
 
 import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 import { Stepper } from "@/components/Stepper/Stepper";
-import { Consent } from "@/components/Consent/Consent";
+import { FSS } from "@/components/FSS/FSS";
 
 import { studySteps } from "@/constants";
+
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
-export default function ConsentPage() {
+export default function FSSPage() {
   const { step, setStep } = useTetrisLabContext();
-
-  if (step === 0) {
-    return null;
-  }
 
   return (
     <>
@@ -32,7 +29,7 @@ export default function ConsentPage() {
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <Consent onComplete={() => setStep(step + 1)} />
+        <FSS onComplete={() => setStep(step + 1)} />
       </PageContainer>
     </>
   );

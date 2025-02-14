@@ -51,6 +51,7 @@ export default function Home() {
           style={{
             margin: "auto",
           }}
+          color="secondary"
         >
           Join Pilot
         </Button>

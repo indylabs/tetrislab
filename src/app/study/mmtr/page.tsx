@@ -2,6 +2,7 @@
 
 import { PageContainer } from "@toolpad/core/PageContainer";
 
+import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 import { Stepper } from "@/components/Stepper/Stepper";
 import { MMTR } from "@/components/MMTR/MMTR";
 
@@ -19,14 +20,16 @@ export default function MMTRPage() {
     <>
       <PageContainer
         title=""
-        breadcrumbs={[
-          { title: "TetrisLab", path: "/" },
-          { title: "Study", path: "/study" },
-          {
-            title: "Media Multitasking (Revised) Questionnaire",
-            path: "/study/mmtr",
-          },
-        ]}
+        slots={{
+          header: () => (
+            <StudyHeader
+              breadcrumbs={[
+                { title: "TetrisLab", path: "/" },
+                { title: "Study", path: "/study" },
+              ]}
+            />
+          ),
+        }}
       >
         <Stepper steps={studySteps} activeStep={step} />
         <MMTR onComplete={() => setStep(step + 1)} />
