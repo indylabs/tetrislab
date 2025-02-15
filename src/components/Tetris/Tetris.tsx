@@ -67,7 +67,7 @@ function Tetris({ onComplete }: TetrisProps) {
     setLevel(0);
 
     dispatch({ type: "ADD_GAME_START" });
-  }, []);
+  }, [dispatch, resetPlayer, setLevel, setRows, setScore, setStage]);
 
   function movePlayer(direction: number) {
     if (!checkCollision(player, stage, { x: direction, y: 0 })) {
