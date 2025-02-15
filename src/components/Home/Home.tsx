@@ -1,4 +1,6 @@
 import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
@@ -25,23 +27,36 @@ export const Home = () => {
         Welcome to TetrisLab
       </Typography>
 
-      <Typography align="center" gutterBottom={true} component="p">
-        TetrisLab is an experimental application which will form part of a
-        research project exploring the Differential Effects of Interrupting 📢
-        and Distracting 👋 UI Notifications on Flow 🧘 and Performance 📈.
-      </Typography>
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            margin: 0,
+            padding: "2rem",
+            gap: "2rem",
+          }}
+        >
+          <Typography align="center" gutterBottom={true} component="p">
+            TetrisLab is an experimental application which will form part of a
+            research project exploring the Differential Effects of Interrupting
+            📢 and Distracting 👋 UI Notifications on Flow 🧘 and Performance
+            📈.
+          </Typography>
 
-      <Button
-        href="/study"
-        variant="outlined"
-        endIcon={<SportsEsportsIcon />}
-        sx={{
-          mx: "auto",
-        }}
-        color="secondary"
-      >
-        Join Pilot
-      </Button>
+          <Button
+            href="/study"
+            variant="outlined"
+            endIcon={<SportsEsportsIcon />}
+            sx={{
+              mx: "auto",
+            }}
+            color="secondary"
+          >
+            Join Pilot
+          </Button>
+        </CardContent>
+      </Card>
     </Box>
   );
 };

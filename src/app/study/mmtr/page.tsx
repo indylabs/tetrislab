@@ -10,11 +10,7 @@ import { studySteps } from "@/constants";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
 export default function MMTRPage() {
-  const { step, setStep } = useTetrisLabContext();
-
-  if (step === 0) {
-    return null;
-  }
+  const { step, nextStep } = useTetrisLabContext();
 
   return (
     <>
@@ -32,7 +28,7 @@ export default function MMTRPage() {
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <MMTR onComplete={() => setStep(step + 1)} />
+        <MMTR onComplete={nextStep} />
       </PageContainer>
     </>
   );
