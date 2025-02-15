@@ -143,7 +143,9 @@ function Tetris({ onComplete }: TetrisProps) {
   // Ensure focus on Tetris 'button'
 
   const focusOnTetris = () => {
-    tetrisRef?.current && tetrisRef.current.focus();
+    if (tetrisRef?.current) {
+      tetrisRef.current.focus();
+    }
   };
 
   // 1. When resumed after pause
