@@ -27,36 +27,26 @@ export const Home = () => {
         Welcome to TetrisLab
       </Typography>
 
-      <Card sx={{ minWidth: 275 }}>
-        <CardContent
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            margin: 0,
-            padding: "2rem",
-            gap: "2rem",
-          }}
-        >
-          <Typography align="center" gutterBottom={true} component="p">
-            TetrisLab is an experimental application which will form part of a
-            research project exploring the Differential Effects of Interrupting
-            📢 and Distracting 👋 UI Notifications on Flow 🧘 and Performance
-            📈.
-          </Typography>
+      <Typography align="center" gutterBottom={true} component="p">
+        TetrisLab is an experimental application which will form part of a
+        research project exploring the
+        <br />
+        Differential Effects of Interrupting 📢 and Distracting 👋 UI
+        Notifications on Flow 🧘 and Performance 📈
+      </Typography>
 
-          <Button
-            href="/study"
-            variant="outlined"
-            endIcon={<SportsEsportsIcon />}
-            sx={{
-              mx: "auto",
-            }}
-            color="secondary"
-          >
-            Join Pilot
-          </Button>
-        </CardContent>
-      </Card>
+      <Button
+        href="/study"
+        variant="outlined"
+        endIcon={<SportsEsportsIcon />}
+        sx={{
+          mx: "auto",
+          textTransform: "none",
+        }}
+        color="secondary"
+      >
+        Join Pilot
+      </Button>
     </Box>
   );
 };
