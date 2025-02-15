@@ -5,7 +5,6 @@ import {
   createContext,
   ReactNode,
   useContext,
-  useEffect,
   useState,
   useReducer,
 } from "react";
@@ -27,15 +26,16 @@ export const TetrisLabContextProvider = ({
   children: ReactNode;
 }) => {
   const router = useRouter();
-
   const [step, setStep] = useState<number>(0);
   const [isPaused, setIsPaused] = useState(false);
   const searchParams = useSearchParams();
   const variant = (searchParams.get("variant") as VARIANTS) || randomVariant;
 
-  useEffect(() => {
-    router.push(studySteps[step].slug);
-  }, [router, step]);
+  const nextStep = () => {
+    const nextStep = step + 1;
+    setStep(nextStep);
+    router.push(studySteps[nextStep].slug);
+  };
 
   const initialState = {
     variant,
@@ -49,7 +49,7 @@ export const TetrisLabContextProvider = ({
 
   return (
     <TetrisLabContext.Provider
-      value={{ state, dispatch, isPaused, setIsPaused, step, setStep }}
+      value={{ state, dispatch, isPaused, setIsPaused, step, nextStep }}
     >
       {children}
     </TetrisLabContext.Provider>

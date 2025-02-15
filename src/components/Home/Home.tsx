@@ -27,8 +27,10 @@ export const Home = () => {
 
       <Typography align="center" gutterBottom={true} component="p">
         TetrisLab is an experimental application which will form part of a
-        research project exploring the Differential Effects of Interrupting 📢
-        and Distracting 👋 UI Notifications on Flow 🧘 and Performance 📈.
+        research project exploring the
+        <br />
+        Differential Effects of Interrupting 📢 and Distracting 👋 UI
+        Notifications on Flow 🧘 and Performance 📈
       </Typography>
 
       <Button
@@ -37,6 +39,7 @@ export const Home = () => {
         endIcon={<SportsEsportsIcon />}
         sx={{
           mx: "auto",
+          textTransform: "none",
         }}
         color="secondary"
       >

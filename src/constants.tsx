@@ -57,4 +57,9 @@ export const studySteps: StudyStepType[] = [
     title: "Debrief",
     slug: "/study/debrief",
   },
+  {
+    id: 8,
+    title: "Participant Code",
+    slug: "/study/participant-code",
+  },
 ];

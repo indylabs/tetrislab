@@ -11,11 +11,7 @@ import { studySteps } from "@/constants";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
 export default function DebriefPage() {
-  const { step, setStep } = useTetrisLabContext();
-
-  if (step === 0) {
-    return null;
-  }
+  const { step, nextStep } = useTetrisLabContext();
 
   return (
     <>
@@ -33,7 +29,7 @@ export default function DebriefPage() {
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <Debrief onComplete={() => setStep(step + 1)} />
+        <Debrief onComplete={nextStep} />
       </PageContainer>
     </>
   );

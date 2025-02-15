@@ -11,7 +11,7 @@ import { studySteps } from "@/constants";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
 export default function FSSPage() {
-  const { step, setStep } = useTetrisLabContext();
+  const { step, nextStep } = useTetrisLabContext();
 
   return (
     <>
@@ -29,7 +29,7 @@ export default function FSSPage() {
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <FSS onComplete={() => setStep(step + 1)} />
+        <FSS onComplete={nextStep} />
       </PageContainer>
     </>
   );

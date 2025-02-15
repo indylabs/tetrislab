@@ -62,7 +62,7 @@ export type TetrisLabContextType = {
   isPaused: boolean;
   setIsPaused: ( isPaused:boolean ) => void
   step: number;
-  setStep: ( step:number ) => void;
+  nextStep: ( ) => void;
 };
 
 export type StudyStepType = {

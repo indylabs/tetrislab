@@ -10,7 +10,7 @@ import { studySteps } from "@/constants";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
 export default function InformationSheetPage() {
-  const { step, setStep } = useTetrisLabContext();
+  const { step, nextStep } = useTetrisLabContext();
 
   return (
     <>
@@ -28,7 +28,7 @@ export default function InformationSheetPage() {
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <InformationSheet onComplete={() => setStep(step + 1)} />
+        <InformationSheet onComplete={nextStep} />
       </PageContainer>
     </>
   );
