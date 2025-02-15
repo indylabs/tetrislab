@@ -1,5 +1,5 @@
+import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
-
 import { useNotification } from "@/hooks/useNotification";
 import { passiveNotifications } from "@/data/notifications";
 import {
@@ -20,10 +20,17 @@ const PassiveNotification = () => {
       open={open}
       autoHideDuration={PASSIVE_NOTIFICATION_AUTO_HIDE_DURATION}
       onClose={() => onClose()}
-      message={notification?.text}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       ClickAwayListenerProps={{ onClickAway: () => null }}
-    />
+    >
+      <Alert
+        severity="info"
+        variant="filled"
+        sx={{ backgroundColor: "primary.main", color: "white" }}
+      >
+        {notification?.text}
+      </Alert>
+    </Snackbar>
   );
 };
 

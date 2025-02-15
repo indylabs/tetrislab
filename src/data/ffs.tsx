@@ -5,7 +5,7 @@ export const ACTION_INFO =
 export const ACTION_LABEL = "Submit responses";
 
 const FSS_RESPONSES_DEFAULT = [
-  { value: 1, label: "Strongly disagree" },
+  { value: 1, label: "Strongly Disagree" },
   { value: 2, label: "Disagree" },
   { value: 3, label: "Neutral" },
   { value: 4, label: "Agree" },

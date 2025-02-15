@@ -67,17 +67,15 @@ function Tetris({ onComplete }: TetrisProps) {
     setLevel(0);
 
     dispatch({ type: "ADD_GAME_START" });
-  }, []);
+  }, [dispatch, resetPlayer, setLevel, setRows, setScore, setStage]);
 
   function movePlayer(direction: number) {
-    if (!isPaused && !checkCollision(player, stage, { x: direction, y: 0 })) {
+    if (!checkCollision(player, stage, { x: direction, y: 0 })) {
       updatePlayerPosition({ x: direction, y: 0 });
     }
   }
 
   function drop() {
-    if (isPaused) return;
-
     // increase lvl when player clears 10 rows
     if (rows > (level + 1) * 10) {
       setLevel((prev) => prev + 1);
@@ -113,22 +111,74 @@ function Tetris({ onComplete }: TetrisProps) {
   const move = ({ keyCode }: { keyCode: number }) => {
     if (!gameover) {
       if (keyCode === 37) {
-        movePlayer(-1);
+        if (!isPaused) {
+          movePlayer(-1);
+        }
       } else if (keyCode === 39) {
-        movePlayer(1);
+        if (!isPaused) {
+          movePlayer(1);
+        }
       } else if (keyCode === 40) {
-        dropPlayer();
+        if (!isPaused) {
+          dropPlayer();
+        }
       } else if (keyCode === 38 /*up*/ || keyCode === 88 /*X*/) {
-        playerRotate(stage, 1);
+        if (!isPaused) {
+          playerRotate(stage, 1);
+        }
       } else if (keyCode === 90 /*Z*/) {
-        playerRotate(stage, -1);
+        if (!isPaused) {
+          playerRotate(stage, -1);
+        }
       }
     }
   };
 
   useInterval(() => {
-    drop();
+    if (!isPaused) {
+      drop();
+    }
   }, droptime);
+
+  // Ensure focus on Tetris 'button'
+
+  const focusOnTetris = () => {
+    if (tetrisRef?.current) {
+      tetrisRef.current.focus();
+    }
+  };
+
+  // 1. When resumed after pause
+  useEffect(() => {
+    if (!isPaused) {
+      focusOnTetris();
+    }
+  }, [isPaused]);
+
+  // 2. When Tetris 'button' is blurred, i.e. when user clicks on background outside of game
+  const handleBlur = () => {
+    focusOnTetris();
+  };
+
+  // 3. When tab is reactivated
+  const handleVisibilityChange = () => {
+    if (document.visibilityState === "visible") {
+      focusOnTetris();
+    }
+  };
+
+  useEffect(() => {
+    // Set focus to the input element when the component mounts
+    if (tetrisRef.current) {
+      tetrisRef.current.focus();
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [handleVisibilityChange]);
 
   return (
     <button
@@ -138,6 +188,7 @@ function Tetris({ onComplete }: TetrisProps) {
       onKeyDown={(e) => move(e)}
       className={styles.tetris}
       ref={tetrisRef}
+      onBlur={handleBlur}
     >
       <Stage stage={stage} />
     </button>

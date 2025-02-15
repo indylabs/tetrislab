@@ -2,12 +2,8 @@ import { forwardRef, useState } from "react";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 
@@ -92,21 +88,8 @@ export const Task = ({ onComplete }: TaskProps) => {
         slots={{
           transition: Transition,
         }}
+        sx={{ mt: "65px" }}
       >
-        <AppBar sx={{ position: "relative", backgroundColor: "#121212" }}>
-          <Toolbar
-            sx={{ justifyContent: "flex-end", backgroundColor: "#121212" }}
-          >
-            <Button
-              variant="outlined"
-              color="secondary"
-              endIcon={<ExitToAppIcon />}
-              onClick={() => window.alert("TODO: Withdraw and exit flow")}
-            >
-              Withdraw from study
-            </Button>
-          </Toolbar>
-        </AppBar>
         <DialogContent
           sx={{
             backgroundColor: "#121212",
