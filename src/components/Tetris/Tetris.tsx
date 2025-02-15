@@ -111,21 +111,33 @@ function Tetris({ onComplete }: TetrisProps) {
   const move = ({ keyCode }: { keyCode: number }) => {
     if (!gameover) {
       if (keyCode === 37) {
-        !isPaused && movePlayer(-1);
+        if (!isPaused) {
+          movePlayer(-1);
+        }
       } else if (keyCode === 39) {
-        !isPaused && movePlayer(1);
+        if (!isPaused) {
+          movePlayer(1);
+        }
       } else if (keyCode === 40) {
-        !isPaused && dropPlayer();
+        if (!isPaused) {
+          dropPlayer();
+        }
       } else if (keyCode === 38 /*up*/ || keyCode === 88 /*X*/) {
-        !isPaused && playerRotate(stage, 1);
+        if (!isPaused) {
+          playerRotate(stage, 1);
+        }
       } else if (keyCode === 90 /*Z*/) {
-        !isPaused && playerRotate(stage, -1);
+        if (!isPaused) {
+          playerRotate(stage, -1);
+        }
       }
     }
   };
 
   useInterval(() => {
-    !isPaused && drop();
+    if (!isPaused) {
+      drop();
+    }
   }, droptime);
 
   // Ensure focus on Tetris 'button'
@@ -164,7 +176,7 @@ function Tetris({ onComplete }: TetrisProps) {
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, []);
+  }, [handleVisibilityChange]);
 
   return (
     <button
