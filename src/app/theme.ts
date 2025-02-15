@@ -13,6 +13,10 @@ const tetrisLabTheme = createTheme({
       main: '#00FFFF',
     },
   },
+  zIndex: {
+    modal: 1100,
+    appBar: 1300
+  }
 });
 
 export default tetrisLabTheme;

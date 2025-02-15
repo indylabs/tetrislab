@@ -92,21 +92,8 @@ export const Task = ({ onComplete }: TaskProps) => {
         slots={{
           transition: Transition,
         }}
+        sx={{ mt: "65px" }}
       >
-        <AppBar sx={{ position: "relative", backgroundColor: "#121212" }}>
-          <Toolbar
-            sx={{ justifyContent: "flex-end", backgroundColor: "#121212" }}
-          >
-            <Button
-              variant="outlined"
-              color="secondary"
-              endIcon={<ExitToAppIcon />}
-              onClick={() => window.alert("TODO: Withdraw and exit flow")}
-            >
-              Withdraw from study
-            </Button>
-          </Toolbar>
-        </AppBar>
         <DialogContent
           sx={{
             backgroundColor: "#121212",
