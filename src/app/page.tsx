@@ -10,9 +10,7 @@ export default function HomePage() {
       title=""
       breadcrumbs={[]}
       sx={{
-        display: "flex",
         height: "100%",
-        alignContent: "flex-start",
       }}
     >
       <Home />

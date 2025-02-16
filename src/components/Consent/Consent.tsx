@@ -45,7 +45,7 @@ export const Consent = ({ onComplete }: ConsentProps) => {
         isValid={isValid}
       />
 
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ pb: 0 }}>
         <CardContent>
           <List>
             {CONSENT_DATA.map(({ id, text }, index) => (

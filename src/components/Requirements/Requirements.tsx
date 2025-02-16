@@ -46,7 +46,7 @@ export const Requirements = ({ onComplete }: RequirementsProps) => {
         isValid={isValid}
       />
 
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ pb: 0 }}>
         <CardContent>
           <List>
             {REQUIREMENTS_DATA.map(({ id, text }, index) => (

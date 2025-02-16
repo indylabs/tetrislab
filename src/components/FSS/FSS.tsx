@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Radio from "@mui/material/Radio";
@@ -67,17 +68,22 @@ export const FSS = ({ onComplete }: FFSProps) => {
         return (
           <Box key={id}>
             <Typography
-              gutterBottom={true}
               component="h2"
-              variant="h6"
+              variant="h5"
               color="primary"
               sx={{ mb: 4 }}
             >
               {dimension}
             </Typography>
             {questions.map(({ id, text, responses }) => (
-              <Card sx={{ minWidth: 275, mb: 4 }} key={id}>
-                <CardContent>
+              <Card key={id} sx={{ mb: 4, p: 2, pb: 0 }}>
+                <CardHeader
+                  title={`Question ${id}`}
+                  sx={{
+                    color: "primary.main",
+                  }}
+                />
+                <CardContent sx={{ p: 0 }}>
                   <FormControl key={id}>
                     <FormControlLabel
                       sx={{
@@ -99,7 +105,7 @@ export const FSS = ({ onComplete }: FFSProps) => {
                           ))}
                         </RadioGroup>
                       }
-                      label={`${id}. ${text}`}
+                      label={text}
                       labelPlacement="top"
                     />
                   </FormControl>

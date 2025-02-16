@@ -27,13 +27,11 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       />
 
       {INFORMATION_DATA.map(({ id, title, content }) => (
-        <Card sx={{ mb: 4 }} key={id}>
+        <Card key={id} sx={{ mb: 4, p: 2, pb: 0 }}>
           <CardHeader title={title} sx={{ color: "primary.main" }} />
           <CardContent>
             {content.map(({ id, text }) => (
-              <Typography key={id} sx={{ mb: 2 }}>
-                {text}
-              </Typography>
+              <Typography key={id}>{text}</Typography>
             ))}
           </CardContent>
         </Card>

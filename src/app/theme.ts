@@ -1,9 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
 const tetrisLabTheme = createTheme({
-  
-
-
   palette: {
     mode: 'dark',
     primary: {

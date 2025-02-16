@@ -1,4 +1,5 @@
 import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
@@ -9,14 +10,13 @@ export const Home = () => {
   return (
     <Box
       sx={{
+        position: "relative",
         display: "flex",
         flexDirection: "column",
         height: "100%",
         justifyContent: "center",
         alignItems: "center",
-        gap: "3rem",
-        margin: 0,
-        padding: 0,
+        gap: "2rem",
       }}
     >
       <Logo />
@@ -32,6 +32,21 @@ export const Home = () => {
         Differential Effects of Interrupting 📢 and Distracting 👋 UI
         Notifications on Flow 🧘 and Performance 📈
       </Typography>
+
+      <Box sx={{ display: "flex", gap: "1rem" }}>
+        <Box>
+          Student:{" "}
+          <Link href="mailto:N00236157@student.iadt.ie" color="secondary.main">
+            Des McDonnell
+          </Link>
+        </Box>
+        <Box>
+          Supervisor:{" "}
+          <Link href="mailto:Liam.Challenor@iadt.ie" color="secondary.main">
+            Dr Liam Challenor
+          </Link>
+        </Box>
+      </Box>
 
       <Button
         href="/study"
