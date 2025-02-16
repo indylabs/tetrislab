@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import Stage from "../Stage/Stage";
@@ -22,7 +21,6 @@ type TetrisProps = {
 };
 
 function Tetris({ onComplete }: TetrisProps) {
-  const router = useRouter();
   const { state, dispatch, isPaused } = useTetrisLabContext();
 
   const tetrisRef = useRef<HTMLButtonElement | null>(null);
@@ -40,7 +38,7 @@ function Tetris({ onComplete }: TetrisProps) {
       insertParticipant(state); // Save state data to database
       onComplete();
     }
-  }, [gameover, router, state, onComplete]);
+  }, [gameover, state, onComplete]);
 
   const handleGameOver = async () => {
     await dispatch({

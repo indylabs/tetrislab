@@ -1,19 +1,20 @@
 "use client";
 
+import { usePathname, useRouter } from "next/navigation";
+
 import { NextAppProvider } from "@toolpad/core/nextjs";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 
 import { type Navigation } from "@toolpad/core/AppProvider";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import ChatIcon from "@mui/icons-material/Chat";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import HomeIcon from "@mui/icons-material/Home";
-import Button from "@mui/material/Button";
 
 import tetrisLabTheme from "./theme";
-
+import Logo from "@/components/Logo/Logo";
+import Withdraw from "@/components/Withdraw/Withdraw";
 import { TetrisLabContextProvider } from "@/state/TetrisLabContext";
 import getRandomVariant from "@/utils/getRandomVariant";
+import getIsStudy from "@/utils/getIsStudy";
 
 import "./normalize.css";
 
@@ -21,11 +22,15 @@ export const NAVIGATION: Navigation = [
   {
     segment: "",
     title: "TetrisLab",
-    icon: <HomeIcon />,
+    icon: (
+      <div style={{ marginLeft: "4px" }}>
+        <Logo size="20px" />
+      </div>
+    ),
   },
   {
     segment: "study/info-sheet",
-    title: "Study",
+    title: "Pilot Study",
     icon: <SportsEsportsIcon />,
   },
   {
@@ -36,13 +41,20 @@ export const NAVIGATION: Navigation = [
 ];
 
 const BRANDING = {
-  logo: <img src="/logoSmall.svg" />,
-  title: "TetrisLab",
+  logo: "",
+  title: "",
   homeUrl: "/",
 };
 
 export default function TetrisLab({ children }: { children: React.ReactNode }) {
   const randomVariant = getRandomVariant();
+  const router = useRouter();
+  const pathname = usePathname();
+  const isStudy = getIsStudy(pathname);
+
+  const handleWithdraw = () => {
+    router.push("/withdraw");
+  };
 
   return (
     <html lang="en">
@@ -55,16 +67,9 @@ export default function TetrisLab({ children }: { children: React.ReactNode }) {
           <DashboardLayout
             defaultSidebarCollapsed={true}
             slots={{
-              toolbarActions: () => (
-                <Button
-                  color="secondary"
-                  variant="outlined"
-                  endIcon={<ExitToAppIcon />}
-                  onClick={() => window.alert("TODO: Withdraw and exit flow")}
-                >
-                  Withdraw from study
-                </Button>
-              ),
+              toolbarActions: isStudy
+                ? () => <Withdraw onWithdraw={() => handleWithdraw()} />
+                : () => <></>,
             }}
             sx={{
               boxShadow: 0,

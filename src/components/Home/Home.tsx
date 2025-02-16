@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 
+import Title from "@/components/Title/Title";
 import Logo from "@/components/Logo/Logo";
 
 export const Home = () => {
@@ -16,21 +17,53 @@ export const Home = () => {
         height: "100%",
         justifyContent: "center",
         alignItems: "center",
-        gap: "2rem",
+        gap: "2.5rem",
+        maxWidth: "75%",
+        m: "auto",
+        mt: "-16px",
       }}
     >
-      <Logo />
+      <Logo size="140px" />
 
-      <Typography align="center" gutterBottom={true} variant="h3" component="p">
-        Welcome to TetrisLab
+      <Typography align="center" variant="h3" component="p">
+        Welcome to <Title variant="h3" />
       </Typography>
 
+      <Typography align="center" component="p">
+        This is an experimental application which will form part of a research
+        project exploring the{" "}
+        <em>
+          "Differential Effects of Interrupting 📢 and Distracting 👋 UI
+          Notifications on Flow 🧘 and Performance 📈"
+        </em>
+      </Typography>
+
+      <Button
+        href="/study"
+        variant="outlined"
+        endIcon={<SportsEsportsIcon />}
+        sx={{
+          mx: "auto",
+          textTransform: "none",
+        }}
+        color="secondary"
+      >
+        Join Pilot Study
+      </Button>
+
       <Typography align="center" gutterBottom={true} component="p">
-        TetrisLab is an experimental application which will form part of a
-        research project exploring the
-        <br />
-        Differential Effects of Interrupting 📢 and Distracting 👋 UI
-        Notifications on Flow 🧘 and Performance 📈
+        This study is being conducted as part of the{" "}
+        <Link
+          href="https://iadt.ie/courses/cyberpsychology/"
+          target="_blank"
+          color="secondary.main"
+        >
+          MSc Cyberpsychology
+        </Link>{" "}
+        at the{" "}
+        <Link href="https://iadt.ie/" target="_blank" color="secondary.main">
+          Institute of Art, Design and Technology (IADT)
+        </Link>
       </Typography>
 
       <Box sx={{ display: "flex", gap: "1rem" }}>
@@ -47,19 +80,6 @@ export const Home = () => {
           </Link>
         </Box>
       </Box>
-
-      <Button
-        href="/study"
-        variant="outlined"
-        endIcon={<SportsEsportsIcon />}
-        sx={{
-          mx: "auto",
-          textTransform: "none",
-        }}
-        color="secondary"
-      >
-        Join Pilot
-      </Button>
     </Box>
   );
 };
