@@ -7,11 +7,7 @@ import Typography from "@mui/material/Typography";
 
 import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 
-import { useTetrisLabContext } from "@/state/TetrisLabContext";
-
 export default function WithdrawPage() {
-  const { step, nextStep } = useTetrisLabContext();
-
   return (
     <>
       <PageContainer

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import Stage from "../Stage/Stage";
 
@@ -159,11 +159,11 @@ function Tetris({ onComplete }: TetrisProps) {
   };
 
   // 3. When tab is reactivated
-  const handleVisibilityChange = () => {
+  const handleVisibilityChange = useCallback(() => {
     if (document.visibilityState === "visible") {
       focusOnTetris();
     }
-  };
+  }, []);
 
   useEffect(() => {
     // Set focus to the input element when the component mounts

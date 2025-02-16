@@ -33,8 +33,8 @@ export const Home = () => {
         This is an experimental application which will form part of a research
         project exploring the{" "}
         <em>
-          "Differential Effects of Interrupting 📢 and Distracting 👋 UI
-          Notifications on Flow 🧘 and Performance 📈"
+          &quot;Differential Effects of Interrupting 📢 and Distracting 👋 UI
+          Notifications on Flow 🧘 and Performance 📈&quot;
         </em>
       </Typography>
 
@@ -51,6 +51,21 @@ export const Home = () => {
         Join Pilot Study
       </Button>
 
+      <Box sx={{ display: "flex", gap: "1rem" }}>
+        <Box>
+          Student:{" "}
+          <Link href="mailto:N00236157@student.iadt.ie" color="secondary.main">
+            Des McDonnell
+          </Link>{" "}
+          (#N00236157)
+        </Box>
+        <Box>
+          Supervisor:{" "}
+          <Link href="mailto:Liam.Challenor@iadt.ie" color="secondary.main">
+            Dr Liam Challenor
+          </Link>
+        </Box>
+      </Box>
       <Typography align="center" gutterBottom={true} component="p">
         This study is being conducted as part of the{" "}
         <Link
@@ -65,21 +80,6 @@ export const Home = () => {
           Institute of Art, Design and Technology (IADT)
         </Link>
       </Typography>
-
-      <Box sx={{ display: "flex", gap: "1rem" }}>
-        <Box>
-          Student:{" "}
-          <Link href="mailto:N00236157@student.iadt.ie" color="secondary.main">
-            Des McDonnell
-          </Link>
-        </Box>
-        <Box>
-          Supervisor:{" "}
-          <Link href="mailto:Liam.Challenor@iadt.ie" color="secondary.main">
-            Dr Liam Challenor
-          </Link>
-        </Box>
-      </Box>
     </Box>
   );
 };
