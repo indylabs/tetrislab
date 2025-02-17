@@ -5,7 +5,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 
 import getRandomVariant from "@/utils/getRandomVariant";
-import TetrisLab from "./tetrisLab";
+import TetrisLab from "./TetrisLab";
 
 export const metadata: Metadata = {
   title: "TetrisLab",

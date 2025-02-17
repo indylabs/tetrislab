@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 import { NextAppProvider } from "@toolpad/core/nextjs";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
@@ -53,7 +53,6 @@ export default function TetrisLab({
   children: React.ReactNode;
   randomVariant: VARIANTS;
 }) {
-  const router = useRouter();
   const pathname = usePathname();
   const isStudy = getIsStudy(pathname);
 
