@@ -27,7 +27,7 @@ export const Debrief = ({ onComplete }: DebriefProps) => {
 
   const [isValid, setIsValid] = useState(false);
 
-  const onHandleComplete = () => {
+  const handleOnComplete = () => {
     dispatch({ type: "ADD_DEBRIEF", debrief: isValid });
     onComplete();
   };
@@ -38,7 +38,7 @@ export const Debrief = ({ onComplete }: DebriefProps) => {
         title={ACTION_TITLE}
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onHandleComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
 
@@ -72,7 +72,7 @@ export const Debrief = ({ onComplete }: DebriefProps) => {
       <StepAction
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onHandleComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
     </>

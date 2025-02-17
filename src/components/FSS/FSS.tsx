@@ -43,7 +43,7 @@ export const FSS = ({ onComplete }: FFSProps) => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleOnComplete = () => {
     dispatch({ type: "ADD_FSS", fss });
     onComplete();
   };
@@ -59,7 +59,7 @@ export const FSS = ({ onComplete }: FFSProps) => {
         title={ACTION_TITLE}
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={handleSubmit}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
 
@@ -119,7 +119,7 @@ export const FSS = ({ onComplete }: FFSProps) => {
       <StepAction
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
     </>

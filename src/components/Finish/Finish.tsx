@@ -50,7 +50,7 @@ export const Finish = ({ onComplete }: FinishProps) => {
     }
   };
 
-  const onHandleComplete = () => {
+  const handleOnComplete = () => {
     if (participantCode) {
       dispatch({ type: "ADD_PARTICIPANT_CODE", participantCode });
       setIsFinished(true);
@@ -70,7 +70,7 @@ export const Finish = ({ onComplete }: FinishProps) => {
         title={ACTION_TITLE}
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onHandleComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
 
@@ -128,7 +128,7 @@ export const Finish = ({ onComplete }: FinishProps) => {
       <StepAction
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onHandleComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
     </>

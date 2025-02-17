@@ -13,11 +13,6 @@ import { useTetrisLabContext } from "@/state/TetrisLabContext";
 export default function DebriefPage() {
   const { step, nextStep } = useTetrisLabContext();
 
-  const handleOnComplete = () => {
-    // TODO: Persist debrief data here
-    nextStep();
-  };
-
   return (
     <>
       <PageContainer
@@ -31,7 +26,7 @@ export default function DebriefPage() {
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <Debrief onComplete={handleOnComplete} />
+        <Debrief onComplete={nextStep} />
       </PageContainer>
     </>
   );
