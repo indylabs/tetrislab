@@ -1,6 +1,5 @@
 "use client";
 
-import Typography from "@mui/material/Typography";
 import { PageContainer } from "@toolpad/core/PageContainer";
 import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 import Feedback from "@/components/Feedback/Feedback";
