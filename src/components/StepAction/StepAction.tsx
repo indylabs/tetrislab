@@ -1,7 +1,7 @@
 import * as React from "react";
-import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import InfoIcon from "@mui/icons-material/Info";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
@@ -25,20 +25,20 @@ export const StepAction = ({
     <Box sx={{ display: "flex", justifyContent: "space-between", my: 4 }}>
       <Box>
         <Typography
-          sx={{ color: "primary.main", fontSize: "1.6rem" }}
+          sx={{ color: "primary.main", fontSize: "2.4rem", mb: 4 }}
           gutterBottom={true}
         >
           {title}
         </Typography>
-        <Alert variant="standard" severity="info">
-          {info}
-        </Alert>
+        <Typography gutterBottom={true} sx={{ display: "flex", gap: "0.3rem" }}>
+          <InfoIcon sx={{ color: "primary.main" }} /> {info}
+        </Typography>
       </Box>
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "flex-end",
         }}
       >
         <Tooltip title={isValid ? null : info}>

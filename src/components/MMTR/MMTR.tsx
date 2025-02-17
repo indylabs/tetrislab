@@ -7,6 +7,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 
 import { StepAction } from "@/components/StepAction/StepAction";
@@ -67,8 +68,12 @@ export const MMTR = ({ onComplete }: MMTRProps) => {
 
       {MMTR_DATA.map(({ id, text, responses }) => {
         return (
-          <Card sx={{ minWidth: 275, mb: 4 }} key={id}>
-            <CardContent>
+          <Card key={id} sx={{ mb: 4, p: 2, pb: 0 }}>
+            <CardHeader
+              title={`Question ${id}`}
+              sx={{ color: "primary.main" }}
+            />
+            <CardContent sx={{ p: 0 }}>
               <FormControl>
                 <FormControlLabel
                   sx={{
@@ -78,6 +83,7 @@ export const MMTR = ({ onComplete }: MMTRProps) => {
                     <RadioGroup
                       row
                       onChange={(event) => handleChange(id, event)}
+                      sx={{ mt: 2 }}
                     >
                       {responses.map(({ value, label }) => (
                         <FormControlLabel
@@ -89,7 +95,7 @@ export const MMTR = ({ onComplete }: MMTRProps) => {
                       ))}
                     </RadioGroup>
                   }
-                  label={`${id}. ${text}`}
+                  label={text}
                   labelPlacement="top"
                 />
               </FormControl>

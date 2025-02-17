@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { List, ListItem, Checkbox } from "@mui/material";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/List";
+import Checkbox from "@mui/material/Checkbox";
+
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -45,7 +48,7 @@ export const Consent = ({ onComplete }: ConsentProps) => {
         isValid={isValid}
       />
 
-      <Card sx={{ minWidth: 275 }}>
+      <Card>
         <CardContent>
           <List>
             {CONSENT_DATA.map(({ id, text }, index) => (
@@ -59,6 +62,7 @@ export const Consent = ({ onComplete }: ConsentProps) => {
                       />
                     }
                     label={text}
+                    labelPlacement="start"
                   />
                 </FormControl>
               </ListItem>
@@ -66,6 +70,7 @@ export const Consent = ({ onComplete }: ConsentProps) => {
           </List>
         </CardContent>
       </Card>
+
       <StepAction
         info={ACTION_INFO}
         label={ACTION_LABEL}

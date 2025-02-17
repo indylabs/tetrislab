@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Radio from "@mui/material/Radio";
@@ -66,18 +67,18 @@ export const FSS = ({ onComplete }: FFSProps) => {
       {FSS_DATA.map(({ id, dimension, questions }) => {
         return (
           <Box key={id}>
-            <Typography
-              gutterBottom={true}
-              component="h2"
-              variant="h6"
-              color="primary"
-              sx={{ mb: 4 }}
-            >
+            <Typography component="h2" variant="h5" color="primary">
               {dimension}
             </Typography>
             {questions.map(({ id, text, responses }) => (
-              <Card sx={{ minWidth: 275, mb: 4 }} key={id}>
-                <CardContent>
+              <Card key={id} sx={{ mb: 4, p: 2, pb: 0 }}>
+                <CardHeader
+                  title={`Question ${id}`}
+                  sx={{
+                    color: "primary.main",
+                  }}
+                />
+                <CardContent sx={{ p: 0 }}>
                   <FormControl key={id}>
                     <FormControlLabel
                       sx={{
@@ -88,6 +89,7 @@ export const FSS = ({ onComplete }: FFSProps) => {
                         <RadioGroup
                           row
                           onChange={(event) => handleChange(id, event)}
+                          sx={{ mt: 2 }}
                         >
                           {responses.map(({ value, label }) => (
                             <FormControlLabel
@@ -99,7 +101,7 @@ export const FSS = ({ onComplete }: FFSProps) => {
                           ))}
                         </RadioGroup>
                       }
-                      label={`${id}. ${text}`}
+                      label={text}
                       labelPlacement="top"
                     />
                   </FormControl>

@@ -4,13 +4,13 @@ import { PageContainer } from "@toolpad/core/PageContainer";
 
 import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 import { Stepper } from "@/components/Stepper/Stepper";
-import { Requirements } from "@/components/Requirements/Requirements";
+import { Particulars } from "@/components/Particulars/Particulars";
 
 import { studySteps } from "@/constants";
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
-export default function RequirementsPage() {
+export default function ParticularsPage() {
   const { step, nextStep } = useTetrisLabContext();
 
   return (
@@ -20,16 +20,13 @@ export default function RequirementsPage() {
         slots={{
           header: () => (
             <StudyHeader
-              breadcrumbs={[
-                { title: "TetrisLab", path: "/" },
-                { title: "Study", path: "/study" },
-              ]}
+              breadcrumbs={[{ title: "Pilot Study", path: "/study" }]}
             />
           ),
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <Requirements onComplete={nextStep} />
+        <Particulars onComplete={nextStep} />
       </PageContainer>
     </>
   );

@@ -1,7 +1,12 @@
+import { useState } from "react";
+
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
+
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 
 import { StepAction } from "@/components/StepAction/StepAction";
 import {
@@ -16,6 +21,12 @@ type InformationSheetProps = {
 };
 
 export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
+  const [isValid, setIsValid] = useState(false);
+
+  const handleCheck = () => {
+    setIsValid((prev) => !prev);
+  };
+
   return (
     <>
       <StepAction
@@ -23,32 +34,30 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
         info={ACTION_INFO}
         label={ACTION_LABEL}
         onAction={onComplete}
-        isValid={true}
+        isValid={isValid}
       />
 
       {INFORMATION_DATA.map(({ id, title, content }) => (
-        <Card sx={{ mb: 4 }} key={id}>
+        <Card key={id} sx={{ mb: 4, p: 2, pb: 0 }}>
           <CardHeader title={title} sx={{ color: "primary.main" }} />
-          <CardContent>
-            {content.map(({ id, text }) => (
-              <Typography key={id} sx={{ mb: 2 }}>
-                {text}
-              </Typography>
-            ))}
-          </CardContent>
+          <CardContent>{content}</CardContent>
         </Card>
       ))}
 
-      <span color="red">
-        TODO: Explain in the information sheet why the time/score isnt shown. We
-        can state that it is to prevent distraction from the task.{" "}
-      </span>
+      <FormGroup sx={{ alignItems: "flex-end" }}>
+        <FormControlLabel
+          required
+          control={<Checkbox color="secondary" onChange={handleCheck} />}
+          label="I have read all sections of this information sheet"
+          labelPlacement="start"
+        />
+      </FormGroup>
 
       <StepAction
         info={ACTION_INFO}
         label={ACTION_LABEL}
         onAction={onComplete}
-        isValid={true}
+        isValid={isValid}
       />
     </>
   );

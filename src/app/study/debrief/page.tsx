@@ -20,10 +20,7 @@ export default function DebriefPage() {
         slots={{
           header: () => (
             <StudyHeader
-              breadcrumbs={[
-                { title: "TetrisLab", path: "/" },
-                { title: "Study", path: "/study" },
-              ]}
+              breadcrumbs={[{ title: "Pilot Study", path: "/study" }]}
             />
           ),
         }}

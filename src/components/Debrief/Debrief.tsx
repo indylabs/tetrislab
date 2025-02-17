@@ -28,7 +28,7 @@ export const Debrief = ({ onComplete }: DebriefProps) => {
       />
 
       {DEBRIEF_DATA.map(({ id, title, content }) => (
-        <Card sx={{ mb: 4 }} key={id}>
+        <Card key={id}>
           <CardHeader title={title} />
           <CardContent>
             {content.map(({ id, text }) => (

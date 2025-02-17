@@ -3,6 +3,9 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 
+import Logo from "@/components/Logo/Logo";
+import Title from "@/components/Title/Title";
+
 type StudyHeaderProps = {
   breadcrumbs: {
     title: string;
@@ -12,15 +15,22 @@ type StudyHeaderProps = {
 
 export const StudyHeader = ({ breadcrumbs }: StudyHeaderProps) => {
   return (
-    <Box sx={{ pt: 1 }}>
+    <Box sx={{ py: 2 }}>
       <Breadcrumbs>
+        <span
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyItems: "center",
+            gap: "0.3rem",
+          }}
+        >
+          <Logo size="2rem" /> <Title variant="h5" />
+        </span>
         {breadcrumbs.map(({ title, path }, index) => {
           if (index === breadcrumbs.length - 1) {
             return (
-              <Typography
-                key={index}
-                sx={{ color: "primary.main", fontSize: "1.6rem" }}
-              >
+              <Typography key={index} variant="h5" color="white">
                 {title}
               </Typography>
             );
