@@ -41,7 +41,7 @@ export const Home = () => {
       </Typography>
 
       <Button
-        href="/study"
+        href="/info-sheet"
         variant="outlined"
         endIcon={<SportsEsportsIcon />}
         sx={{

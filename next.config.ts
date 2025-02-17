@@ -4,16 +4,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
 
-  async redirects() {
-    return [
-      {
-        source: '/study',
-        destination: '/study/info-sheet',
-        permanent: true
-      },
-    ]
-  },
-
   async rewrites() {
     return [
       {

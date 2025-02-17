@@ -3,14 +3,13 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Box from "@mui/material/Box";
 
-import { StudyStepType } from "@/types";
+import { STUDY_STEPS } from "@/constants";
 
 type StepperProps = {
-  steps: StudyStepType[];
   activeStep: number;
 };
 
-export const Stepper = ({ steps, activeStep }: StepperProps) => {
+export const Stepper = ({ activeStep }: StepperProps) => {
   return (
     <Box
       sx={{
@@ -22,7 +21,7 @@ export const Stepper = ({ steps, activeStep }: StepperProps) => {
       }}
     >
       <MUIStepper activeStep={activeStep} sx={{ p: 0 }}>
-        {steps.map(({ id, title }) => {
+        {STUDY_STEPS.map(({ id, title }) => {
           const stepProps: { completed?: boolean } = {};
 
           return (

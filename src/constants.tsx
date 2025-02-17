@@ -1,3 +1,8 @@
+import Logo from "@/components/Logo/Logo";
+import { type Navigation } from "@toolpad/core/AppProvider";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import ChatIcon from "@mui/icons-material/Chat";
+
 import { StudyStepType } from "./types";
 
 export enum VARIANTS {
@@ -21,48 +26,76 @@ export const PASSIVE_NOTIFICATION_AUTO_HIDE_DURATION = 5000; // 5 sec
 
 export const ACTIVE_NOTIFICATION_INTERVAL = 10000; // 10 sec
 
+export const NAVIGATION: Navigation = [
+  {
+    segment: "",
+    title: "TetrisLab",
+    icon: (
+      <div style={{ marginLeft: "4px" }}>
+        <Logo size="20px" />
+      </div>
+    ),
+  },
+  {
+    segment: "info-sheet",
+    title: "Pilot Study",
+    icon: <SportsEsportsIcon />,
+  },
+  {
+    segment: "feedback",
+    title: "Feedback",
+    icon: <ChatIcon />,
+  },
+];
+
 export const STUDY_STEPS: StudyStepType[] = [
   {
     id: 1,
     title: "Information Sheet",
-    slug: "/study/info-sheet",
+    slug: "/info-sheet",
   },
   {
     id: 2,
     title: "Particulars",
-    slug: "/study/particulars",
+    slug: "/particulars",
   },
   {
     id: 3,
     title: "Consent",
-    slug: "/study/consent",
+    slug: "/consent",
   },
   {
     id: 4,
     title: "MMT-R Questionnaire",
-    slug: "/study/mmtr",
+    slug: "/mmtr",
   },
   {
     id: 5,
     title: "Task ",
-    slug: "/study/task",
+    slug: "/task",
   },
   {
     id: 6,
     title: "FSS Questionnaire",
-    slug: "/study/fss",
+    slug: "/fss",
   },
   {
     id: 7,
     title: "Debrief",
-    slug: "/study/debrief",
+    slug: "/debrief",
   },
   {
     id: 8,
     title: "Finish",
-    slug: "/study/finish",
+    slug: "/finish",
   },
 ];
+
+export const BRANDING = {
+  logo: "",
+  title: "",
+  homeUrl: "/",
+};
 
 export const INITIAL_STATE = {
   variant: null,
