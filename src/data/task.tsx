@@ -29,7 +29,7 @@ export const TASK_DATA_PRE = [
               Primary Task
             </Typography>
             <Typography sx={{ mb: 2 }}>
-              The Tetris game will start when you click "Start Task".
+              The Tetris game will start when you click &quot;Start Task&quot;.
             </Typography>
 
             <Typography sx={{ mb: 2 }}>
@@ -102,7 +102,8 @@ export const TASK_DATA_PRE = [
           </Typography>
           <Typography>
             Active notifications will require a response to continue. You can
-            response by clicking either "Yes" or "No" with your mouse.
+            response by clicking either &quot;Yes&quot; or &quot;No&quot; with
+            your mouse.
           </Typography>
         </Box>
         <Box>AN IMAGE</Box>
