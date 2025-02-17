@@ -29,7 +29,6 @@ export const Finish = ({ onComplete }: FinishProps) => {
 
   const [isValid, setIsValid] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
-  const [isFinished, setIsFinished] = useState(false);
   const [participantCode, setParticipantCode] = useState<string | null>(null);
 
   useEffect(() => {
@@ -50,19 +49,18 @@ export const Finish = ({ onComplete }: FinishProps) => {
     }
   };
 
-  const handleOnComplete = () => {
-    if (participantCode) {
-      dispatch({ type: "ADD_PARTICIPANT_CODE", participantCode });
-      setIsFinished(true);
-    }
+  const handleOnComplete = async () => {
+    await insertParticipant(state); // Save state data to database
+    // TODO: Add error handling here. Update UI on failure
+
+    onComplete();
   };
 
   useEffect(() => {
-    if (isFinished) {
-      insertParticipant(state); // Save state data to database
-      onComplete();
+    if (participantCode) {
+      dispatch({ type: "ADD_PARTICIPANT_CODE", participantCode });
     }
-  }, [isFinished, onComplete, state]);
+  }, [participantCode]);
 
   return (
     <>
