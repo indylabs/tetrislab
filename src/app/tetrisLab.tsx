@@ -15,6 +15,8 @@ import Withdraw from "@/components/Withdraw/Withdraw";
 import { TetrisLabContextProvider } from "@/state/TetrisLabContext";
 import getIsStudy from "@/utils/getIsStudy";
 
+import { VARIANTS } from "@/constants";
+
 import "./normalize.css";
 
 export const NAVIGATION: Navigation = [
@@ -50,7 +52,7 @@ export default function TetrisLab({
   randomVariant,
 }: {
   children: React.ReactNode;
-  randomVariant: string;
+  randomVariant: VARIANTS;
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -80,8 +82,8 @@ export default function TetrisLab({
               borderRadius: 0,
               borderWidth: 0,
               drawer: {
-                borderRight: "none", // Removes right border
-                boxShadow: "none", // Ensures no shadow remains
+                borderRight: "none",
+                boxShadow: "none",
               },
             }}
           >
