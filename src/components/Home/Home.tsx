@@ -1,3 +1,5 @@
+import NextLink from "next/link";
+
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
@@ -39,7 +41,7 @@ export const Home = () => {
       </Typography>
 
       <Button
-        href="/study"
+        href="/info-sheet"
         variant="outlined"
         endIcon={<SportsEsportsIcon />}
         sx={{
@@ -47,6 +49,7 @@ export const Home = () => {
           textTransform: "none",
         }}
         color="secondary"
+        component={NextLink}
       >
         Join Pilot Study
       </Button>

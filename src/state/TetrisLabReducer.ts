@@ -50,11 +50,11 @@ export const reducer = (state: TetrisLabState, action: TetrisLabAction): TetrisL
         ...state,
         debrief: action.debrief
       }
-      case "ADD_PARTICIPANT_CODE":
-        return {
-          ...state,
-          participantCode: action.participantCode
-        }
+    case "ADD_PARTICIPANT_CODE":
+      return {
+        ...state,
+        participantCode: action.participantCode
+      }
     default:
       throw new Error(`Unknown action type: ${action}`);
   }

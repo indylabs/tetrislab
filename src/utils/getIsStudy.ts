@@ -1,7 +1,7 @@
-import { studySteps } from '@/constants';
+import { STUDY_STEPS } from '@/constants';
 
 const getIsStudy = (pathname: string) => {
-  return studySteps.map(({ slug }) => slug).includes(pathname);
+  return STUDY_STEPS.map(({ slug }) => slug).includes(pathname);
 }
 
 export default getIsStudy;
