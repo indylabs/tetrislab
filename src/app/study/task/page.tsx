@@ -13,6 +13,11 @@ import { useTetrisLabContext } from "@/state/TetrisLabContext";
 export default function TaskPage() {
   const { step, nextStep } = useTetrisLabContext();
 
+  const handleOnComplete = () => {
+    // TODO: Persist task data here
+    nextStep();
+  };
+
   return (
     <>
       <PageContainer
@@ -26,7 +31,7 @@ export default function TaskPage() {
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <Task onComplete={nextStep} />
+        <Task onComplete={handleOnComplete} />
       </PageContainer>
     </>
   );

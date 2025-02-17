@@ -8,6 +8,7 @@ import CardContent from "@mui/material/CardContent";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 
+import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
 
 import {
@@ -20,8 +21,10 @@ import {
 type ConsentProps = { onComplete: () => void };
 
 export const Consent = ({ onComplete }: ConsentProps) => {
+  const { dispatch } = useTetrisLabContext();
+
   const [isValid, setIsValid] = useState(false);
-  const [consent, setConsent] = useState<(boolean | null)[]>(
+  const [consent, setConsent] = useState<boolean[]>(
     new Array(CONSENT_DATA.length).fill(false)
   );
 
@@ -38,13 +41,18 @@ export const Consent = ({ onComplete }: ConsentProps) => {
     setIsValid(consent.every((consent) => consent));
   }, [consent]);
 
+  const handleOnComplete = () => {
+    dispatch({ type: "ADD_CONSENT", consent });
+    onComplete();
+  };
+
   return (
     <>
       <StepAction
         title={ACTION_TITLE}
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
 
@@ -74,7 +82,7 @@ export const Consent = ({ onComplete }: ConsentProps) => {
       <StepAction
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
     </>

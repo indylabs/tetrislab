@@ -8,6 +8,7 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
+import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
 
 import {
@@ -22,14 +23,22 @@ type DebriefProps = {
 };
 
 export const Debrief = ({ onComplete }: DebriefProps) => {
+  const { dispatch } = useTetrisLabContext();
+
   const [isValid, setIsValid] = useState(false);
+
+  const onHandleComplete = () => {
+    dispatch({ type: "ADD_DEBRIEF", debrief: isValid });
+    onComplete();
+  };
+
   return (
     <>
       <StepAction
         title={ACTION_TITLE}
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={onHandleComplete}
         isValid={isValid}
       />
 
@@ -63,7 +72,7 @@ export const Debrief = ({ onComplete }: DebriefProps) => {
       <StepAction
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={onHandleComplete}
         isValid={isValid}
       />
     </>

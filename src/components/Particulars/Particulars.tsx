@@ -12,6 +12,7 @@ import Select from "@mui/material/Select";
 import Tooltip from "@mui/material/Tooltip";
 import InfoIcon from "@mui/icons-material/Info";
 
+import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
 
 import {
@@ -25,10 +26,12 @@ import { Typography } from "@mui/material";
 type ParticularsProps = { onComplete: () => void };
 
 export const Particulars = ({ onComplete }: ParticularsProps) => {
+  const { dispatch } = useTetrisLabContext();
+
   const [isValid, setIsValid] = useState(false);
   const [age, setAge] = useState<string>("");
   const [gender, setGender] = useState<string>("");
-  const [requirements, setRequirements] = useState<(boolean | null)[]>(
+  const [requirements, setRequirements] = useState<boolean[]>(
     new Array(PARTICULARS_DATA.length).fill(false)
   );
 
@@ -49,13 +52,18 @@ export const Particulars = ({ onComplete }: ParticularsProps) => {
     setIsValid(isValid);
   }, [age, gender, requirements]);
 
+  const handleOnComplete = () => {
+    dispatch({ type: "ADD_PARTICULARS", gender, age, requirements });
+    onComplete();
+  };
+
   return (
     <>
       <StepAction
         title={ACTION_TITLE}
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
       <Typography component="h2" variant="h5" color="primary" sx={{ mb: 2 }}>
@@ -192,7 +200,7 @@ export const Particulars = ({ onComplete }: ParticularsProps) => {
       <StepAction
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
     </>

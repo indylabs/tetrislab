@@ -13,6 +13,11 @@ import { useTetrisLabContext } from "@/state/TetrisLabContext";
 export default function FSSPage() {
   const { step, nextStep } = useTetrisLabContext();
 
+  const handleOnComplete = () => {
+    // TODO: Persist fss data here
+    nextStep();
+  };
+
   return (
     <>
       <PageContainer
@@ -26,7 +31,7 @@ export default function FSSPage() {
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <FSS onComplete={nextStep} />
+        <FSS onComplete={handleOnComplete} />
       </PageContainer>
     </>
   );

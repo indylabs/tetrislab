@@ -12,6 +12,11 @@ import { useTetrisLabContext } from "@/state/TetrisLabContext";
 export default function ConsentPage() {
   const { step, nextStep } = useTetrisLabContext();
 
+  const handleOnComplete = () => {
+    // TODO: Persist consent data here
+    nextStep();
+  };
+
   return (
     <>
       <PageContainer
@@ -25,7 +30,7 @@ export default function ConsentPage() {
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <Consent onComplete={nextStep} />
+        <Consent onComplete={handleOnComplete} />
       </PageContainer>
     </>
   );

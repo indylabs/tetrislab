@@ -33,7 +33,6 @@ export const TetrisLabContextProvider = ({
   const variant = (searchParams.get("variant") as VARIANTS) || randomVariant;
 
   const nextStep = () => {
-    console.log("nextStep");
     const nextStep = step + 1;
     setStep(nextStep);
     router.push(studySteps[nextStep].slug);
@@ -41,13 +40,26 @@ export const TetrisLabContextProvider = ({
 
   const initialState = {
     variant,
+    infoSheet: false,
+    gender: null,
+    age: null,
+    requirements: [],
+    consent: [],
     mmtr: [],
-    start: null,
-    end: null,
+    gameStart: null,
+    gameEnd: null,
+    gameScore: null,
+    gameLevel: null,
+    gameRows: null,
     notifications: [],
+    fss: [],
+    debrief: false,
+    participantCode: null,
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  console.log("state:", state);
 
   return (
     <TetrisLabContext.Provider

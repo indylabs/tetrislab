@@ -13,6 +13,11 @@ import { useTetrisLabContext } from "@/state/TetrisLabContext";
 export default function ParticularsPage() {
   const { step, nextStep } = useTetrisLabContext();
 
+  const handleOnComplete = () => {
+    // TODO: Persist participant data here
+    nextStep();
+  };
+
   return (
     <>
       <PageContainer
@@ -26,7 +31,7 @@ export default function ParticularsPage() {
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <Particulars onComplete={nextStep} />
+        <Particulars onComplete={handleOnComplete} />
       </PageContainer>
     </>
   );

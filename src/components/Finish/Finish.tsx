@@ -14,6 +14,8 @@ import Checkbox from "@mui/material/Checkbox";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
+import { useTetrisLabContext } from "@/state/TetrisLabContext";
+import insertParticipant from "@/app/actions/insertParticipant";
 import { StepAction } from "@/components/StepAction/StepAction";
 
 import { ACTION_TITLE, ACTION_INFO, ACTION_LABEL } from "@/data/finish";
@@ -23,18 +25,23 @@ type FinishProps = {
 };
 
 export const Finish = ({ onComplete }: FinishProps) => {
+  const { dispatch, state } = useTetrisLabContext();
+
   const [isValid, setIsValid] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
-  const [passPhrase, setPassPhrase] = useState<string | null>(null);
+  const [isFinished, setIsFinished] = useState(false);
+  const [participantCode, setParticipantCode] = useState<string | null>(null);
 
   useEffect(() => {
-    setPassPhrase(passphraseJS.genPassPhraseNormal(4, passphraseJS.effLarge));
-  }, [passphraseJS]);
+    setParticipantCode(
+      passphraseJS.genPassPhraseNormal(4, passphraseJS.effLarge)
+    );
+  }, []);
 
   const handleCopy = async () => {
     try {
-      if (passPhrase) {
-        await navigator.clipboard.writeText(passPhrase);
+      if (participantCode) {
+        await navigator.clipboard.writeText(participantCode);
         setIsCopied(true);
         setTimeout(() => setIsCopied(false), 2000);
       }
@@ -43,13 +50,27 @@ export const Finish = ({ onComplete }: FinishProps) => {
     }
   };
 
+  const onHandleComplete = () => {
+    if (participantCode) {
+      dispatch({ type: "ADD_PARTICIPANT_CODE", participantCode });
+      setIsFinished(true);
+    }
+  };
+
+  useEffect(() => {
+    if (isFinished) {
+      insertParticipant(state); // Save state data to database
+      onComplete();
+    }
+  }, [isFinished, onComplete, state]);
+
   return (
     <>
       <StepAction
         title={ACTION_TITLE}
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={onHandleComplete}
         isValid={isValid}
       />
 
@@ -66,7 +87,7 @@ export const Finish = ({ onComplete }: FinishProps) => {
           >
             <Typography>Your participlant code is:</Typography>
             <Typography sx={{ fontSize: "1.6rem" }} color="primary">
-              {passPhrase}
+              {participantCode}
             </Typography>
             {isCopied && <CheckCircleIcon color="secondary" />}
             {!isCopied && (
@@ -107,7 +128,7 @@ export const Finish = ({ onComplete }: FinishProps) => {
       <StepAction
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={onHandleComplete}
         isValid={isValid}
       />
     </>

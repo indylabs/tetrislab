@@ -13,7 +13,6 @@ import tetrisLabTheme from "./theme";
 import Logo from "@/components/Logo/Logo";
 import Withdraw from "@/components/Withdraw/Withdraw";
 import { TetrisLabContextProvider } from "@/state/TetrisLabContext";
-import getRandomVariant from "@/utils/getRandomVariant";
 import getIsStudy from "@/utils/getIsStudy";
 
 import "./normalize.css";
@@ -46,8 +45,13 @@ const BRANDING = {
   homeUrl: "/",
 };
 
-export default function TetrisLab({ children }: { children: React.ReactNode }) {
-  const randomVariant = getRandomVariant();
+export default function TetrisLab({
+  children,
+  randomVariant,
+}: {
+  children: React.ReactNode;
+  randomVariant: string;
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const isStudy = getIsStudy(pathname);

@@ -46,7 +46,7 @@ export const MMTR = ({ onComplete }: MMTRProps) => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleOnComplete = () => {
     dispatch({ type: "ADD_MMTR", mmtr });
     onComplete();
   };
@@ -62,7 +62,7 @@ export const MMTR = ({ onComplete }: MMTRProps) => {
         title={ACTION_TITLE}
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={handleSubmit}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
 
@@ -107,7 +107,7 @@ export const MMTR = ({ onComplete }: MMTRProps) => {
       <StepAction
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
     </>
