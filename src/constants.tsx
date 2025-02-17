@@ -21,7 +21,7 @@ export const PASSIVE_NOTIFICATION_AUTO_HIDE_DURATION = 5000; // 5 sec
 
 export const ACTIVE_NOTIFICATION_INTERVAL = 10000; // 10 sec
 
-export const studySteps: StudyStepType[] = [
+export const STUDY_STEPS: StudyStepType[] = [
   {
     id: 1,
     title: "Information Sheet",
@@ -63,3 +63,22 @@ export const studySteps: StudyStepType[] = [
     slug: "/study/finish",
   },
 ];
+
+export const INITIAL_STATE = {
+  variant: null,
+  infoSheet: false,
+  gender: null,
+  age: null,
+  requirements: [],
+  consent: [],
+  mmtr: [],
+  gameStart: null,
+  gameEnd: null,
+  gameScore: null,
+  gameLevel: null,
+  gameRows: null,
+  notifications: [],
+  fss: [],
+  debrief: false,
+  participantCode: null,
+};

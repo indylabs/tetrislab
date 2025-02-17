@@ -8,7 +8,7 @@ import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 import { Stepper } from "@/components/Stepper/Stepper";
 import { Finish } from "@/components/Finish/Finish";
 
-import { studySteps } from "@/constants";
+import { STUDY_STEPS } from "@/constants";
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
@@ -32,7 +32,7 @@ export default function FinishPage() {
           ),
         }}
       >
-        <Stepper steps={studySteps} activeStep={step} />
+        <Stepper steps={STUDY_STEPS} activeStep={step} />
         <Finish onComplete={handleOnComplete} />
       </PageContainer>
     </>

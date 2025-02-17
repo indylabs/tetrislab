@@ -6,7 +6,7 @@ import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 import { Stepper } from "@/components/Stepper/Stepper";
 import { FSS } from "@/components/FSS/FSS";
 
-import { studySteps } from "@/constants";
+import { STUDY_STEPS } from "@/constants";
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
@@ -25,7 +25,7 @@ export default function FSSPage() {
           ),
         }}
       >
-        <Stepper steps={studySteps} activeStep={step} />
+        <Stepper steps={STUDY_STEPS} activeStep={step} />
         <FSS onComplete={nextStep} />
       </PageContainer>
     </>

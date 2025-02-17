@@ -13,7 +13,7 @@ import {
 import { reducer } from "./TetrisLabReducer";
 
 import type { TetrisLabContextType } from "@/types";
-import { VARIANTS, studySteps } from "@/constants";
+import { INITIAL_STATE, VARIANTS, STUDY_STEPS } from "@/constants";
 
 const TetrisLabContext = createContext<TetrisLabContextType | undefined>(
   undefined
@@ -35,29 +35,10 @@ export const TetrisLabContextProvider = ({
   const nextStep = () => {
     const nextStep = step + 1;
     setStep(nextStep);
-    router.push(studySteps[nextStep].slug);
+    router.push(STUDY_STEPS[nextStep].slug);
   };
 
-  const initialState = {
-    variant,
-    infoSheet: false,
-    gender: null,
-    age: null,
-    requirements: [],
-    consent: [],
-    mmtr: [],
-    gameStart: null,
-    gameEnd: null,
-    gameScore: null,
-    gameLevel: null,
-    gameRows: null,
-    notifications: [],
-    fss: [],
-    debrief: false,
-    participantCode: null,
-  };
-
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, { ...INITIAL_STATE, variant });
 
   console.log("state:", state);
 

@@ -14,7 +14,6 @@ import Logo from "@/components/Logo/Logo";
 import Withdraw from "@/components/Withdraw/Withdraw";
 import { TetrisLabContextProvider } from "@/state/TetrisLabContext";
 import getIsStudy from "@/utils/getIsStudy";
-
 import { VARIANTS } from "@/constants";
 
 import "./normalize.css";
@@ -59,7 +58,7 @@ export default function TetrisLab({
   const isStudy = getIsStudy(pathname);
 
   const handleWithdraw = () => {
-    router.push("/withdraw");
+    window.location.replace("/withdraw");
   };
 
   return (

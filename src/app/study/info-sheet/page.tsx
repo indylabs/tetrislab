@@ -6,7 +6,7 @@ import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 import { Stepper } from "@/components/Stepper/Stepper";
 import { InformationSheet } from "@/components/InformationSheet/InformationSheet";
 
-import { studySteps } from "@/constants";
+import { STUDY_STEPS } from "@/constants";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
 export default function InformationSheetPage() {
@@ -23,7 +23,7 @@ export default function InformationSheetPage() {
         ),
       }}
     >
-      <Stepper steps={studySteps} activeStep={step} />
+      <Stepper steps={STUDY_STEPS} activeStep={step} />
       <InformationSheet onComplete={nextStep} />
     </PageContainer>
   );

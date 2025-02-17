@@ -6,7 +6,7 @@ import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 import { Stepper } from "@/components/Stepper/Stepper";
 import { Task } from "@/components/Task/Task";
 
-import { studySteps } from "@/constants";
+import { STUDY_STEPS } from "@/constants";
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
@@ -25,7 +25,7 @@ export default function TaskPage() {
           ),
         }}
       >
-        <Stepper steps={studySteps} activeStep={step} />
+        <Stepper steps={STUDY_STEPS} activeStep={step} />
         <Task onComplete={nextStep} />
       </PageContainer>
     </>

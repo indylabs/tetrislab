@@ -6,7 +6,7 @@ import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 import { Stepper } from "@/components/Stepper/Stepper";
 import { MMTR } from "@/components/MMTR/MMTR";
 
-import { studySteps } from "@/constants";
+import { STUDY_STEPS } from "@/constants";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
 export default function MMTRPage() {
@@ -24,7 +24,7 @@ export default function MMTRPage() {
           ),
         }}
       >
-        <Stepper steps={studySteps} activeStep={step} />
+        <Stepper steps={STUDY_STEPS} activeStep={step} />
         <MMTR onComplete={nextStep} />
       </PageContainer>
     </>
