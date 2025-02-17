@@ -59,7 +59,7 @@ export const studySteps: StudyStepType[] = [
   },
   {
     id: 8,
-    title: "Participant Code",
-    slug: "/study/participant-code",
+    title: "Finish",
+    slug: "/study/finish",
   },
 ];

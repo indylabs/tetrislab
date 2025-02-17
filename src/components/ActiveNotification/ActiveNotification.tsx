@@ -28,6 +28,7 @@ const ActiveNotification = () => {
           sx={{
             display: "flex",
             gap: "0.5rem",
+            color: "white",
           }}
         >
           <QuestionAnswerIcon /> {notification?.text}

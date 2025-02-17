@@ -9,7 +9,8 @@ export const ACTION_INFO_INIT =
   "When ready, click 'Start Task' to begin the primary task";
 export const ACTION_LABEL_INIT = "Start Task";
 
-export const ACTION_INFO_COMPLETE = "Game Over";
+export const ACTION_INFO_COMPLETE =
+  'Click "Continue" to proceed to the post-task steps';
 export const ACTION_LABEL_COMPLETE = "Continue";
 
 export const TASK_DATA_PRE = [
@@ -34,19 +35,21 @@ export const TASK_DATA_PRE = [
 
             <Typography sx={{ mb: 2 }}>
               The Tetris pieces can be moved horizontally using the left and
-              right arrow keys on your keyboard.
-            </Typography>
-            <Typography>
-              Pieces can be rotated using the up arrow key, and can be moved
-              down using the down arrow key.
+              right arrow keys on your keyboard. Pieces can be rotated using the
+              up arrow key, and can be moved down using the down arrow key.
             </Typography>
           </Box>
-          <Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
             <Image
-              src="/keyboard.png"
+              src="/controls.png"
               alt="Task Keyboard Controls"
-              width="292"
-              height="190"
+              width="276"
+              height="134"
             />
           </Box>
         </Box>
@@ -76,7 +79,19 @@ export const TASK_DATA_PRE = [
             corner of your screen and do not require any interaction.
           </Typography>
         </Box>
-        <Box>PN IMAGE</Box>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Image
+            src="/pn.png"
+            alt="Example of a passive notification"
+            width="288"
+            height="65"
+          />
+        </Box>
       </Box>
     ),
   },
@@ -103,10 +118,22 @@ export const TASK_DATA_PRE = [
           <Typography>
             Active notifications will require a response to continue. You can
             response by clicking either &quot;Yes&quot; or &quot;No&quot; with
-            your mouse.
+            your mouse or trackpad.
           </Typography>
         </Box>
-        <Box>AN IMAGE</Box>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Image
+            src="/an.png"
+            alt="Example of an active notification"
+            width="354"
+            height="137"
+          />
+        </Box>
       </Box>
     ),
   },
@@ -115,6 +142,13 @@ export const TASK_DATA_PRE = [
 export const TASK_DATA_POST = [
   {
     id: 1,
-    text: "THIS IS POST TASK CONTENT",
+    text: (
+      <>
+        <Typography variant="h6" sx={{ mb: 2 }} color="primary">
+          Game Over
+        </Typography>
+        <Typography>The primary task is now complete.</Typography>
+      </>
+    ),
   },
 ];

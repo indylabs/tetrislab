@@ -3,7 +3,6 @@ import { useState } from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
-
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -22,10 +21,6 @@ type InformationSheetProps = {
 
 export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
   const [isValid, setIsValid] = useState(false);
-
-  const handleCheck = () => {
-    setIsValid((prev) => !prev);
-  };
 
   return (
     <>
@@ -47,7 +42,12 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       <FormGroup sx={{ alignItems: "flex-end" }}>
         <FormControlLabel
           required
-          control={<Checkbox color="secondary" onChange={handleCheck} />}
+          control={
+            <Checkbox
+              color="secondary"
+              onChange={() => setIsValid((prev) => !prev)}
+            />
+          }
           label="I have read all sections of this information sheet"
           labelPlacement="start"
         />

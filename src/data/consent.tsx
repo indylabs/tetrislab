@@ -1,7 +1,7 @@
 export const ACTION_TITLE = "Consent";
 export const ACTION_INFO =
   "Please check all checkboxes to confirm your consent to continue.";
-export const ACTION_LABEL = "I agree";
+export const ACTION_LABEL = "Continue";
 
 export const CONSENT_DATA = [
   {
