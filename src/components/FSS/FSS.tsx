@@ -12,8 +12,8 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 
+import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
-// import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
 import { FSS_DATA, ACTION_TITLE, ACTION_INFO, ACTION_LABEL } from "@/data/ffs";
 
@@ -22,7 +22,7 @@ type FFSProps = {
 };
 
 export const FSS = ({ onComplete }: FFSProps) => {
-  // const { dispatch } = useTetrisLabContext();
+  const { dispatch } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
   const [fss, setFSS] = useState<(number | null)[]>(
@@ -43,9 +43,8 @@ export const FSS = ({ onComplete }: FFSProps) => {
     });
   };
 
-  const handleSubmit = () => {
-    //TODO: Enable dispatch here
-    // dispatch({ type: "ADD_FSS", fss });
+  const handleOnComplete = () => {
+    dispatch({ type: "ADD_FSS", fss });
     onComplete();
   };
 
@@ -60,7 +59,7 @@ export const FSS = ({ onComplete }: FFSProps) => {
         title={ACTION_TITLE}
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={handleSubmit}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
 
@@ -120,7 +119,7 @@ export const FSS = ({ onComplete }: FFSProps) => {
       <StepAction
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
     </>

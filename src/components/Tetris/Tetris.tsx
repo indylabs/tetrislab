@@ -10,7 +10,6 @@ import { useStage } from "../../hooks/useStage";
 import { useInterval } from "../../hooks/useInterval";
 import { useGameStatus } from "../../hooks/useGameStatus";
 
-import insertParticipant from "@/app/actions/insertParticipant";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { createStage, checkCollision } from "../../utils/gameHelpers";
 
@@ -21,7 +20,7 @@ type TetrisProps = {
 };
 
 function Tetris({ onComplete }: TetrisProps) {
-  const { state, dispatch, isPaused } = useTetrisLabContext();
+  const { dispatch, isPaused } = useTetrisLabContext();
 
   const tetrisRef = useRef<HTMLButtonElement | null>(null);
 
@@ -35,18 +34,17 @@ function Tetris({ onComplete }: TetrisProps) {
 
   useEffect(() => {
     if (gameover) {
-      insertParticipant(state); // Save state data to database
       onComplete();
     }
-  }, [gameover, state, onComplete]);
+  }, [gameover, onComplete]);
 
   const handleGameOver = async () => {
     await dispatch({
       type: "ADD_GAME_END",
       game: {
-        score,
-        rows,
-        level,
+        gameScore: score,
+        gameRows: rows,
+        gameLevel: level,
       },
     });
 

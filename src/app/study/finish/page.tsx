@@ -16,9 +16,7 @@ export default function FinishPage() {
   const router = useRouter();
   const { step } = useTetrisLabContext();
 
-  const handleFinish = () => {
-    //TODO: Persist data here
-
+  const handleOnComplete = () => {
     router.push("/");
   };
 
@@ -35,7 +33,7 @@ export default function FinishPage() {
         }}
       >
         <Stepper steps={studySteps} activeStep={step} />
-        <Finish onComplete={handleFinish} />
+        <Finish onComplete={handleOnComplete} />
       </PageContainer>
     </>
   );

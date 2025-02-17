@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import LinearProgress from "@mui/material/LinearProgress";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 
+import getRandomVariant from "@/utils/getRandomVariant";
 import TetrisLab from "./tetrisLab";
 
 export const metadata: Metadata = {
@@ -17,12 +18,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const randomVariant = getRandomVariant();
+
   return (
     <html lang="en">
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <Suspense fallback={<LinearProgress />}>
-            <TetrisLab>{children}</TetrisLab>
+            <TetrisLab randomVariant={randomVariant}>{children}</TetrisLab>
           </Suspense>
         </AppRouterCacheProvider>
       </body>

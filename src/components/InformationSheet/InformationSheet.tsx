@@ -8,6 +8,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
 import { StepAction } from "@/components/StepAction/StepAction";
+import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import {
   INFORMATION_DATA,
   ACTION_TITLE,
@@ -20,7 +21,14 @@ type InformationSheetProps = {
 };
 
 export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
+  const { dispatch } = useTetrisLabContext();
+
   const [isValid, setIsValid] = useState(false);
+
+  const handleOnComplete = () => {
+    dispatch({ type: "ADD_INFO_SHEET", infoSheet: isValid });
+    onComplete();
+  };
 
   return (
     <>
@@ -28,7 +36,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
         title={ACTION_TITLE}
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
 
@@ -56,7 +64,7 @@ export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
       <StepAction
         info={ACTION_INFO}
         label={ACTION_LABEL}
-        onAction={onComplete}
+        onAction={handleOnComplete}
         isValid={isValid}
       />
     </>
