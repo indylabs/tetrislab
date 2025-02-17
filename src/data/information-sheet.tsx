@@ -133,7 +133,7 @@ export const INFORMATION_DATA = [
           Active notifications may periodically appear in the middle of your
           screen. While this notifications are visible, the primary task will be
           paused. Active notifications will require a response to continue. You
-          can response by clicking either 'Yes' or 'No' with your mouse.
+          can response by clicking either "Yes" or "No" with your mouse.
         </Typography>
 
         <Typography variant="h6" sx={{ mb: 2 }} color="primary">
