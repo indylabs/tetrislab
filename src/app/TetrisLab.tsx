@@ -24,6 +24,7 @@ export default function TetrisLab({
   const isStudy = getIsStudy(pathname);
 
   const handleWithdraw = () => {
+    // Using window.location.replace here to force reset of state
     window.location.replace("/withdraw");
   };
 
