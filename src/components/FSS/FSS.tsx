@@ -67,7 +67,12 @@ export const FSS = ({ onComplete }: FFSProps) => {
       {FSS_DATA.map(({ id, dimension, questions }) => {
         return (
           <Box key={id}>
-            <Typography component="h2" variant="h5" color="primary">
+            <Typography
+              component="h2"
+              variant="h5"
+              color="primary"
+              sx={{ mb: 4 }}
+            >
               {dimension}
             </Typography>
             {questions.map(({ id, text, responses }) => (
