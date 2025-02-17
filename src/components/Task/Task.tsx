@@ -70,7 +70,7 @@ export const Task = ({ onComplete }: TaskProps) => {
 
       {!isComplete &&
         TASK_DATA_PRE.map(({ id, text }) => (
-          <Card key={id}>
+          <Card key={id} sx={{ mb: 4 }}>
             <CardContent>{text}</CardContent>
           </Card>
         ))}
@@ -81,6 +81,13 @@ export const Task = ({ onComplete }: TaskProps) => {
             <CardContent>{text}</CardContent>
           </Card>
         ))}
+
+      <StepAction
+        info={isComplete ? ACTION_INFO_COMPLETE : ACTION_INFO_INIT}
+        label={isComplete ? ACTION_LABEL_COMPLETE : ACTION_LABEL_INIT}
+        onAction={handleStepAction}
+        isValid={true}
+      />
 
       <Dialog
         fullScreen

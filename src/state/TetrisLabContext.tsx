@@ -32,6 +32,7 @@ export const TetrisLabContextProvider = ({
   const variant = (searchParams.get("variant") as VARIANTS) || randomVariant;
 
   const nextStep = () => {
+    console.log("nextStep");
     const nextStep = step + 1;
     setStep(nextStep);
     router.push(studySteps[nextStep].slug);

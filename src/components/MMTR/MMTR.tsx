@@ -83,6 +83,7 @@ export const MMTR = ({ onComplete }: MMTRProps) => {
                     <RadioGroup
                       row
                       onChange={(event) => handleChange(id, event)}
+                      sx={{ mt: 2 }}
                     >
                       {responses.map(({ value, label }) => (
                         <FormControlLabel

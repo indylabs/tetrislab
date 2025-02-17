@@ -67,12 +67,7 @@ export const FSS = ({ onComplete }: FFSProps) => {
       {FSS_DATA.map(({ id, dimension, questions }) => {
         return (
           <Box key={id}>
-            <Typography
-              component="h2"
-              variant="h5"
-              color="primary"
-              sx={{ mb: 4 }}
-            >
+            <Typography component="h2" variant="h5" color="primary">
               {dimension}
             </Typography>
             {questions.map(({ id, text, responses }) => (
@@ -94,6 +89,7 @@ export const FSS = ({ onComplete }: FFSProps) => {
                         <RadioGroup
                           row
                           onChange={(event) => handleChange(id, event)}
+                          sx={{ mt: 2 }}
                         >
                           {responses.map(({ value, label }) => (
                             <FormControlLabel

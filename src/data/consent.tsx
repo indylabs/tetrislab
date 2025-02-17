@@ -17,7 +17,5 @@ export const CONSENT_DATA = [
     text: "I understand that data collected about me during this study will not be identifiable when the research is published.",
   },
   { id: 4, text: "I am over 18 years of age." },
-  { id: 5, text: "I have normal or corrected-to-normal vision." },
-  { id: 6, text: "I do not have ADHD (Why do we ask this? TODO)." },
-  { id: 7, text: "I agree to take part in this study." },
+  { id: 5, text: "I agree to take part in this study." },
 ];

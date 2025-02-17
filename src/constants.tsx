@@ -29,8 +29,8 @@ export const studySteps: StudyStepType[] = [
   },
   {
     id: 2,
-    title: "Requirements",
-    slug: "/study/requirements",
+    title: "Particulars",
+    slug: "/study/particulars",
   },
   {
     id: 3,
