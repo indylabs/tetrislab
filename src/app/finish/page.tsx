@@ -1,7 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
 import { PageContainer } from "@toolpad/core/PageContainer";
 
 import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
@@ -11,11 +9,11 @@ import { Finish } from "@/components/Finish/Finish";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
 export default function FinishPage() {
-  const router = useRouter();
   const { step } = useTetrisLabContext();
 
   const handleOnComplete = () => {
-    router.push("/");
+    // Using window.location.replace here to force reset of state
+    window.location.replace("/");
   };
 
   return (
