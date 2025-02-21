@@ -1,11 +1,13 @@
 import { useState } from "react";
 
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardContent from "@mui/material/CardContent";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+} from "@mui/material";
 
 import { StepAction } from "@/components/StepAction/StepAction";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
@@ -16,18 +18,14 @@ import {
   ACTION_LABEL,
 } from "@/data/information-sheet";
 
-type InformationSheetProps = {
-  onComplete: () => void;
-};
-
-export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
-  const { dispatch } = useTetrisLabContext();
+export const InformationSheet = () => {
+  const { dispatch, nextStep } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
 
   const handleOnComplete = () => {
     dispatch({ type: "ADD_INFO_SHEET", infoSheet: isValid });
-    onComplete();
+    nextStep();
   };
 
   return (

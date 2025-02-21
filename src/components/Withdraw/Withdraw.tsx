@@ -1,15 +1,19 @@
 import { useState } from "react";
 
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import AssignmentReturnIcon from "@mui/icons-material/AssignmentReturn";
-import InfoIcon from "@mui/icons-material/Info";
-import { Typography } from "@mui/material";
+import {
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  DialogContentText,
+  Typography,
+} from "@mui/material";
+import {
+  AssignmentReturn as AssignmentReturnIcon,
+  ExitToApp as ExitToAppIcon,
+  Info as InfoIcon,
+} from "@mui/icons-material";
 
 type WithdrawProps = {
   onWithdraw: () => void;

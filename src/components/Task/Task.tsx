@@ -1,10 +1,6 @@
 import { forwardRef, useState } from "react";
 
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import Slide from "@mui/material/Slide";
+import { Card, CardContent, Dialog, DialogContent, Slide } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
@@ -25,10 +21,6 @@ import {
   ACTION_LABEL_INIT,
 } from "@/data/task";
 
-type TaskProps = {
-  onComplete: () => void;
-};
-
 const Transition = forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement<unknown>;
@@ -38,8 +30,8 @@ const Transition = forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const Task = ({ onComplete }: TaskProps) => {
-  const { state } = useTetrisLabContext();
+export const Task = () => {
+  const { state, nextStep } = useTetrisLabContext();
   const { variant } = state;
 
   const [isComplete, setIsComplete] = useState(false);
@@ -52,7 +44,7 @@ export const Task = ({ onComplete }: TaskProps) => {
 
   const handleStepAction = () => {
     if (isComplete) {
-      onComplete();
+      nextStep();
     } else {
       setOpen(true);
     }

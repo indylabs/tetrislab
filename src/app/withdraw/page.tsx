@@ -1,9 +1,7 @@
 "use client";
 
 import { PageContainer } from "@toolpad/core/PageContainer";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
+import { Card, CardContent, Typography } from "@mui/material";
 
 import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 

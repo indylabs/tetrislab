@@ -2,27 +2,25 @@
 
 import { useEffect, useState } from "react";
 
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
+import {
+  Box,
+  Card,
+  CardHeader,
+  CardContent,
+  Typography,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+} from "@mui/material";
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
 
 import { FSS_DATA, ACTION_TITLE, ACTION_INFO, ACTION_LABEL } from "@/data/ffs";
 
-type FFSProps = {
-  onComplete: () => void;
-};
-
-export const FSS = ({ onComplete }: FFSProps) => {
-  const { dispatch } = useTetrisLabContext();
+export const FSS = () => {
+  const { dispatch, nextStep } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
   const [fss, setFSS] = useState<(number | null)[]>(
@@ -45,7 +43,7 @@ export const FSS = ({ onComplete }: FFSProps) => {
 
   const handleOnComplete = () => {
     dispatch({ type: "ADD_FSS", fss });
-    onComplete();
+    nextStep();
   };
 
   useEffect(() => {

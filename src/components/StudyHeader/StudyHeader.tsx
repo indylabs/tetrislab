@@ -1,7 +1,4 @@
-import Typography from "@mui/material/Typography";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
+import { Typography, Breadcrumbs, Link, Box } from "@mui/material";
 
 import Logo from "@/components/Logo/Logo";
 import Title from "@/components/Title/Title";

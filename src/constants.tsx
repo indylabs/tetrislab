@@ -1,7 +1,9 @@
 import Logo from "@/components/Logo/Logo";
 import { type Navigation } from "@toolpad/core/AppProvider";
-import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
-import ChatIcon from "@mui/icons-material/Chat";
+import {
+  Chat as ChatIcon,
+  SportsEsports as SportsEsportsIcon,
+} from "@mui/icons-material";
 
 import { StudyStepType } from "./types";
 
@@ -66,7 +68,7 @@ export const STUDY_STEPS: StudyStepType[] = [
   },
   {
     id: 4,
-    title: "MMT-R Questionnaire",
+    title: "MMT-R",
     slug: "/mmtr",
   },
   {
@@ -76,7 +78,7 @@ export const STUDY_STEPS: StudyStepType[] = [
   },
   {
     id: 6,
-    title: "FSS Questionnaire",
+    title: "FSS",
     slug: "/fss",
   },
   {

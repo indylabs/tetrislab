@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/List";
-import Checkbox from "@mui/material/Checkbox";
-
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
+import {
+  List,
+  ListItem,
+  Checkbox,
+  Card,
+  CardContent,
+  FormControlLabel,
+  FormControl,
+} from "@mui/material";
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
@@ -18,10 +19,8 @@ import {
   ACTION_LABEL,
 } from "@/data/consent";
 
-type ConsentProps = { onComplete: () => void };
-
-export const Consent = ({ onComplete }: ConsentProps) => {
-  const { dispatch } = useTetrisLabContext();
+export const Consent = () => {
+  const { dispatch, nextStep } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
   const [consent, setConsent] = useState<boolean[]>(
@@ -43,7 +42,7 @@ export const Consent = ({ onComplete }: ConsentProps) => {
 
   const handleOnComplete = () => {
     dispatch({ type: "ADD_CONSENT", consent });
-    onComplete();
+    nextStep();
   };
 
   return (

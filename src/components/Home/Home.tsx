@@ -1,10 +1,7 @@
 import NextLink from "next/link";
 
-import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import { Box, Link, Typography, Button } from "@mui/material";
+import { SportsEsports as SportsEsportsIcon } from "@mui/icons-material";
 
 import Title from "@/components/Title/Title";
 import Logo from "@/components/Logo/Logo";
