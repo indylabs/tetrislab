@@ -53,7 +53,7 @@ export const NAVIGATION: Navigation = [
 export const STUDY_STEPS: StudyStepType[] = [
   {
     id: 1,
-    title: "Information Sheet",
+    title: "Information",
     slug: "/info-sheet",
   },
   {
