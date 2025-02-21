@@ -1,5 +1,7 @@
 import Typography from "@mui/material/Typography";
 
+import Logo from "@/components/Logo/Logo";
+
 type TitleProps = {
   variant?:
     | "body1"
@@ -16,18 +18,22 @@ type TitleProps = {
     | "overline"
     | "subtitle1"
     | "subtitle2";
+  showLogo?: boolean;
 };
 
-const Title = ({ variant = "body1" }: TitleProps) => {
+const Title = ({ variant = "body1", showLogo = true }: TitleProps) => {
   return (
-    <span style={{ gap: 0 }}>
-      <Typography component="span" variant={variant} color="primary.main">
-        Tetris
-      </Typography>
-      <Typography component="span" variant={variant} color="secondary.main">
-        Lab
-      </Typography>
-    </span>
+    <div style={{ display: "flex", gap: "0.5rem" }}>
+      {showLogo && <Logo size="2.5rem" />}
+      <div>
+        <Typography component="span" variant={variant} color="primary.main">
+          Tetris
+        </Typography>
+        <Typography component="span" variant={variant} color="secondary.main">
+          Lab
+        </Typography>
+      </div>
+    </div>
   );
 };
 

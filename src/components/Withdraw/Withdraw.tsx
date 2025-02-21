@@ -24,12 +24,19 @@ const Withdraw = ({ onWithdraw }: WithdrawProps) => {
   return (
     <>
       <Button
-        color="secondary"
-        variant="outlined"
-        endIcon={<ExitToAppIcon />}
+        size="medium"
         onClick={() => setOpen(true)}
+        sx={{
+          gap: "0.5rem",
+          color: "secondary.main",
+          "&:hover": {
+            color: "background.paper",
+            backgroundColor: "secondary.main",
+          },
+          borderRadius: 8,
+        }}
       >
-        Withdraw From Study
+        Withdraw From Study <ExitToAppIcon />
       </Button>
       <Dialog open={open}>
         <DialogTitle sx={{ backgroundColor: "primary.main" }}>

@@ -5,7 +5,7 @@ import { FSS } from "@/components/FSS/FSS";
 
 export default function FSSPage() {
   return (
-    <Container>
+    <Container title="Pilot Study">
       <FSS />
     </Container>
   );

@@ -1,13 +1,15 @@
 import { createTheme } from '@mui/material/styles';
 
+import { THEME_PRIMARY_MAIN_COLOR, THEME_SECONDARY_MAIN_COLOR } from '@/constants';
+
 const tetrisLabTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#BE22ED',
+      main: THEME_PRIMARY_MAIN_COLOR,
     },
     secondary: {
-      main: '#00FFFF',
+      main: THEME_SECONDARY_MAIN_COLOR,
     },
   },
   zIndex: {

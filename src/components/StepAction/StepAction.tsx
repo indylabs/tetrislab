@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, Box, Typography, Tooltip } from "@mui/material";
+import { Box, Fab, Typography, Zoom } from "@mui/material";
 import {
   ArrowRight as ArrowRightIcon,
   Info as InfoIcon,
@@ -21,39 +21,46 @@ export const StepAction = ({
   isValid,
 }: StepActionProps) => {
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between", my: 4 }}>
-      <Box>
-        <Typography
-          sx={{ color: "primary.main", fontSize: "2.4rem", mb: 4 }}
-          gutterBottom={true}
+    <>
+      <Box sx={{ display: "flex", justifyContent: "space-between", my: 4 }}>
+        <Box>
+          <Typography
+            sx={{ color: "primary.main", fontSize: "2rem", mb: 4 }}
+            gutterBottom={true}
+          >
+            {title}
+          </Typography>
+          <Typography
+            gutterBottom={true}
+            sx={{ display: "flex", gap: "0.3rem" }}
+          >
+            <InfoIcon sx={{ color: "primary.main" }} /> {info}
+          </Typography>
+        </Box>
+      </Box>
+
+      <Zoom in={isValid} unmountOnExit>
+        <Fab
+          sx={{
+            position: "absolute",
+            bottom: 50,
+            right: 50,
+            backgroundColor: "background.paper",
+            border: "1px solid",
+            borderColor: "secondary.main",
+            color: "secondary.main",
+            "&:hover": {
+              color: "background.paper",
+              backgroundColor: "secondary.main",
+              borderColor: "secondary.main",
+            },
+          }}
+          variant="extended"
+          onClick={() => onAction()}
         >
-          {title}
-        </Typography>
-        <Typography gutterBottom={true} sx={{ display: "flex", gap: "0.3rem" }}>
-          <InfoIcon sx={{ color: "primary.main" }} /> {info}
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-end",
-        }}
-      >
-        <Tooltip title={isValid ? null : info}>
-          <span>
-            <Button
-              color="secondary"
-              variant="outlined"
-              onClick={() => onAction()}
-              endIcon={<ArrowRightIcon />}
-              disabled={!isValid}
-            >
-              {label}
-            </Button>
-          </span>
-        </Tooltip>
-      </Box>
-    </Box>
+          {label} <ArrowRightIcon />
+        </Fab>
+      </Zoom>
+    </>
   );
 };

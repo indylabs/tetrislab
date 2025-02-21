@@ -117,3 +117,6 @@ export const INITIAL_STATE = {
   debrief: false,
   participantCode: null,
 };
+
+export const THEME_PRIMARY_MAIN_COLOR = "#BE22ED";
+export const THEME_SECONDARY_MAIN_COLOR = "#00FFFF";

@@ -5,7 +5,7 @@ import { Task } from "@/components/Task/Task";
 
 export default function TaskPage() {
   return (
-    <Container>
+    <Container title="Pilot Study">
       <Task />
     </Container>
   );

@@ -5,7 +5,7 @@ import { Container } from "@/components/Container/Container";
 
 export default function ConsentPage() {
   return (
-    <Container>
+    <Container title="Pilot Study">
       <Consent />
     </Container>
   );
