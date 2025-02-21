@@ -5,7 +5,7 @@ import Feedback from "@/components/Feedback/Feedback";
 
 export default function FeedbackPage() {
   return (
-    <Container showStepper={false}>
+    <Container title="Feedback" showStepper={false}>
       <Feedback />
     </Container>
   );

@@ -24,7 +24,7 @@ export const StepAction = ({
     <Box sx={{ display: "flex", justifyContent: "space-between", my: 4 }}>
       <Box>
         <Typography
-          sx={{ color: "primary.main", fontSize: "2.4rem", mb: 4 }}
+          sx={{ color: "primary.main", fontSize: "2rem", mb: 4 }}
           gutterBottom={true}
         >
           {title}
