@@ -1,25 +1,12 @@
 "use client";
 
-import { PageContainer } from "@toolpad/core/PageContainer";
+import { Container } from "@/components/Container/Container";
 import { Card, CardContent, Typography } from "@mui/material";
-
-import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 
 export default function WithdrawPage() {
   return (
     <>
-      <PageContainer
-        title=""
-        slots={{
-          header: () => (
-            <StudyHeader
-              breadcrumbs={[
-                { title: "Withdraw From Study", path: "/withdraw" },
-              ]}
-            />
-          ),
-        }}
-      >
+      <Container title="Pilot Study" showStepper={false}>
         <Card>
           <CardContent>
             <Typography sx={{ my: "1rem" }}>
@@ -34,7 +21,7 @@ export default function WithdrawPage() {
             <Typography sx={{ my: "1rem" }}>Thank You.</Typography>
           </CardContent>
         </Card>
-      </PageContainer>
+      </Container>
     </>
   );
 }

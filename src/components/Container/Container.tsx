@@ -1,5 +1,5 @@
 import { PageContainer } from "@toolpad/core/PageContainer";
-import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
+import { Header } from "@/components/Header/Header";
 import { Stepper } from "@/components/Stepper/Stepper";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
@@ -20,7 +20,7 @@ export function Container({
     <PageContainer
       title=""
       slots={{
-        header: () => (title ? <StudyHeader title={title} /> : <></>),
+        header: () => (title ? <Header title={title} /> : <></>),
       }}
     >
       {showStepper && <Stepper activeStep={step} />}

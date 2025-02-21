@@ -2,11 +2,11 @@ import { Typography, Breadcrumbs, Link, Box } from "@mui/material";
 
 import Title from "@/components/Title/Title";
 
-type StudyHeaderProps = {
+type HeaderProps = {
   title: string;
 };
 
-export const StudyHeader = ({ title }: StudyHeaderProps) => {
+export const Header = ({ title }: HeaderProps) => {
   return (
     <Box sx={{ py: 2 }}>
       <Breadcrumbs>

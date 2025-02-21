@@ -24,8 +24,13 @@ export const Home = () => {
     >
       <Logo size="140px" />
 
-      <Typography align="center" variant="h3" component="p">
-        Welcome to <Title variant="h3" />
+      <Typography
+        align="center"
+        variant="h3"
+        component="p"
+        sx={{ display: "flex", gap: "0.5rem" }}
+      >
+        Welcome to <Title variant="h3" showLogo={false} />
       </Typography>
 
       <Typography align="center" component="p">

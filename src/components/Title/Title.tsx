@@ -18,12 +18,13 @@ type TitleProps = {
     | "overline"
     | "subtitle1"
     | "subtitle2";
+  showLogo?: boolean;
 };
 
-const Title = ({ variant = "body1" }: TitleProps) => {
+const Title = ({ variant = "body1", showLogo = true }: TitleProps) => {
   return (
     <div style={{ display: "flex", gap: "0.5rem" }}>
-      <Logo size="2.5rem" />
+      {showLogo && <Logo size="2.5rem" />}
       <div>
         <Typography component="span" variant={variant} color="primary.main">
           Tetris
