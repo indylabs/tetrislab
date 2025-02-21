@@ -18,18 +18,14 @@ import {
   ACTION_LABEL,
 } from "@/data/debrief";
 
-type DebriefProps = {
-  onComplete: () => void;
-};
-
-export const Debrief = ({ onComplete }: DebriefProps) => {
-  const { dispatch } = useTetrisLabContext();
+export const Debrief = () => {
+  const { dispatch, nextStep } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
 
   const handleOnComplete = () => {
     dispatch({ type: "ADD_DEBRIEF", debrief: isValid });
-    onComplete();
+    nextStep();
   };
 
   return (

@@ -16,18 +16,14 @@ import {
   ACTION_LABEL,
 } from "@/data/information-sheet";
 
-type InformationSheetProps = {
-  onComplete: () => void;
-};
-
-export const InformationSheet = ({ onComplete }: InformationSheetProps) => {
-  const { dispatch } = useTetrisLabContext();
+export const InformationSheet = () => {
+  const { dispatch, nextStep } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
 
   const handleOnComplete = () => {
     dispatch({ type: "ADD_INFO_SHEET", infoSheet: isValid });
-    onComplete();
+    nextStep();
   };
 
   return (

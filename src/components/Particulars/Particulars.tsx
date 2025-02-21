@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Checkbox from "@mui/material/Checkbox";
-import FormControl from "@mui/material/FormControl";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/List";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import Tooltip from "@mui/material/Tooltip";
-import InfoIcon from "@mui/icons-material/Info";
+import {
+  Card,
+  CardContent,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  List,
+  ListItem,
+  MenuItem,
+  Select,
+  Tooltip,
+  Typography,
+} from "@mui/material";
+import { Info as InfoIcon } from "@mui/icons-material";
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
@@ -21,12 +24,9 @@ import {
   ACTION_LABEL,
   PARTICULARS_DATA,
 } from "@/data/particulars";
-import { Typography } from "@mui/material";
 
-type ParticularsProps = { onComplete: () => void };
-
-export const Particulars = ({ onComplete }: ParticularsProps) => {
-  const { dispatch } = useTetrisLabContext();
+export const Particulars = () => {
+  const { dispatch, nextStep } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
   const [age, setAge] = useState<string>("");
@@ -54,7 +54,7 @@ export const Particulars = ({ onComplete }: ParticularsProps) => {
 
   const handleOnComplete = () => {
     dispatch({ type: "ADD_PARTICULARS", gender, age, requirements });
-    onComplete();
+    nextStep();
   };
 
   return (

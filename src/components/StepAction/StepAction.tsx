@@ -1,10 +1,9 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import InfoIcon from "@mui/icons-material/Info";
-import Typography from "@mui/material/Typography";
-import Tooltip from "@mui/material/Tooltip";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import { Button, Box, Typography, Tooltip } from "@mui/material";
+import {
+  ArrowRight as ArrowRightIcon,
+  Info as InfoIcon,
+} from "@mui/icons-material";
 
 type StepActionProps = {
   info: string;

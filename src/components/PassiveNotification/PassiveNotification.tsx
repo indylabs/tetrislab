@@ -1,5 +1,4 @@
-import Alert from "@mui/material/Alert";
-import Snackbar from "@mui/material/Snackbar";
+import { Alert, Snackbar } from "@mui/material";
 import { useNotification } from "@/hooks/useNotification";
 import { passiveNotifications } from "@/data/notifications";
 import {

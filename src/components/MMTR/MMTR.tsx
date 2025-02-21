@@ -2,13 +2,15 @@
 
 import { useEffect, useState } from "react";
 
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardContent from "@mui/material/CardContent";
+import {
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  Card,
+  CardHeader,
+  CardContent,
+} from "@mui/material";
 
 import { StepAction } from "@/components/StepAction/StepAction";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
@@ -20,12 +22,8 @@ import {
   MMTR_DATA,
 } from "@/data/mmtr";
 
-type MMTRProps = {
-  onComplete: () => void;
-};
-
-export const MMTR = ({ onComplete }: MMTRProps) => {
-  const { dispatch } = useTetrisLabContext();
+export const MMTR = () => {
+  const { dispatch, nextStep } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
   const [mmtr, setMmtr] = useState<(number | null)[]>(
@@ -48,7 +46,7 @@ export const MMTR = ({ onComplete }: MMTRProps) => {
 
   const handleOnComplete = () => {
     dispatch({ type: "ADD_MMTR", mmtr });
-    onComplete();
+    nextStep();
   };
 
   useEffect(() => {

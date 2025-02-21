@@ -1,9 +1,12 @@
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+} from "@mui/material";
+
+import { QuestionAnswer as QuestionAnswerIcon } from "@mui/icons-material";
 
 import { useNotification } from "@/hooks/useNotification";
 import { activeNotifications } from "@/data/notifications";

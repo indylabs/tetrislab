@@ -1,6 +1,5 @@
-import Tooltip from "@mui/material/Tooltip";
-import InfoIcon from "@mui/icons-material/Info";
-import Typography from "@mui/material/Typography";
+import { Tooltip, Typography } from "@mui/material";
+import { Info as InfoIcon } from "@mui/icons-material";
 
 export const ACTION_TITLE = "Particulars";
 
