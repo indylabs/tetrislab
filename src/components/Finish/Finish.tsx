@@ -64,7 +64,7 @@ export const Finish = ({ onComplete }: FinishProps) => {
     if (participantCode) {
       dispatch({ type: "ADD_PARTICIPANT_CODE", participantCode });
     }
-  }, [participantCode]);
+  }, [dispatch, participantCode]);
 
   return (
     <>
