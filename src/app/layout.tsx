@@ -1,8 +1,7 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-
-import LinearProgress from "@mui/material/LinearProgress";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import LinearProgress from "@mui/material/LinearProgress";
 
 import getRandomVariant from "@/utils/getRandomVariant";
 import TetrisLab from "./TetrisLab";
@@ -18,6 +17,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Note: getRandomVariant() is called server side to avoid updating on rerender
   const randomVariant = getRandomVariant();
 
   return (

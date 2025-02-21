@@ -2,7 +2,6 @@ import { PageContainer } from "@toolpad/core/PageContainer";
 import { StudyHeader } from "@/components/StudyHeader/StudyHeader";
 import { Stepper } from "@/components/Stepper/Stepper";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
-import { STUDY_STEPS } from "@/constants";
 
 type ContainerProps = {
   children: React.ReactNode;

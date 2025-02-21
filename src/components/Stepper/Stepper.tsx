@@ -1,7 +1,4 @@
-import MUIStepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import Box from "@mui/material/Box";
+import { Stepper as MUIStepper, Step, StepLabel, Box } from "@mui/material";
 
 import { STUDY_STEPS } from "@/constants";
 
