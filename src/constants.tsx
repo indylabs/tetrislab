@@ -1,9 +1,6 @@
 import Logo from "@/components/Logo/Logo";
 import { type Navigation } from "@toolpad/core/AppProvider";
-import {
-  Chat as ChatIcon,
-  SportsEsports as SportsEsportsIcon,
-} from "@mui/icons-material";
+import { Science as ScienceIcon } from "@mui/icons-material";
 
 import Title from "@/components/Title/Title";
 import { StudyStepType } from "./types";
@@ -42,12 +39,7 @@ export const NAVIGATION: Navigation = [
   {
     segment: "info-sheet",
     title: "Pilot Study",
-    icon: <SportsEsportsIcon />,
-  },
-  {
-    segment: "feedback",
-    title: "Feedback",
-    icon: <ChatIcon />,
+    icon: <ScienceIcon />,
   },
 ];
 
@@ -102,7 +94,7 @@ export const BRANDING = {
 
 export const INITIAL_STATE = {
   variant: null,
-  isMobile: false,
+  isDesktop: true,
   infoSheet: false,
   gender: null,
   age: null,

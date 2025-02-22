@@ -37,7 +37,7 @@ export const Stepper = ({ activeStep }: StepperProps) => {
   return (
     <MUIStepper
       activeStep={activeStep}
-      sx={{ pt: 1 }}
+      sx={{ pt: 1, mt: 2 }}
       alternativeLabel
       connector={<QontoConnector />}
     >

@@ -20,7 +20,7 @@ import {
 } from "@/data/information-sheet";
 
 export const InformationSheet = () => {
-  const { dispatch, step, nextStep, isMobile } = useTetrisLabContext();
+  const { dispatch, step, nextStep, isDesktop } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
 
@@ -31,13 +31,20 @@ export const InformationSheet = () => {
 
   return (
     <>
-      {isMobile && (
-        <Alert variant="filled" severity="warning" sx={{ mt: 2, mb: 4 }}>
+      {!isDesktop && (
+        <Alert
+          variant="filled"
+          severity="warning"
+          sx={(theme) => ({
+            mb: 2,
+            [theme.breakpoints.up("sm")]: { mt: 2, mb: 4 },
+          })}
+        >
           This study must be conducted on a desktop computer.
         </Alert>
       )}
 
-      {!isMobile && (
+      {isDesktop && (
         <StepAction
           title={`Step ${step + 1} - ${ACTION_TITLE}`}
           info={ACTION_INFO}
@@ -48,12 +55,12 @@ export const InformationSheet = () => {
       )}
 
       {INFORMATION_DATA.map(({ id, title, content }) => (
-        <Card key={id} sx={{ mb: 4, p: 0 }}>
+        <Card key={id} sx={{ mb: 4 }}>
           <CardHeader title={title} sx={{ color: "primary.main" }} />
           <CardContent>{content}</CardContent>
         </Card>
       ))}
-      {!isMobile && (
+      {isDesktop && (
         <Card sx={{ mb: 4, py: 2 }}>
           <FormGroup sx={{ alignItems: "flex-start" }}>
             <FormControlLabel
@@ -70,7 +77,7 @@ export const InformationSheet = () => {
           </FormGroup>
         </Card>
       )}
-      {isMobile && (
+      {!isDesktop && (
         <Alert variant="filled" severity="warning" sx={{ mb: 2 }}>
           This study must be conducted on a desktop computer.
         </Alert>

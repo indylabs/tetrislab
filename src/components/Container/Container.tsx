@@ -7,7 +7,7 @@ type ContainerProps = {
   showStepper?: boolean;
 };
 export function Container({ children, showStepper = true }: ContainerProps) {
-  const { step, isMobile } = useTetrisLabContext();
+  const { step, isDesktop } = useTetrisLabContext();
 
   return (
     <PageContainer
@@ -16,7 +16,7 @@ export function Container({ children, showStepper = true }: ContainerProps) {
         header: () => <></>,
       }}
     >
-      {showStepper && !isMobile && <Stepper activeStep={step} />}
+      {showStepper && isDesktop && <Stepper activeStep={step} />}
       {children}
     </PageContainer>
   );

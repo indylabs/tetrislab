@@ -1,12 +1,18 @@
-import NextLink from "next/link";
+import { useRouter } from "next/navigation";
 
-import { Box, Link, Typography, Button } from "@mui/material";
-import { SportsEsports as SportsEsportsIcon } from "@mui/icons-material";
+import { Box, Link, Typography, Fab } from "@mui/material";
+import { Science as ScienceIcon } from "@mui/icons-material";
 
 import Title from "@/components/Title/Title";
 import Logo from "@/components/Logo/Logo";
+import useIsDesktop from "@/hooks/useIsDesktop";
+
+const STUDY_ROUTE = "/info-sheet";
 
 export const Home = () => {
+  const isDesktop = useIsDesktop();
+  const router = useRouter();
+
   return (
     <Box
       sx={{
@@ -24,16 +30,19 @@ export const Home = () => {
     >
       <Logo size="140px" />
 
-      <Typography
-        align="center"
-        variant="h3"
-        component="p"
-        sx={{ display: "flex", gap: "0.5rem" }}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: "0.25rem",
+          fontSize: "2rem",
+          alignItems: "center",
+        }}
       >
-        Welcome to <Title variant="h3" showLogo={false} />
-      </Typography>
+        Welcome to <Title />
+      </div>
 
-      <Typography align="center" component="p">
+      <Typography align="center" component="h2">
         This is an experimental application which will form part of a research
         project exploring the{" "}
         <em>
@@ -41,35 +50,48 @@ export const Home = () => {
           Notifications on Flow 🧘 and Performance 📈&quot;
         </em>
       </Typography>
+      {isDesktop && (
+        <Fab
+          variant="extended"
+          sx={{
+            backgroundColor: "background.paper",
+            border: "1px solid",
+            borderColor: "secondary.main",
+            color: "secondary.main",
+            "&:hover": {
+              color: "background.paper",
+              backgroundColor: "secondary.main",
+              borderColor: "secondary.main",
+            },
+          }}
+          color="secondary"
+          onClick={() => router.push(STUDY_ROUTE)}
+        >
+          Join Pilot Study <ScienceIcon />
+        </Fab>
+      )}
 
-      <Button
-        href="/info-sheet"
-        variant="outlined"
-        endIcon={<SportsEsportsIcon />}
+      <Box
         sx={{
-          mx: "auto",
-          textTransform: "none",
+          display: "flex",
+          gap: "1rem",
+          flexWrap: "wrap",
+          justifyContent: "center",
         }}
-        color="secondary"
-        component={NextLink}
       >
-        Join Pilot Study
-      </Button>
-
-      <Box sx={{ display: "flex", gap: "1rem" }}>
-        <Box>
+        <Typography>
           Student:{" "}
           <Link href="mailto:N00236157@student.iadt.ie" color="secondary.main">
             Des McDonnell
           </Link>{" "}
           (#N00236157)
-        </Box>
-        <Box>
+        </Typography>
+        <Typography>
           Supervisor:{" "}
           <Link href="mailto:Liam.Challenor@iadt.ie" color="secondary.main">
             Dr Liam Challenor
           </Link>
-        </Box>
+        </Typography>
       </Box>
       <Typography align="center" gutterBottom={true} component="p">
         This study is being conducted as part of the{" "}
