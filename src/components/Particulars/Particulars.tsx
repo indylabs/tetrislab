@@ -10,10 +10,8 @@ import {
   ListItem,
   MenuItem,
   Select,
-  Tooltip,
   Typography,
 } from "@mui/material";
-import { Info as InfoIcon } from "@mui/icons-material";
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
@@ -162,9 +160,6 @@ export const Particulars = () => {
                   labelPlacement="start"
                 />
               </FormControl>
-              <Tooltip title="You must be between 18 and 25 to participat in this study.">
-                <InfoIcon />
-              </Tooltip>
             </ListItem>
           </List>
         </CardContent>

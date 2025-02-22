@@ -66,8 +66,8 @@ export const STUDY_STEPS: StudyStepType[] = [
   },
   {
     id: 5,
-    title: "Task ",
-    slug: "/task",
+    title: "Tetris",
+    slug: "/tetris",
   },
   {
     id: 6,
