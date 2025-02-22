@@ -30,17 +30,17 @@ export const Home = () => {
     >
       <Logo size="140px" />
 
-      <div
+      <h1
         style={{
           display: "flex",
           flexDirection: "row",
           gap: "0.25rem",
-          fontSize: "2rem",
-          alignItems: "center",
+          fontWeight: "normal",
         }}
       >
-        Welcome to <Title />
-      </div>
+        <span>Welcome to</span>
+        <Title fontSize="2rem" />
+      </h1>
 
       <Typography align="center" component="h2">
         This is an experimental application which will form part of a research

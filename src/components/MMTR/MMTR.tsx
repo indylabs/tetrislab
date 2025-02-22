@@ -74,6 +74,7 @@ export const MMTR = () => {
             <CardContent sx={{ p: 0 }}>
               <FormControl>
                 <FormControlLabel
+                  required
                   sx={{
                     alignItems: "flex-start",
                   }}

@@ -1,29 +1,31 @@
-import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
 
 type TitleProps = {
   fontSize?: string;
 };
 
 const Title = ({ fontSize = "1.5rem" }: TitleProps) => {
+  const theme = useTheme();
+
   return (
-    <Typography component="h1" style={{ display: "flex", margin: 0 }}>
-      <Typography
-        component="span"
-        color="primary.main"
-        fontSize={fontSize}
-        lineHeight="2.5rem"
+    <div style={{ display: "flex", gap: 0 }}>
+      <span
+        style={{
+          color: theme.palette.primary.main,
+          fontSize,
+        }}
       >
         Tetris
-      </Typography>
-      <Typography
-        component="span"
-        color="secondary.main"
-        fontSize={fontSize}
-        lineHeight="2.5rem"
+      </span>
+      <span
+        style={{
+          color: theme.palette.secondary.main,
+          fontSize,
+        }}
       >
         Lab
-      </Typography>
-    </Typography>
+      </span>
+    </div>
   );
 };
 

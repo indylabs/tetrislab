@@ -62,6 +62,7 @@ export const Consent = () => {
               <ListItem key={id}>
                 <FormControl>
                   <FormControlLabel
+                    required
                     control={
                       <Checkbox
                         onChange={() => handleChange(index)}

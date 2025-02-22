@@ -181,6 +181,7 @@ export const Particulars = () => {
               <ListItem key={id}>
                 <FormControl>
                   <FormControlLabel
+                    required
                     control={
                       <Checkbox
                         onChange={() => handleChange(index)}

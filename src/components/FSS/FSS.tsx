@@ -83,6 +83,7 @@ export const FSS = () => {
                 <CardContent sx={{ p: 0 }}>
                   <FormControl key={id}>
                     <FormControlLabel
+                      required
                       sx={{
                         alignItems: "flex-start",
                         mb: 0,
