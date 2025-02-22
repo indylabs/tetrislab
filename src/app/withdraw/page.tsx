@@ -6,7 +6,7 @@ import { Card, CardContent, Typography } from "@mui/material";
 export default function WithdrawPage() {
   return (
     <>
-      <Container title="Pilot Study" showStepper={false}>
+      <Container showStepper={false}>
         <Card>
           <CardContent>
             <Typography sx={{ my: "1rem" }}>
