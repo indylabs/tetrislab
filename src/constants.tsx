@@ -5,6 +5,7 @@ import {
   SportsEsports as SportsEsportsIcon,
 } from "@mui/icons-material";
 
+import Title from "@/components/Title/Title";
 import { StudyStepType } from "./types";
 
 export enum VARIANTS {
@@ -94,13 +95,14 @@ export const STUDY_STEPS: StudyStepType[] = [
 ];
 
 export const BRANDING = {
-  logo: "",
+  logo: <Title />,
   title: "",
   homeUrl: "/",
 };
 
 export const INITIAL_STATE = {
   variant: null,
+  isMobile: false,
   infoSheet: false,
   gender: null,
   age: null,

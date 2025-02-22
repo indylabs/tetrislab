@@ -3,37 +3,31 @@ import Typography from "@mui/material/Typography";
 import Logo from "@/components/Logo/Logo";
 
 type TitleProps = {
-  variant?:
-    | "body1"
-    | "body2"
-    | "button"
-    | "caption"
-    | "h1"
-    | "h2"
-    | "h3"
-    | "h4"
-    | "h5"
-    | "h6"
-    | "inherit"
-    | "overline"
-    | "subtitle1"
-    | "subtitle2";
   showLogo?: boolean;
 };
 
-const Title = ({ variant = "body1", showLogo = true }: TitleProps) => {
+const Title = ({ showLogo = true }: TitleProps) => {
   return (
-    <div style={{ display: "flex", gap: "0.5rem" }}>
-      {showLogo && <Logo size="2.5rem" />}
+    <Typography
+      style={{
+        display: "flex",
+        margin: 0,
+        paddingLeft: "0.75rem",
+        gap: "0.25rem",
+        justifyItems: "center",
+        alignItems: "center",
+      }}
+    >
+      {showLogo && <Logo size="1.8rem" />}
       <div>
-        <Typography component="span" variant={variant} color="primary.main">
+        <Typography component="span" color="primary.main" fontSize={"1.5rem"}>
           Tetris
         </Typography>
-        <Typography component="span" variant={variant} color="secondary.main">
+        <Typography component="span" color="secondary.main" fontSize={"1.5rem"}>
           Lab
         </Typography>
       </div>
-    </div>
+    </Typography>
   );
 };
 

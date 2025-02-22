@@ -5,7 +5,7 @@ import { Particulars } from "@/components/Particulars/Particulars";
 
 export default function ParticularsPage() {
   return (
-    <Container title="Pilot Study">
+    <Container>
       <Particulars />
     </Container>
   );

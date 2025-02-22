@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import {
+  Alert,
   Card,
   CardHeader,
   CardContent,
@@ -19,7 +20,7 @@ import {
 } from "@/data/information-sheet";
 
 export const InformationSheet = () => {
-  const { dispatch, nextStep } = useTetrisLabContext();
+  const { dispatch, step, nextStep, isMobile } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
 
@@ -30,41 +31,50 @@ export const InformationSheet = () => {
 
   return (
     <>
-      <StepAction
-        title={ACTION_TITLE}
-        info={ACTION_INFO}
-        label={ACTION_LABEL}
-        onAction={handleOnComplete}
-        isValid={isValid}
-      />
+      {isMobile && (
+        <Alert variant="filled" severity="warning" sx={{ mt: 2, mb: 4 }}>
+          This study must be conducted on a desktop computer.
+        </Alert>
+      )}
+
+      {!isMobile && (
+        <StepAction
+          title={`Step ${step + 1} - ${ACTION_TITLE}`}
+          info={ACTION_INFO}
+          label={ACTION_LABEL}
+          onAction={handleOnComplete}
+          isValid={isValid}
+        />
+      )}
 
       {INFORMATION_DATA.map(({ id, title, content }) => (
-        <Card key={id} sx={{ mb: 4, p: 2, pb: 0 }}>
+        <Card key={id} sx={{ mb: 4, p: 0 }}>
           <CardHeader title={title} sx={{ color: "primary.main" }} />
           <CardContent>{content}</CardContent>
         </Card>
       ))}
-
-      <FormGroup sx={{ alignItems: "flex-end" }}>
-        <FormControlLabel
-          required
-          control={
-            <Checkbox
-              color="secondary"
-              onChange={() => setIsValid((prev) => !prev)}
+      {!isMobile && (
+        <Card sx={{ mb: 4, py: 2 }}>
+          <FormGroup sx={{ alignItems: "flex-start" }}>
+            <FormControlLabel
+              required
+              control={
+                <Checkbox
+                  color="secondary"
+                  onChange={() => setIsValid((prev) => !prev)}
+                />
+              }
+              label="I have read all sections of this information sheet"
+              labelPlacement="start"
             />
-          }
-          label="I have read all sections of this information sheet"
-          labelPlacement="start"
-        />
-      </FormGroup>
-
-      <StepAction
-        info={ACTION_INFO}
-        label={ACTION_LABEL}
-        onAction={handleOnComplete}
-        isValid={isValid}
-      />
+          </FormGroup>
+        </Card>
+      )}
+      {isMobile && (
+        <Alert variant="filled" severity="warning" sx={{ mb: 2 }}>
+          This study must be conducted on a desktop computer.
+        </Alert>
+      )}
     </>
   );
 };

@@ -29,7 +29,7 @@ type FinishProps = {
 };
 
 export const Finish = ({ onComplete }: FinishProps) => {
-  const { dispatch, state } = useTetrisLabContext();
+  const { dispatch, step, state } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
@@ -69,7 +69,7 @@ export const Finish = ({ onComplete }: FinishProps) => {
   return (
     <>
       <StepAction
-        title={ACTION_TITLE}
+        title={`Step ${step + 1} - ${ACTION_TITLE}`}
         info={ACTION_INFO}
         label={ACTION_LABEL}
         onAction={handleOnComplete}
@@ -126,13 +126,6 @@ export const Finish = ({ onComplete }: FinishProps) => {
           labelPlacement="start"
         />
       </FormGroup>
-
-      <StepAction
-        info={ACTION_INFO}
-        label={ACTION_LABEL}
-        onAction={handleOnComplete}
-        isValid={isValid}
-      />
     </>
   );
 };

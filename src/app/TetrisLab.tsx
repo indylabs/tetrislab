@@ -5,6 +5,9 @@ import { usePathname } from "next/navigation";
 import { NextAppProvider } from "@toolpad/core/nextjs";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+
 import tetrisLabTheme from "./theme";
 import Withdraw from "@/components/Withdraw/Withdraw";
 import { TetrisLabContextProvider } from "@/state/TetrisLabContext";
@@ -22,6 +25,8 @@ export default function TetrisLab({
 }) {
   const pathname = usePathname();
   const isStudy = getIsStudy(pathname);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleWithdraw = () => {
     // Using window.location.replace here to force reset of state
@@ -39,9 +44,10 @@ export default function TetrisLab({
           <DashboardLayout
             defaultSidebarCollapsed={true}
             slots={{
-              toolbarActions: isStudy
-                ? () => <Withdraw onWithdraw={() => handleWithdraw()} />
-                : () => <></>,
+              toolbarActions:
+                isStudy && !isMobile
+                  ? () => <Withdraw onWithdraw={() => handleWithdraw()} />
+                  : () => <></>,
             }}
             sx={{
               boxShadow: 0,
@@ -53,7 +59,10 @@ export default function TetrisLab({
               },
             }}
           >
-            <TetrisLabContextProvider randomVariant={randomVariant}>
+            <TetrisLabContextProvider
+              randomVariant={randomVariant}
+              isMobile={isMobile}
+            >
               {children}
             </TetrisLabContextProvider>
           </DashboardLayout>

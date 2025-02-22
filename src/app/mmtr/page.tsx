@@ -5,7 +5,7 @@ import { MMTR } from "@/components/MMTR/MMTR";
 
 export default function MMTRPage() {
   return (
-    <Container title="Pilot Study">
+    <Container>
       <MMTR />
     </Container>
   );

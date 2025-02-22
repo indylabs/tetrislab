@@ -21,9 +21,11 @@ const TetrisLabContext = createContext<TetrisLabContextType | undefined>(
 
 export const TetrisLabContextProvider = ({
   randomVariant,
+  isMobile,
   children,
 }: {
   randomVariant: VARIANTS;
+  isMobile: boolean;
   children: ReactNode;
 }) => {
   const router = useRouter();
@@ -38,13 +40,24 @@ export const TetrisLabContextProvider = ({
     router.push(STUDY_STEPS[nextStep].slug);
   };
 
-  const [state, dispatch] = useReducer(reducer, { ...INITIAL_STATE, variant });
+  const [state, dispatch] = useReducer(reducer, {
+    ...INITIAL_STATE,
+    variant,
+  });
 
   console.log("state:", state);
 
   return (
     <TetrisLabContext.Provider
-      value={{ state, dispatch, isPaused, setIsPaused, step, nextStep }}
+      value={{
+        state,
+        dispatch,
+        isMobile,
+        isPaused,
+        setIsPaused,
+        step,
+        nextStep,
+      }}
     >
       {children}
     </TetrisLabContext.Provider>

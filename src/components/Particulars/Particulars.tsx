@@ -26,7 +26,7 @@ import {
 } from "@/data/particulars";
 
 export const Particulars = () => {
-  const { dispatch, nextStep } = useTetrisLabContext();
+  const { dispatch, step, nextStep } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
   const [age, setAge] = useState<string>("");
@@ -60,7 +60,7 @@ export const Particulars = () => {
   return (
     <>
       <StepAction
-        title={ACTION_TITLE}
+        title={`Step ${step + 1} - ${ACTION_TITLE}`}
         info={ACTION_INFO}
         label={ACTION_LABEL}
         onAction={handleOnComplete}
@@ -174,7 +174,7 @@ export const Particulars = () => {
         Requirements
       </Typography>
 
-      <Card>
+      <Card sx={{ mb: 4 }}>
         <CardContent>
           <List>
             {PARTICULARS_DATA.map(({ id, text }, index) => (
@@ -196,13 +196,6 @@ export const Particulars = () => {
           </List>
         </CardContent>
       </Card>
-
-      <StepAction
-        info={ACTION_INFO}
-        label={ACTION_LABEL}
-        onAction={handleOnComplete}
-        isValid={isValid}
-      />
     </>
   );
 };

@@ -23,7 +23,7 @@ import {
 } from "@/data/mmtr";
 
 export const MMTR = () => {
-  const { dispatch, nextStep } = useTetrisLabContext();
+  const { dispatch, step, nextStep } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
   const [mmtr, setMmtr] = useState<(number | null)[]>(
@@ -57,7 +57,7 @@ export const MMTR = () => {
   return (
     <>
       <StepAction
-        title={ACTION_TITLE}
+        title={`Step ${step + 1} - ${ACTION_TITLE}`}
         info={ACTION_INFO}
         label={ACTION_LABEL}
         onAction={handleOnComplete}
@@ -101,13 +101,6 @@ export const MMTR = () => {
           </Card>
         );
       })}
-
-      <StepAction
-        info={ACTION_INFO}
-        label={ACTION_LABEL}
-        onAction={handleOnComplete}
-        isValid={isValid}
-      />
     </>
   );
 };

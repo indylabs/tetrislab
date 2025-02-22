@@ -1,10 +1,8 @@
 import { Stepper as MUIStepper, Step, StepLabel } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
-import { styled } from "@mui/material/styles";
-
-import { QuestionAnswer as QuestionAnswerIcon } from "@mui/icons-material";
 
 import { STUDY_STEPS } from "@/constants";
 

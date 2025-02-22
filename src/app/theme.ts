@@ -12,6 +12,12 @@ const tetrisLabTheme = createTheme({
       main: THEME_SECONDARY_MAIN_COLOR,
     },
   },
+  typography: {
+    h2: {
+      fontSize: '2rem',
+      marginBottom: '1.6rem'
+    }
+  },
   zIndex: {
     modal: 1100,
     appBar: 1300

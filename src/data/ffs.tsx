@@ -1,6 +1,6 @@
-export const ACTION_TITLE = "Flow State Scale-2 (FSS-2) Questionnaire";
+export const ACTION_TITLE = "Flow State Scale (FSS-2)";
 export const ACTION_INFO =
-  "Please answer all questions on Flow State Scale-2 (FSS0-2) Questionnaire to continue.";
+  "Considering your experience on the previous step, answer all questions to continue.";
 
 export const ACTION_LABEL = "Submit responses";
 

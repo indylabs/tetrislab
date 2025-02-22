@@ -10,7 +10,7 @@ export default function FinishPage() {
   };
 
   return (
-    <Container title="Pilot Study">
+    <Container>
       <Finish onComplete={handleOnComplete} />
     </Container>
   );

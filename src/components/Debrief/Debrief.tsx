@@ -21,7 +21,7 @@ import {
 } from "@/data/debrief";
 
 export const Debrief = () => {
-  const { dispatch, nextStep } = useTetrisLabContext();
+  const { dispatch, step, nextStep } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
 
@@ -33,7 +33,7 @@ export const Debrief = () => {
   return (
     <>
       <StepAction
-        title={ACTION_TITLE}
+        title={`Step ${step + 1} - ${ACTION_TITLE}`}
         info={ACTION_INFO}
         label={ACTION_LABEL}
         onAction={handleOnComplete}
@@ -41,7 +41,7 @@ export const Debrief = () => {
       />
 
       {DEBRIEF_DATA.map(({ id, title, content }) => (
-        <Card key={id} sx={{ mb: 4, p: 2, pb: 0 }}>
+        <Card key={id} sx={{ mb: 4 }}>
           <CardHeader title={title} sx={{ color: "primary.main" }} />
           <CardContent>
             {content.map(({ id, text }) => (
@@ -52,27 +52,21 @@ export const Debrief = () => {
           </CardContent>
         </Card>
       ))}
-
-      <FormGroup sx={{ alignItems: "flex-end" }}>
-        <FormControlLabel
-          required
-          control={
-            <Checkbox
-              color="secondary"
-              onChange={() => setIsValid((prev) => !prev)}
-            />
-          }
-          label="I have read all sections of this debrief sheet"
-          labelPlacement="start"
-        />
-      </FormGroup>
-
-      <StepAction
-        info={ACTION_INFO}
-        label={ACTION_LABEL}
-        onAction={handleOnComplete}
-        isValid={isValid}
-      />
+      <Card sx={{ mb: 4 }}>
+        <FormGroup sx={{ alignItems: "flex-start" }}>
+          <FormControlLabel
+            required
+            control={
+              <Checkbox
+                color="secondary"
+                onChange={() => setIsValid((prev) => !prev)}
+              />
+            }
+            label="I have read all sections of this debrief sheet"
+            labelPlacement="start"
+          />
+        </FormGroup>
+      </Card>
     </>
   );
 };
