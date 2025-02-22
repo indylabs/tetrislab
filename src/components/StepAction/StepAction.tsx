@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Fab, Typography, Zoom } from "@mui/material";
+import { Alert, Box, Fab, Typography, Zoom } from "@mui/material";
 import {
   ArrowRight as ArrowRightIcon,
   Info as InfoIcon,
@@ -22,21 +22,28 @@ export const StepAction = ({
 }: StepActionProps) => {
   return (
     <>
-      <Box sx={{ display: "flex", justifyContent: "space-between", my: 4 }}>
-        <Box>
-          <Typography
-            sx={{ color: "primary.main", fontSize: "2rem", mb: 4 }}
-            gutterBottom={true}
-          >
-            {title}
-          </Typography>
-          <Typography
-            gutterBottom={true}
-            sx={{ display: "flex", gap: "0.3rem" }}
-          >
-            <InfoIcon sx={{ color: "primary.main" }} /> {info}
-          </Typography>
-        </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          my: 4,
+        }}
+      >
+        <Typography variant="h2" sx={{ color: "primary.main" }}>
+          {title}
+        </Typography>
+        <Alert
+          severity="info"
+          sx={{
+            color: "white",
+            borderColor: "primary.main",
+            backgroundColor: "transparent",
+            p: 0,
+          }}
+          icon={<InfoIcon sx={{ color: "primary.main" }} />}
+        >
+          {info}
+        </Alert>
       </Box>
 
       <Zoom in={isValid} unmountOnExit>

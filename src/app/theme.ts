@@ -12,10 +12,42 @@ const tetrisLabTheme = createTheme({
       main: THEME_SECONDARY_MAIN_COLOR,
     },
   },
+  typography: {
+    h2: {
+      fontSize: '2rem',
+      marginBottom: '1.6rem'
+    }
+  },
   zIndex: {
     modal: 1100,
     appBar: 1300
-  }
+  },
+  components: {
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          textDecoration: 'none',
+          "&:hover": {
+            textDecoration: 'underline',
+          },
+        },
+      },
+    },
+    MuiStepLabel: {
+      styleOverrides: {
+        label: {
+          fontSize: '1rem',
+          color: '#ffffff80',
+          "&.Mui-active": {
+            color: THEME_PRIMARY_MAIN_COLOR
+          },
+          "&.Mui-completed": {
+            color: '#ffffff80',
+          },
+        }
+      }
+    }
+  },
 });
 
 export default tetrisLabTheme;

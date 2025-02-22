@@ -53,6 +53,7 @@ export type TetrisLabAction =
 
 export type TetrisLabState = {
   variant: VARIANTS | null;
+  isDesktop: boolean;
   infoSheet: boolean;
   gender: string | null;
   age: string | null;
@@ -73,6 +74,7 @@ export type TetrisLabState = {
 export type TetrisLabContextType = {
   state: TetrisLabState;
   dispatch: React.Dispatch<TetrisLabAction>;
+  isDesktop: boolean;
   isPaused: boolean;
   setIsPaused: ( isPaused:boolean ) => void
   step: number;

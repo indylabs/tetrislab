@@ -20,7 +20,7 @@ import { StepAction } from "@/components/StepAction/StepAction";
 import { FSS_DATA, ACTION_TITLE, ACTION_INFO, ACTION_LABEL } from "@/data/ffs";
 
 export const FSS = () => {
-  const { dispatch, nextStep } = useTetrisLabContext();
+  const { dispatch, step, nextStep } = useTetrisLabContext();
 
   const [isValid, setIsValid] = useState(false);
   const [fss, setFSS] = useState<(number | null)[]>(
@@ -54,7 +54,7 @@ export const FSS = () => {
   return (
     <>
       <StepAction
-        title={ACTION_TITLE}
+        title={`Step ${step + 1} - ${ACTION_TITLE}`}
         info={ACTION_INFO}
         label={ACTION_LABEL}
         onAction={handleOnComplete}
@@ -113,13 +113,6 @@ export const FSS = () => {
           </Box>
         );
       })}
-
-      <StepAction
-        info={ACTION_INFO}
-        label={ACTION_LABEL}
-        onAction={handleOnComplete}
-        isValid={isValid}
-      />
     </>
   );
 };

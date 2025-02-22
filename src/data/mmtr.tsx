@@ -1,7 +1,6 @@
 export const ACTION_TITLE = "Media Multitasking (Revised) Questionnaire";
 
-export const ACTION_INFO =
-  "Please answer all questions on Media Multitasking-Revised (MMT-R) Questionnaire to continue.";
+export const ACTION_INFO = "Please answer all questions to continue.";
 
 export const ACTION_LABEL = "Submit responses";
 

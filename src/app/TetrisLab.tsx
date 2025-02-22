@@ -10,6 +10,7 @@ import Withdraw from "@/components/Withdraw/Withdraw";
 import { TetrisLabContextProvider } from "@/state/TetrisLabContext";
 import getIsStudy from "@/utils/getIsStudy";
 import { BRANDING, NAVIGATION, VARIANTS } from "@/constants";
+import useIsDesktop from "@/hooks/useIsDesktop";
 
 import "./normalize.css";
 
@@ -22,6 +23,7 @@ export default function TetrisLab({
 }) {
   const pathname = usePathname();
   const isStudy = getIsStudy(pathname);
+  const isDesktop = useIsDesktop();
 
   const handleWithdraw = () => {
     // Using window.location.replace here to force reset of state
@@ -39,9 +41,10 @@ export default function TetrisLab({
           <DashboardLayout
             defaultSidebarCollapsed={true}
             slots={{
-              toolbarActions: isStudy
-                ? () => <Withdraw onWithdraw={() => handleWithdraw()} />
-                : () => <></>,
+              toolbarActions:
+                isStudy && isDesktop
+                  ? () => <Withdraw onWithdraw={() => handleWithdraw()} />
+                  : () => <></>,
             }}
             sx={{
               boxShadow: 0,
@@ -53,7 +56,10 @@ export default function TetrisLab({
               },
             }}
           >
-            <TetrisLabContextProvider randomVariant={randomVariant}>
+            <TetrisLabContextProvider
+              randomVariant={randomVariant}
+              isDesktop={isDesktop}
+            >
               {children}
             </TetrisLabContextProvider>
           </DashboardLayout>

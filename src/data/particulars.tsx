@@ -4,7 +4,7 @@ import { Info as InfoIcon } from "@mui/icons-material";
 export const ACTION_TITLE = "Particulars";
 
 export const ACTION_INFO =
-  "Please answer the demographic quesitons and confirm all requirements to proceed.";
+  "Please answer the demographic questions and confirm all requirements to proceed.";
 
 export const ACTION_LABEL = "Continue";
 

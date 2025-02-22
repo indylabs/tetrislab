@@ -5,7 +5,7 @@ import { Debrief } from "@/components/Debrief/Debrief";
 
 export default function DebriefPage() {
   return (
-    <Container title="Pilot Study">
+    <Container>
       <Debrief />
     </Container>
   );

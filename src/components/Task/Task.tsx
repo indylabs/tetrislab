@@ -31,7 +31,7 @@ const Transition = forwardRef(function Transition(
 });
 
 export const Task = () => {
-  const { state, nextStep } = useTetrisLabContext();
+  const { state, step, nextStep } = useTetrisLabContext();
   const { variant } = state;
 
   const [isComplete, setIsComplete] = useState(false);
@@ -53,7 +53,7 @@ export const Task = () => {
   return (
     <>
       <StepAction
-        title={ACTION_TITLE}
+        title={`Step ${step + 1} - ${ACTION_TITLE}`}
         info={isComplete ? ACTION_INFO_COMPLETE : ACTION_INFO_INIT}
         label={isComplete ? ACTION_LABEL_COMPLETE : ACTION_LABEL_INIT}
         onAction={handleStepAction}
@@ -73,13 +73,6 @@ export const Task = () => {
             <CardContent>{text}</CardContent>
           </Card>
         ))}
-
-      <StepAction
-        info={isComplete ? ACTION_INFO_COMPLETE : ACTION_INFO_INIT}
-        label={isComplete ? ACTION_LABEL_COMPLETE : ACTION_LABEL_INIT}
-        onAction={handleStepAction}
-        isValid={true}
-      />
 
       <Dialog
         fullScreen

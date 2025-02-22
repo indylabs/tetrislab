@@ -5,7 +5,7 @@ import { InformationSheet } from "@/components/InformationSheet/InformationSheet
 
 export default function InformationSheetPage() {
   return (
-    <Container title="Pilot Study">
+    <Container>
       <InformationSheet />
     </Container>
   );
