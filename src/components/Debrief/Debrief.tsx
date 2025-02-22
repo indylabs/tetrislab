@@ -52,7 +52,7 @@ export const Debrief = () => {
           </CardContent>
         </Card>
       ))}
-      <Card sx={{ mb: 4 }}>
+      <Card sx={{ mb: 4, py: 2 }}>
         <FormGroup sx={{ alignItems: "flex-start" }}>
           <FormControlLabel
             required

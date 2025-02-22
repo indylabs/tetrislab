@@ -3,7 +3,7 @@
 import { Container } from "@/components/Container/Container";
 import { Task } from "@/components/Task/Task";
 
-export default function TaskPage() {
+export default function TetrisPage() {
   return (
     <Container>
       <Task />

@@ -76,7 +76,7 @@ export const Finish = ({ onComplete }: FinishProps) => {
         isValid={isValid}
       />
 
-      <Card sx={{ mb: 4, p: 2, pb: 0 }}>
+      <Card sx={{ mb: 4 }}>
         <CardHeader title="Participant Code" sx={{ color: "primary.main" }} />
         <CardContent>
           <Box
@@ -84,12 +84,12 @@ export const Finish = ({ onComplete }: FinishProps) => {
               display: "flex",
               gap: "0.5rem",
               alignItems: "center",
-              mb: 4,
+              mb: 2,
             }}
           >
             <Typography>Your participlant code is:</Typography>
-            <Typography sx={{ fontSize: "1.6rem" }} color="primary">
-              {participantCode}
+            <Typography color="primary">
+              &quot;{participantCode}&quot;
             </Typography>
             {isCopied && <CheckCircleIcon color="secondary" />}
             {!isCopied && (
@@ -110,22 +110,23 @@ export const Finish = ({ onComplete }: FinishProps) => {
             Please take note of this code and quote it if you decide to withdraw
             from the study after submission.
           </Typography>
+
+          <FormGroup sx={{ alignItems: "flex-start" }}>
+            <FormControlLabel
+              required
+              control={
+                <Checkbox
+                  color="secondary"
+                  onChange={() => setIsValid((prev) => !prev)}
+                />
+              }
+              label="I have taken note of my participant code"
+              labelPlacement="start"
+              sx={{ ml: 0 }}
+            />
+          </FormGroup>
         </CardContent>
       </Card>
-
-      <FormGroup sx={{ alignItems: "flex-end" }}>
-        <FormControlLabel
-          required
-          control={
-            <Checkbox
-              color="secondary"
-              onChange={() => setIsValid((prev) => !prev)}
-            />
-          }
-          label="I have taken note of my participant code"
-          labelPlacement="start"
-        />
-      </FormGroup>
     </>
   );
 };
