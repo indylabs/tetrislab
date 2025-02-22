@@ -88,7 +88,9 @@ export const Finish = ({ onComplete }: FinishProps) => {
             }}
           >
             <Typography>Your participlant code is:</Typography>
-            <Typography color="primary">"{participantCode}"</Typography>
+            <Typography color="primary">
+              &quot;{participantCode}&quot;
+            </Typography>
             {isCopied && <CheckCircleIcon color="secondary" />}
             {!isCopied && (
               <Tooltip
