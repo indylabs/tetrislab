@@ -15,7 +15,7 @@ import {
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
-import useStepper from "@/hooks/useStepper";
+import { useStepperContext } from "@/state/StepperContext";
 
 import {
   ACTION_TITLE,
@@ -28,7 +28,7 @@ import { generateAgeOptions } from "./helpers/generateAgeOptions";
 
 export const Particulars = () => {
   const { dispatch } = useTetrisLabContext();
-  const [step, nextStep] = useStepper();
+  const { step, nextStep } = useStepperContext();
 
   const [isValid, setIsValid] = useState(false);
   const [age, setAge] = useState<string>("");

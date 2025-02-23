@@ -11,7 +11,7 @@ import {
 
 import { StepAction } from "@/components/StepAction/StepAction";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
-import useStepper from "@/hooks/useStepper";
+import { useStepperContext } from "@/state/StepperContext";
 import {
   INFORMATION_DATA,
   ACTION_TITLE,
@@ -21,7 +21,7 @@ import {
 
 export const InformationSheet = () => {
   const { dispatch, isDesktop } = useTetrisLabContext();
-  const [step, nextStep] = useStepper();
+  const { step, nextStep } = useStepperContext();
 
   const [isValid, setIsValid] = useState(false);
 
