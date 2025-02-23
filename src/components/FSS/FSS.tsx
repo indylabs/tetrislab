@@ -14,13 +14,13 @@ import {
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
-import useStepper from "@/hooks/useStepper";
+import { useStepperContext } from "@/state/StepperContext";
 
 import { FSS_DATA, ACTION_TITLE, ACTION_INFO, ACTION_LABEL } from "@/data/ffs";
 
 export const FSS = () => {
   const { dispatch } = useTetrisLabContext();
-  const [step, nextStep] = useStepper();
+  const { step, nextStep } = useStepperContext();
 
   const [isValid, setIsValid] = useState(false);
   const [fss, setFSS] = useState<(number | null)[]>(

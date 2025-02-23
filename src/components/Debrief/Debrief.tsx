@@ -11,7 +11,7 @@ import {
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
-import useStepper from "@/hooks/useStepper";
+import { useStepperContext } from "@/state/StepperContext";
 
 import {
   DEBRIEF_DATA,
@@ -22,7 +22,7 @@ import {
 
 export const Debrief = () => {
   const { dispatch } = useTetrisLabContext();
-  const [step, nextStep] = useStepper();
+  const { step, nextStep } = useStepperContext();
 
   const [isValid, setIsValid] = useState(false);
 

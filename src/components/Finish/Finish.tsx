@@ -17,7 +17,7 @@ import {
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
-import useStepper from "@/hooks/useStepper";
+import { useStepperContext } from "@/state/StepperContext";
 
 import { ACTION_TITLE, ACTION_INFO, ACTION_LABEL } from "@/data/finish";
 
@@ -33,7 +33,7 @@ export const Finish = ({
   isSaved = false,
 }: FinishProps) => {
   const { state } = useTetrisLabContext();
-  const [step] = useStepper();
+  const { step } = useStepperContext();
   const { participantCode } = state;
 
   const [isCopied, setIsCopied] = useState(false);

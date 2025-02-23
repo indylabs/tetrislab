@@ -12,6 +12,8 @@ import getIsStudy from "@/utils/getIsStudy";
 import { BRANDING, NAVIGATION } from "@/constants";
 import useIsDesktop from "@/hooks/useIsDesktop";
 
+import { StepperContextProvider } from "@/state/StepperContext";
+
 import "./normalize.css";
 
 export default function TetrisLab({ children }: { children: React.ReactNode }) {
@@ -26,24 +28,26 @@ export default function TetrisLab({ children }: { children: React.ReactNode }) {
       theme={tetrisLabTheme}
     >
       <TetrisLabContextProvider isDesktop={isDesktop}>
-        <DashboardLayout
-          defaultSidebarCollapsed={true}
-          slots={{
-            toolbarActions:
-              isStudy && isDesktop ? () => <Withdraw /> : () => <></>,
-          }}
-          sx={{
-            boxShadow: 0,
-            borderRadius: 0,
-            borderWidth: 0,
-            drawer: {
-              borderRight: "none",
-              boxShadow: "none",
-            },
-          }}
-        >
-          {children}
-        </DashboardLayout>
+        <StepperContextProvider>
+          <DashboardLayout
+            defaultSidebarCollapsed={true}
+            slots={{
+              toolbarActions:
+                isStudy && isDesktop ? () => <Withdraw /> : () => <></>,
+            }}
+            sx={{
+              boxShadow: 0,
+              borderRadius: 0,
+              borderWidth: 0,
+              drawer: {
+                borderRight: "none",
+                boxShadow: "none",
+              },
+            }}
+          >
+            {children}
+          </DashboardLayout>
+        </StepperContextProvider>
       </TetrisLabContextProvider>
     </NextAppProvider>
   );
