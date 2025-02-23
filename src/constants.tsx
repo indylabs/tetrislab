@@ -94,7 +94,6 @@ export const BRANDING = {
 
 export const INITIAL_STATE = {
   variant: null,
-  isDesktop: true,
   infoSheet: false,
   gender: null,
   age: null,

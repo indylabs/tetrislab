@@ -4,7 +4,6 @@ import {
   Card,
   CardHeader,
   CardContent,
-  Typography,
   FormGroup,
   FormControlLabel,
   Checkbox,
@@ -12,6 +11,7 @@ import {
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
+import useStepper from "@/hooks/useStepper";
 
 import {
   DEBRIEF_DATA,
@@ -21,7 +21,8 @@ import {
 } from "@/data/debrief";
 
 export const Debrief = () => {
-  const { dispatch, step, nextStep } = useTetrisLabContext();
+  const { dispatch } = useTetrisLabContext();
+  const [step, nextStep] = useStepper();
 
   const [isValid, setIsValid] = useState(false);
 
@@ -33,7 +34,7 @@ export const Debrief = () => {
   return (
     <>
       <StepAction
-        title={`Step ${step + 1} - ${ACTION_TITLE}`}
+        title={`Step ${step} - ${ACTION_TITLE}`}
         info={ACTION_INFO}
         label={ACTION_LABEL}
         onAction={handleOnComplete}
@@ -43,15 +44,10 @@ export const Debrief = () => {
       {DEBRIEF_DATA.map(({ id, title, content }) => (
         <Card key={id} sx={{ mb: 4 }}>
           <CardHeader title={title} sx={{ color: "primary.main" }} />
-          <CardContent>
-            {content.map(({ id, text }) => (
-              <Typography key={id} sx={{ mb: 2 }}>
-                {text}
-              </Typography>
-            ))}
-          </CardContent>
+          <CardContent>{content}</CardContent>
         </Card>
       ))}
+
       <Card sx={{ mb: 4, py: 2 }}>
         <FormGroup sx={{ alignItems: "flex-start" }}>
           <FormControlLabel

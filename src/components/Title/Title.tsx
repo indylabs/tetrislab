@@ -8,7 +8,12 @@ const Title = ({ fontSize = "1.5rem" }: TitleProps) => {
   const theme = useTheme();
 
   return (
-    <div style={{ display: "flex", gap: 0 }}>
+    <div
+      style={{
+        display: "flex",
+        gap: 0,
+      }}
+    >
       <span
         style={{
           color: theme.palette.primary.main,

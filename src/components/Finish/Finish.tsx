@@ -1,45 +1,42 @@
-import { useEffect, useState } from "react";
-import passphraseJS from "passphrase.js";
+import { useState } from "react";
 
 import {
-  Box,
+  Alert,
   Button,
   Card,
   CardHeader,
   CardContent,
   Tooltip,
   Typography,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
 } from "@mui/material";
 import {
+  Info as InfoIcon,
   CheckCircle as CheckCircleIcon,
   ContentCopy as ContentCopyIcon,
 } from "@mui/icons-material";
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
-import insertParticipant from "@/app/actions/insertParticipant";
 import { StepAction } from "@/components/StepAction/StepAction";
+import useStepper from "@/hooks/useStepper";
 
 import { ACTION_TITLE, ACTION_INFO, ACTION_LABEL } from "@/data/finish";
 
 type FinishProps = {
   onComplete: () => void;
+  isError: boolean;
+  isSaved: boolean;
 };
 
-export const Finish = ({ onComplete }: FinishProps) => {
-  const { dispatch, step, state } = useTetrisLabContext();
+export const Finish = ({
+  onComplete,
+  isError = false,
+  isSaved = false,
+}: FinishProps) => {
+  const { state } = useTetrisLabContext();
+  const [step] = useStepper();
+  const { participantCode } = state;
 
-  const [isValid, setIsValid] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
-  const [participantCode, setParticipantCode] = useState<string | null>(null);
-
-  useEffect(() => {
-    setParticipantCode(
-      passphraseJS.genPassPhraseNormal(4, passphraseJS.effLarge)
-    );
-  }, []);
 
   const handleCopy = async () => {
     try {
@@ -54,41 +51,48 @@ export const Finish = ({ onComplete }: FinishProps) => {
   };
 
   const handleOnComplete = async () => {
-    await insertParticipant(state); // Save state data to database
-    // TODO: Add error handling here. Update UI on failure
-
     onComplete();
   };
 
-  useEffect(() => {
-    if (participantCode) {
-      dispatch({ type: "ADD_PARTICIPANT_CODE", participantCode });
-    }
-  }, [dispatch, participantCode]);
+  if (isError) {
+    return (
+      <Alert variant="filled" severity="error" sx={{ mt: 4 }}>
+        An error occurred while saving your participant data.
+      </Alert>
+    );
+  }
+
+  if (isSaved) {
+    return (
+      <Alert variant="filled" severity="success" sx={{ mt: 4 }}>
+        Your data has been saved. Thank you for participating.
+      </Alert>
+    );
+  }
 
   return (
     <>
       <StepAction
-        title={`Step ${step + 1} - ${ACTION_TITLE}`}
+        title={`Step ${step} - ${ACTION_TITLE}`}
         info={ACTION_INFO}
         label={ACTION_LABEL}
         onAction={handleOnComplete}
-        isValid={isValid}
+        isValid={true}
       />
 
       <Card sx={{ mb: 4 }}>
         <CardHeader title="Participant Code" sx={{ color: "primary.main" }} />
         <CardContent>
-          <Box
+          <Typography
+            component="p"
             sx={{
               display: "flex",
               gap: "0.5rem",
-              alignItems: "center",
               mb: 2,
             }}
           >
-            <Typography>Your participlant code is:</Typography>
-            <Typography color="primary">
+            Your participlant code is:
+            <Typography color="primary" component="span">
               &quot;{participantCode}&quot;
             </Typography>
             {isCopied && <CheckCircleIcon color="secondary" />}
@@ -105,26 +109,35 @@ export const Finish = ({ onComplete }: FinishProps) => {
                 </Button>
               </Tooltip>
             )}
-          </Box>
-          <Typography sx={{ mb: 2 }}>
+          </Typography>
+          <Alert
+            variant="outlined"
+            severity="info"
+            sx={{ mb: 0, borderColor: "primary.main", color: "white" }}
+            icon={<InfoIcon color="primary" />}
+          >
             Please take note of this code and quote it if you decide to withdraw
             from the study after submission.
-          </Typography>
+          </Alert>
+        </CardContent>
+      </Card>
 
-          <FormGroup sx={{ alignItems: "flex-start" }}>
-            <FormControlLabel
-              required
-              control={
-                <Checkbox
-                  color="secondary"
-                  onChange={() => setIsValid((prev) => !prev)}
-                />
-              }
-              label="I have taken note of my participant code"
-              labelPlacement="start"
-              sx={{ ml: 0 }}
-            />
-          </FormGroup>
+      <Card sx={{ mb: 4 }}>
+        <CardHeader title="Save and Finish" sx={{ color: "primary.main" }} />
+        <CardContent>
+          <Typography sx={{ mb: 2 }}>
+            Click &quot;Save and Finish&quot; to submit your data and complete
+            the study.
+          </Typography>
+          <Alert
+            variant="outlined"
+            severity="info"
+            sx={{ mb: 0, borderColor: "primary.main", color: "white" }}
+            icon={<InfoIcon color="primary" />}
+          >
+            You are about to submit data collected during this experiment for
+            use in this study.
+          </Alert>
         </CardContent>
       </Card>
     </>

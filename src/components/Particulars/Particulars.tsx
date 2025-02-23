@@ -15,6 +15,7 @@ import {
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
+import useStepper from "@/hooks/useStepper";
 
 import {
   ACTION_TITLE,
@@ -24,7 +25,8 @@ import {
 } from "@/data/particulars";
 
 export const Particulars = () => {
-  const { dispatch, step, nextStep } = useTetrisLabContext();
+  const { dispatch } = useTetrisLabContext();
+  const [step, nextStep] = useStepper();
 
   const [isValid, setIsValid] = useState(false);
   const [age, setAge] = useState<string>("");
@@ -58,7 +60,7 @@ export const Particulars = () => {
   return (
     <>
       <StepAction
-        title={`Step ${step + 1} - ${ACTION_TITLE}`}
+        title={`Step ${step} - ${ACTION_TITLE}`}
         info={ACTION_INFO}
         label={ACTION_LABEL}
         onAction={handleOnComplete}

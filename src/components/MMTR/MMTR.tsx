@@ -14,6 +14,7 @@ import {
 
 import { StepAction } from "@/components/StepAction/StepAction";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
+import useStepper from "@/hooks/useStepper";
 
 import {
   ACTION_TITLE,
@@ -23,7 +24,8 @@ import {
 } from "@/data/mmtr";
 
 export const MMTR = () => {
-  const { dispatch, step, nextStep } = useTetrisLabContext();
+  const { dispatch } = useTetrisLabContext();
+  const [step, nextStep] = useStepper();
 
   const [isValid, setIsValid] = useState(false);
   const [mmtr, setMmtr] = useState<(number | null)[]>(
@@ -57,7 +59,7 @@ export const MMTR = () => {
   return (
     <>
       <StepAction
-        title={`Step ${step + 1} - ${ACTION_TITLE}`}
+        title={`Step ${step} - ${ACTION_TITLE}`}
         info={ACTION_INFO}
         label={ACTION_LABEL}
         onAction={handleOnComplete}
