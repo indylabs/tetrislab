@@ -8,6 +8,7 @@ import PassiveNotification from "@/components/PassiveNotification/PassiveNotific
 import ActiveNotification from "@/components/ActiveNotification/ActiveNotification";
 import Tetris from "@/components/Tetris/Tetris";
 import { StepAction } from "@/components/StepAction/StepAction";
+import useStepper from "@/hooks/useStepper";
 
 import { VARIANTS } from "@/constants";
 
@@ -31,8 +32,9 @@ const Transition = forwardRef(function Transition(
 });
 
 export const Task = () => {
-  const { state, step, nextStep } = useTetrisLabContext();
+  const { state } = useTetrisLabContext();
   const { variant } = state;
+  const [step, nextStep] = useStepper();
 
   const [isComplete, setIsComplete] = useState(false);
   const [open, setOpen] = useState(false);
@@ -53,7 +55,7 @@ export const Task = () => {
   return (
     <>
       <StepAction
-        title={`Step ${step + 1} - ${ACTION_TITLE}`}
+        title={`Step ${step} - ${ACTION_TITLE}`}
         info={isComplete ? ACTION_INFO_COMPLETE : ACTION_INFO_INIT}
         label={isComplete ? ACTION_LABEL_COMPLETE : ACTION_LABEL_INIT}
         onAction={handleStepAction}

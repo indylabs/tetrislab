@@ -1,7 +1,14 @@
 import type { TetrisLabAction, TetrisLabState } from '@/types';
+import { INITIAL_STATE } from "@/constants";
 
 export const reducer = (state: TetrisLabState, action: TetrisLabAction): TetrisLabState => {
   switch (action.type) {
+    case "INIT_PARTICIPANT":
+      return {
+        ...state,
+        variant: action.variant,
+        participantCode: action.participantCode
+      }
     case "ADD_INFO_SHEET":
       return {
         ...state,
@@ -54,6 +61,10 @@ export const reducer = (state: TetrisLabState, action: TetrisLabAction): TetrisL
       return {
         ...state,
         participantCode: action.participantCode
+      }
+    case "RESET_STATE":
+      return {
+        ...INITIAL_STATE
       }
     default:
       throw new Error(`Unknown action type: ${action}`);

@@ -40,7 +40,9 @@ export type EndGame = {
 }
 
 export type TetrisLabAction =
-  { type: "ADD_INFO_SHEET", infoSheet: boolean }
+  { type: "INIT_PARTICIPANT", variant: VARIANTS, participantCode: string }
+  | { type: "RESET_STATE" }
+  | { type: "ADD_INFO_SHEET", infoSheet: boolean }
   | { type: "ADD_PARTICULARS", gender: string, age: string, requirements: boolean[] }
   | { type: "ADD_CONSENT", consent: boolean[] }
   | { type: "ADD_MMTR", mmtr: (number | null)[] }
@@ -53,7 +55,6 @@ export type TetrisLabAction =
 
 export type TetrisLabState = {
   variant: VARIANTS | null;
-  isDesktop: boolean;
   infoSheet: boolean;
   gender: string | null;
   age: string | null;
@@ -77,8 +78,6 @@ export type TetrisLabContextType = {
   isDesktop: boolean;
   isPaused: boolean;
   setIsPaused: ( isPaused:boolean ) => void
-  step: number;
-  nextStep: ( ) => void;
 };
 
 export type StudyStepType = {

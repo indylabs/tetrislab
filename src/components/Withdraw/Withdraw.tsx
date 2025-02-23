@@ -15,11 +15,18 @@ import {
   Info as InfoIcon,
 } from "@mui/icons-material";
 
-type WithdrawProps = {
-  onWithdraw: () => void;
-};
-const Withdraw = ({ onWithdraw }: WithdrawProps) => {
+import { useTetrisLabContext } from "@/state/TetrisLabContext";
+
+const Withdraw = () => {
   const [open, setOpen] = useState(false);
+
+  const { dispatch } = useTetrisLabContext();
+
+  const handleWithdraw = () => {
+    dispatch({ type: "RESET_STATE" });
+    // Using window.location.replace here to force reset of state
+    window.location.replace("/withdraw");
+  };
 
   return (
     <>
@@ -71,7 +78,7 @@ const Withdraw = ({ onWithdraw }: WithdrawProps) => {
             Return To Study
           </Button>
           <Button
-            onClick={() => onWithdraw()}
+            onClick={() => handleWithdraw()}
             color="secondary"
             variant="outlined"
             endIcon={<ExitToAppIcon />}

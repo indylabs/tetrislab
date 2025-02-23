@@ -1,17 +1,38 @@
 "use client";
 
+import { useState } from "react";
+
 import { Container } from "@/components/Container/Container";
 import { Finish } from "@/components/Finish/Finish";
+import insertParticipant from "@/app/actions/insertParticipant";
+import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
 export default function FinishPage() {
-  const handleOnComplete = () => {
-    // Using window.location.replace here to force reset of state
-    window.location.replace("/");
+  const { dispatch, state } = useTetrisLabContext();
+  const [isError, setIsError] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+
+  const handleOnComplete = async () => {
+    const { error } = await insertParticipant(state); // Save state data to database
+
+    if (error) {
+      setIsError(true);
+      throw new Error(
+        `Error on insertParticipant, Error: ${error.message}, State: ${state}`
+      );
+    }
+
+    dispatch({ type: "RESET_STATE" });
+    setIsSaved(true);
   };
 
   return (
-    <Container>
-      <Finish onComplete={handleOnComplete} />
+    <Container showStepper={!isError}>
+      <Finish
+        onComplete={handleOnComplete}
+        isError={isError}
+        isSaved={isSaved}
+      />
     </Container>
   );
 }

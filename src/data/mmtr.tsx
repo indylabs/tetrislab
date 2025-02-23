@@ -2,7 +2,7 @@ export const ACTION_TITLE = "Media Multitasking (Revised) Questionnaire";
 
 export const ACTION_INFO = "Please answer all questions to continue.";
 
-export const ACTION_LABEL = "Submit responses";
+export const ACTION_LABEL = "Submit Responses";
 
 const MMTR_RESPONSES_DEFAULT = [
   { value: 1, label: "Not at all" },

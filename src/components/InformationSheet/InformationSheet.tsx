@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import {
   Alert,
   Card,
@@ -12,6 +11,7 @@ import {
 
 import { StepAction } from "@/components/StepAction/StepAction";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
+import useStepper from "@/hooks/useStepper";
 import {
   INFORMATION_DATA,
   ACTION_TITLE,
@@ -20,7 +20,8 @@ import {
 } from "@/data/information-sheet";
 
 export const InformationSheet = () => {
-  const { dispatch, step, nextStep, isDesktop } = useTetrisLabContext();
+  const { dispatch, isDesktop } = useTetrisLabContext();
+  const [step, nextStep] = useStepper();
 
   const [isValid, setIsValid] = useState(false);
 
@@ -46,7 +47,7 @@ export const InformationSheet = () => {
 
       {isDesktop && (
         <StepAction
-          title={`Step ${step + 1} - ${ACTION_TITLE}`}
+          title={`Step ${step} - ${ACTION_TITLE}`}
           info={ACTION_INFO}
           label={ACTION_LABEL}
           onAction={handleOnComplete}

@@ -11,6 +11,7 @@ import {
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
+import useStepper from "@/hooks/useStepper";
 
 import {
   CONSENT_DATA,
@@ -20,7 +21,8 @@ import {
 } from "@/data/consent";
 
 export const Consent = () => {
-  const { dispatch, step, nextStep } = useTetrisLabContext();
+  const { dispatch } = useTetrisLabContext();
+  const [step, nextStep] = useStepper();
 
   const [isValid, setIsValid] = useState(false);
   const [consent, setConsent] = useState<boolean[]>(
@@ -48,7 +50,7 @@ export const Consent = () => {
   return (
     <>
       <StepAction
-        title={`Step ${step + 1} - ${ACTION_TITLE}`}
+        title={`Step ${step} - ${ACTION_TITLE}`}
         info={ACTION_INFO}
         label={ACTION_LABEL}
         onAction={handleOnComplete}

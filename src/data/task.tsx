@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { Box, Typography } from "@mui/material";
 
-export const ACTION_TITLE = "Task";
+export const ACTION_TITLE = "Tetris";
 
 export const ACTION_INFO_INIT =
   "When ready, click 'Start Task' to begin the primary task";
