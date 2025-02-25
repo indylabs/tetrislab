@@ -7,7 +7,8 @@ export const reducer = (state: TetrisLabState, action: TetrisLabAction): TetrisL
       return {
         ...state,
         variant: action.variant,
-        participantCode: action.participantCode
+        participantCode: action.participantCode,
+        overallStart: Date.now()
       }
     case "ADD_INFO_SHEET":
       return {
@@ -61,6 +62,11 @@ export const reducer = (state: TetrisLabState, action: TetrisLabAction): TetrisL
       return {
         ...state,
         participantCode: action.participantCode
+      }
+    case "ADD_OVERALL_END":
+      return {
+        ...state,
+        overallEnd: Date.now()
       }
     case "RESET_STATE":
       return {
