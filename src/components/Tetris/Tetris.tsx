@@ -32,6 +32,12 @@ function Tetris({ onComplete }: TetrisProps) {
   const [score, setScore, rows, setRows, level, setLevel] =
     useGameStatus(rowsCleared);
 
+  console.log("droptime:", droptime);
+  console.log("score:", score);
+  console.log("rows:", rows);
+  console.log("rowsCleared:", rowsCleared);
+  console.log("level:", level);
+
   useEffect(() => {
     if (gameover) {
       onComplete();
@@ -74,9 +80,10 @@ function Tetris({ onComplete }: TetrisProps) {
   function drop() {
     // increase lvl when player clears 10 rows
     if (rows > (level + 1) * 10) {
+      const newLevel = level + 1;
       setLevel((prev) => prev + 1);
       // also increase speed
-      setDroptime(1000 / (level + 1) + 200);
+      setDroptime(1000 / (newLevel + 1) + 150);
     }
     if (!checkCollision(player, stage, { x: 0, y: 1 })) {
       updatePlayerPosition({ x: 0, y: 1, collided: false });
@@ -92,8 +99,7 @@ function Tetris({ onComplete }: TetrisProps) {
   const keyUp = ({ keyCode }: { keyCode: number }) => {
     if (!gameover) {
       if (keyCode === 40) {
-        // console.log('interval on');
-        setDroptime(1000 / (level + 1) + 200);
+        setDroptime(level === 0 ? 1000 : 1000 / (level + 1) + 150);
       }
     }
   };

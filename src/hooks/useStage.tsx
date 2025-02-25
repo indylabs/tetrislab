@@ -8,10 +8,9 @@ export const useStage = (player: Player, resetPlayer: () => void) => {
   const [rowsCleared, setRowsCleared] = useState<number>(0);
 
   useEffect(() => {
-    setRowsCleared(0);
-
-    const sweepRows = (newStage: Stage) =>
-      newStage.reduce((accumulator: Stage, row: Row) => {
+    const sweepRows = (newStage: Stage) => {
+      setRowsCleared(0);
+      return newStage.reduce((accumulator: Stage, row: Row) => {
         if (row.findIndex((cell) => cell[0] === "0") === -1) {
           setRowsCleared((prev) => prev + 1);
           // add empty lines to compensate the swept ones
@@ -22,6 +21,7 @@ export const useStage = (player: Player, resetPlayer: () => void) => {
         accumulator.push(row);
         return accumulator;
       }, []);
+    };
 
     const updateStage = (prevStage: Stage) => {
       // clear stage from first render
