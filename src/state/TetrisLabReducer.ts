@@ -34,13 +34,13 @@ export const reducer = (state: TetrisLabState, action: TetrisLabAction): TetrisL
     case "ADD_GAME_START":
       return {
         ...state,
-        gameStart: new Date()
+        gameStart: Date.now()
       };
     case "ADD_GAME_END":
       return {
         ...state,
         ...action.game,
-        gameEnd: new Date()
+        gameEnd: Date.now()
       };
     case "ADD_NOTIFICATION":
       return {
