@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Container } from "@/components/Container/Container";
 import { Finish } from "@/components/Finish/Finish";
@@ -11,6 +11,10 @@ export default function FinishPage() {
   const { dispatch, state } = useTetrisLabContext();
   const [isError, setIsError] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+
+  useEffect(() => {
+    dispatch({ type: "ADD_OVERALL_END" });
+  }, [dispatch]);
 
   const handleOnComplete = async () => {
     const { error } = await insertParticipant(state); // Save state data to database
@@ -27,7 +31,7 @@ export default function FinishPage() {
   };
 
   return (
-    <Container showStepper={!isError}>
+    <Container>
       <Finish
         onComplete={handleOnComplete}
         isError={isError}

@@ -56,17 +56,34 @@ export const Finish = ({
 
   if (isError) {
     return (
-      <Alert variant="filled" severity="error" sx={{ mt: 4 }}>
-        An error occurred while saving your participant data.
-      </Alert>
+      <>
+        <StepAction
+          title={`Step ${step} - ${ACTION_TITLE}`}
+          label={ACTION_LABEL}
+          onAction={handleOnComplete}
+          isValid={true}
+        />
+        <Alert variant="filled" severity="error">
+          An error occurred while saving your participant data.
+        </Alert>
+      </>
     );
   }
 
   if (isSaved) {
     return (
-      <Alert variant="filled" severity="success" sx={{ mt: 4 }}>
-        Your data has been saved. Thank you for participating.
-      </Alert>
+      <>
+        <StepAction
+          title={`Step ${step} - ${ACTION_TITLE}`}
+          label={ACTION_LABEL}
+          onAction={handleOnComplete}
+          isValid={false}
+        />
+        <Alert variant="filled" severity="success">
+          Your data has been saved. Thank you for participating. You may now
+          close this browser tab.
+        </Alert>
+      </>
     );
   }
 

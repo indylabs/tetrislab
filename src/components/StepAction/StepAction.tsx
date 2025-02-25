@@ -6,9 +6,9 @@ import {
 } from "@mui/icons-material";
 
 type StepActionProps = {
-  info: string;
   label: string;
   onAction: () => void;
+  info?: string;
   title?: string;
   isValid?: boolean;
 };
@@ -32,18 +32,20 @@ export const StepAction = ({
         <Typography variant="h2" sx={{ color: "primary.main" }}>
           {title}
         </Typography>
-        <Alert
-          severity="info"
-          sx={{
-            color: "white",
-            borderColor: "primary.main",
-            backgroundColor: "transparent",
-            p: 0,
-          }}
-          icon={<InfoIcon sx={{ color: "primary.main" }} />}
-        >
-          {info}
-        </Alert>
+        {info && (
+          <Alert
+            severity="info"
+            sx={{
+              color: "white",
+              borderColor: "primary.main",
+              backgroundColor: "transparent",
+              p: 0,
+            }}
+            icon={<InfoIcon sx={{ color: "primary.main" }} />}
+          >
+            {info}
+          </Alert>
+        )}
       </Box>
 
       <Zoom in={isValid} unmountOnExit>
