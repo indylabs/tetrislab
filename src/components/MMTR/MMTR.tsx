@@ -23,12 +23,14 @@ import {
   MMTR_DATA,
 } from "@/data/mmtr";
 
+import type { ScaleResponseType } from "@/types";
+
 export const MMTR = () => {
   const { dispatch } = useTetrisLabContext();
   const { step, nextStep } = useStepperContext();
 
   const [isValid, setIsValid] = useState(false);
-  const [mmtr, setMmtr] = useState<(number | null)[]>(
+  const [mmtr, setMmtr] = useState<(ScaleResponseType | null)[]>(
     new Array(MMTR_DATA.length).fill(null)
   );
 
@@ -36,14 +38,26 @@ export const MMTR = () => {
     id: number,
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const index = id - 1;
-    const value = parseInt((event.target as HTMLInputElement).value);
+    // Get question
+    const questionIndex = id - 1;
+    const { responses, ...question } = MMTR_DATA[questionIndex];
 
-    setMmtr((prev) => {
-      const newArr = [...prev];
-      newArr[index] = value;
-      return newArr;
-    });
+    // Get response
+    const responseValue = parseInt((event.target as HTMLInputElement).value);
+    const response = responses.find(
+      (response) => response.value === responseValue
+    );
+
+    if (question && response) {
+      setMmtr((prev) => {
+        const newArr = [...prev];
+        newArr[questionIndex] = {
+          question,
+          response,
+        };
+        return newArr;
+      });
+    }
   };
 
   const handleOnComplete = () => {

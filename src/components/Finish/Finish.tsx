@@ -23,13 +23,13 @@ import { ACTION_TITLE, ACTION_INFO, ACTION_LABEL } from "@/data/finish";
 
 type FinishProps = {
   onComplete: () => void;
-  isError: boolean;
+  error: string | null;
   isSaved: boolean;
 };
 
 export const Finish = ({
   onComplete,
-  isError = false,
+  error = null,
   isSaved = false,
 }: FinishProps) => {
   const { state } = useTetrisLabContext();
@@ -54,7 +54,7 @@ export const Finish = ({
     onComplete();
   };
 
-  if (isError) {
+  if (error) {
     return (
       <>
         <StepAction
@@ -65,6 +65,8 @@ export const Finish = ({
         />
         <Alert variant="filled" severity="error">
           An error occurred while saving your participant data.
+          <br />
+          ERROR: {error}
         </Alert>
       </>
     );
@@ -79,9 +81,10 @@ export const Finish = ({
           onAction={handleOnComplete}
           isValid={false}
         />
-        <Alert variant="filled" severity="success">
-          Your data has been saved. Thank you for participating. You may now
-          close this browser tab.
+        <Alert variant="filled" severity="success" sx={{ color: "white" }}>
+          Your data has been saved. Thank you for participating in this study.
+          <br />
+          You may now close this browser tab.
         </Alert>
       </>
     );

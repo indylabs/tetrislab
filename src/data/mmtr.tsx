@@ -6,13 +6,13 @@ export const ACTION_LABEL = "Submit Responses";
 
 const MMTR_RESPONSES_DEFAULT = [
   { value: 1, label: "Not at all" },
-  { value: 3, label: "Somewhat" },
+  { value: 2.5, label: "Somewhat" },
   { value: 5, label: "Very much" },
 ];
 
 const MMTR_RESPONSES_REVERSE = [
   { value: 5, label: "Not at all" },
-  { value: 3, label: "Somewhat" },
+  { value: 2.5, label: "Somewhat" },
   { value: 1, label: "Very much" },
 ];
 
