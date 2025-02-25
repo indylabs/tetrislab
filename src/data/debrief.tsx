@@ -20,8 +20,17 @@ export const DEBRIEF_DATA = [
             📈&quot;
           </em>
         </Typography>
+        <Typography sx={{ mb: 0 }}>
+          Name of Researcher:{" "}
+          <Link href="mailto:N00236157@student.iadt.ie" color="secondary">
+            Des McDonnell
+          </Link>
+        </Typography>
         <Typography sx={{ mb: 2 }}>
-          Name of Researcher: Des McDonnell
+          Name of Supervisor:{" "}
+          <Link href="mailto:Liam.Challenor@iadt.ie" color="secondary">
+            Dr Liam Challenor
+          </Link>
         </Typography>
         <Typography sx={{ mb: 2 }}>
           This study is designed to investigate the impact of passive and active

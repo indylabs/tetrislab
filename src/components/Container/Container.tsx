@@ -1,7 +1,7 @@
 import { PageContainer } from "@toolpad/core/PageContainer";
 import { Stepper } from "@/components/Stepper/Stepper";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
-import useStepper from "@/hooks/useStepper";
+import { useStepperContext } from "@/state/StepperContext";
 
 type ContainerProps = {
   children: React.ReactNode;
@@ -9,7 +9,7 @@ type ContainerProps = {
 };
 export function Container({ children, showStepper = true }: ContainerProps) {
   const { isDesktop } = useTetrisLabContext();
-  const [step] = useStepper();
+  const { step } = useStepperContext();
 
   return (
     <PageContainer

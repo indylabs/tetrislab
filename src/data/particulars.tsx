@@ -25,19 +25,10 @@ export const PARTICULARS_DATA = [
   {
     id: 5,
     text: (
-      <Typography
-        component="span"
-        sx={{
-          display: "flex",
-          gap: "0.25rem",
-          alignItems: "center",
-          m: 0,
-          p: 0,
-        }}
-      >
+      <Typography component="span">
         I do not have ADHD.
         <Tooltip title="Individuals with ADHD will be excluded to maintain consistency in attention-related variables for the flow state experiment.">
-          <InfoIcon />
+          <InfoIcon style={{ height: "20px" }} />
         </Tooltip>
       </Typography>
     ),

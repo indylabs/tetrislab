@@ -26,6 +26,7 @@ export const Home = () => {
         maxWidth: "75%",
         m: "auto",
         mt: "-16px",
+        py: 4,
       }}
     >
       <Logo size="140px" />

@@ -85,3 +85,8 @@ export type StudyStepType = {
   title: string;
   slug: string;
 };
+
+export type StepperContextType = {
+  step: number;
+  nextStep: () => void;
+}
