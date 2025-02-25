@@ -109,6 +109,8 @@ export const INITIAL_STATE = {
   fss: [],
   debrief: false,
   participantCode: null,
+  overallStart: null,
+  overallEnd: null,
 };
 
 export const THEME_PRIMARY_MAIN_COLOR = "#BE22ED";

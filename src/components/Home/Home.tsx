@@ -5,12 +5,10 @@ import { Science as ScienceIcon } from "@mui/icons-material";
 
 import Title from "@/components/Title/Title";
 import Logo from "@/components/Logo/Logo";
-import useIsDesktop from "@/hooks/useIsDesktop";
 
 const STUDY_ROUTE = "/info-sheet";
 
 export const Home = () => {
-  const isDesktop = useIsDesktop();
   const router = useRouter();
 
   return (
@@ -51,26 +49,24 @@ export const Home = () => {
           Notifications on Flow 🧘 and Performance 📈&quot;
         </em>
       </Typography>
-      {isDesktop && (
-        <Fab
-          variant="extended"
-          sx={{
-            backgroundColor: "background.paper",
-            border: "1px solid",
+      <Fab
+        variant="extended"
+        sx={{
+          backgroundColor: "background.paper",
+          border: "1px solid",
+          borderColor: "secondary.main",
+          color: "secondary.main",
+          "&:hover": {
+            color: "background.paper",
+            backgroundColor: "secondary.main",
             borderColor: "secondary.main",
-            color: "secondary.main",
-            "&:hover": {
-              color: "background.paper",
-              backgroundColor: "secondary.main",
-              borderColor: "secondary.main",
-            },
-          }}
-          color="secondary"
-          onClick={() => router.push(STUDY_ROUTE)}
-        >
-          Join Pilot Study <ScienceIcon />
-        </Fab>
-      )}
+          },
+        }}
+        color="secondary"
+        onClick={() => router.push(STUDY_ROUTE)}
+      >
+        Join Pilot Study <ScienceIcon />
+      </Fab>
 
       <Box
         sx={{

@@ -52,6 +52,7 @@ export type TetrisLabAction =
   | { type: "ADD_FSS", fss: (number | null)[] }
   | { type: "ADD_DEBRIEF", debrief: boolean }
   | { type: "ADD_PARTICIPANT_CODE", participantCode: string }
+  | { type: "ADD_OVERALL_END" }
 
 export type TetrisLabState = {
   variant: VARIANTS | null;
@@ -70,6 +71,8 @@ export type TetrisLabState = {
   fss: (number | null)[];
   debrief: boolean;
   participantCode: string | null;
+  overallStart: number | null;
+  overallEnd: number | null;
 };
 
 export type TetrisLabContextType = {
