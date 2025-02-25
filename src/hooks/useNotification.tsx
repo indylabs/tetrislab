@@ -30,7 +30,7 @@ export const useNotification = ({
         setNotification({
           ...getRandomNotification(notifications), // Assign random passive notification
           type, // Set type
-          start: new Date(), // Set start timestamp
+          start: Date.now(), // Set start timestamp
         });
 
         // Open notification
@@ -42,15 +42,15 @@ export const useNotification = ({
         }
       }
     },
-    isPaused ? null : delay,
-  )
+    isPaused ? null : delay
+  );
 
   const onClose = (response?: string) => {
     dispatch({
       type: "ADD_NOTIFICATION",
       notification: {
         ...notification,
-        end: new Date(),
+        end: Date.now(),
         ...(response ? { response } : {}),
       },
     });

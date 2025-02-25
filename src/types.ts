@@ -28,8 +28,8 @@ export type TetrisLabNotification = {
   type?: "active" | "passive";
   id?: number;
   text?: string;
-  start?: Date;
-  end?: Date;
+  start?: number;
+  end?: number;
   response?: string;
 };
 
@@ -61,8 +61,8 @@ export type TetrisLabState = {
   requirements: boolean[];
   consent: boolean[]; 
   mmtr: (number | null)[];
-  gameStart: Date | null;
-  gameEnd: Date | null;
+  gameStart: number | null;
+  gameEnd: number | null;
   gameScore: number | null;
   gameLevel: number | null;
   gameRows: number | null;
