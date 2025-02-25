@@ -53,6 +53,7 @@ export type TetrisLabAction =
   | { type: "ADD_DEBRIEF", debrief: boolean }
   | { type: "ADD_PARTICIPANT_CODE", participantCode: string }
   | { type: "ADD_OVERALL_END" }
+  | { type: "ADD_INTERVAL_METRICS", intervalMetric: IntervalMetricsType}
 
 export type TetrisLabState = {
   variant: VARIANTS | null;
@@ -73,6 +74,7 @@ export type TetrisLabState = {
   participantCode: string | null;
   overallStart: number | null;
   overallEnd: number | null;
+  intervalMetrics: IntervalMetricsType[];
 };
 
 export type TetrisLabContextType = {
@@ -103,4 +105,12 @@ export type ScaleResponseType = {
     value: number;
     label: string;
   }
+}
+
+export type IntervalMetricsType = {
+  delay: number; // ms, how freq is score recorded
+  time: number; // ms, timestamp of interval
+  score: number;
+  level: number;
+  rows: number;
 }

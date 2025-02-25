@@ -5,7 +5,7 @@ import { Box, Typography } from "@mui/material";
 export const ACTION_TITLE = "Tetris";
 
 export const ACTION_INFO_INIT =
-  "When ready, click 'Start Task' to begin the primary task";
+  "Please read the instructions below. When ready, click 'Start Task' to begin the primary task.";
 export const ACTION_LABEL_INIT = "Start Task";
 
 export const ACTION_INFO_COMPLETE =

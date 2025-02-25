@@ -68,6 +68,11 @@ export const reducer = (state: TetrisLabState, action: TetrisLabAction): TetrisL
         ...state,
         overallEnd: Date.now()
       }
+    case "ADD_INTERVAL_METRICS":
+      return {
+        ...state,
+        intervalMetrics: [...state.intervalMetrics, action.intervalMetric]
+      }
     case "RESET_STATE":
       return {
         ...INITIAL_STATE
