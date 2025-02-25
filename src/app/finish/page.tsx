@@ -31,7 +31,7 @@ export default function FinishPage() {
   };
 
   return (
-    <Container showStepper={!isError}>
+    <Container>
       <Finish
         onComplete={handleOnComplete}
         isError={isError}
