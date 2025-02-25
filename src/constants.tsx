@@ -111,7 +111,10 @@ export const INITIAL_STATE = {
   participantCode: null,
   overallStart: null,
   overallEnd: null,
+  intervalMetrics: [],
 };
 
 export const THEME_PRIMARY_MAIN_COLOR = "#BE22ED";
 export const THEME_SECONDARY_MAIN_COLOR = "#00FFFF";
+
+export const INTERVAL_METRICS_DELAY = 300000; // 5 mins

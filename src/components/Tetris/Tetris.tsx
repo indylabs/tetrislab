@@ -1,17 +1,18 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useInterval } from "usehooks-ts";
 
 import Stage from "../Stage/Stage";
 
 // custom hooks
-import { usePlayer } from "../../hooks/usePlayer";
-import { useStage } from "../../hooks/useStage";
-import { useInterval } from "../../hooks/useInterval";
-import { useGameStatus } from "../../hooks/useGameStatus";
+import { usePlayer } from "@/hooks/usePlayer";
+import { useStage } from "@/hooks/useStage";
+import { useGameStatus } from "@/hooks/useGameStatus";
 
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
-import { createStage, checkCollision } from "../../utils/gameHelpers";
+import { createStage, checkCollision } from "@/utils/gameHelpers";
+import { INTERVAL_METRICS_DELAY } from "@/constants";
 
 import styles from "./Tetris.module.scss";
 
@@ -37,6 +38,18 @@ function Tetris({ onComplete }: TetrisProps) {
   console.log("rows:", rows);
   console.log("rowsCleared:", rowsCleared);
   console.log("level:", level);
+
+  useInterval(() => {
+    const intervalMetric = {
+      delay: INTERVAL_METRICS_DELAY,
+      time: Date.now(),
+      score,
+      level,
+      rows,
+    };
+
+    dispatch({ type: "ADD_INTERVAL_METRICS", intervalMetric });
+  }, INTERVAL_METRICS_DELAY);
 
   useEffect(() => {
     if (gameover) {
