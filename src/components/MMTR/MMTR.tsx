@@ -34,6 +34,9 @@ export const MMTR = () => {
     new Array(MMTR_DATA.length).fill(null)
   );
 
+  console.log("mmtr:", mmtr);
+  console.log("isValid:", isValid);
+
   const handleChange = (
     id: number,
     event: React.ChangeEvent<HTMLInputElement>
@@ -43,7 +46,7 @@ export const MMTR = () => {
     const { responses, ...question } = MMTR_DATA[questionIndex];
 
     // Get response
-    const responseValue = parseInt((event.target as HTMLInputElement).value);
+    const responseValue = Number((event.target as HTMLInputElement).value);
     const response = responses.find(
       (response) => response.value === responseValue
     );
@@ -102,7 +105,7 @@ export const MMTR = () => {
                     >
                       {responses.map(({ value, label }) => (
                         <FormControlLabel
-                          value={value}
+                          value={`${value}`}
                           control={<Radio color="secondary" />}
                           label={label}
                           key={value}

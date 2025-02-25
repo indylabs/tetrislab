@@ -38,7 +38,7 @@ export const FSS = () => {
     const { responses, ...question } = FSS_DATA[questionIndex];
 
     // Get response
-    const responseValue = parseInt((event.target as HTMLInputElement).value);
+    const responseValue = Number((event.target as HTMLInputElement).value);
     const response = responses.find(
       (response) => response.value === responseValue
     );

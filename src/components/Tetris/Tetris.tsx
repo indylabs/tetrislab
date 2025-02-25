@@ -134,6 +134,7 @@ function Tetris({ onComplete }: TetrisProps) {
           movePlayer(1);
         }
       } else if (keyCode === 40) {
+        console.log("40");
         if (!isPaused) {
           dropPlayer();
         }
@@ -204,6 +205,7 @@ function Tetris({ onComplete }: TetrisProps) {
       className={styles.tetris}
       ref={tetrisRef}
       onBlur={handleBlur}
+      data-cy="tetris-button"
     >
       <Stage stage={stage} />
     </button>

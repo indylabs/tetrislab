@@ -65,7 +65,7 @@ export const Home = () => {
         color="secondary"
         onClick={() => router.push(STUDY_ROUTE)}
       >
-        Join Pilot Study <ScienceIcon />
+        Join Study <ScienceIcon />
       </Fab>
 
       <Box
