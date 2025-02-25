@@ -45,11 +45,11 @@ export type TetrisLabAction =
   | { type: "ADD_INFO_SHEET", infoSheet: boolean }
   | { type: "ADD_PARTICULARS", gender: string, age: string, requirements: boolean[] }
   | { type: "ADD_CONSENT", consent: boolean[] }
-  | { type: "ADD_MMTR", mmtr: (number | null)[] }
+  | { type: "ADD_MMTR", mmtr: (ScaleResponseType | null)[] }
   | { type: "ADD_GAME_START" }
   | { type: "ADD_GAME_END", game: EndGame }
   | { type: "ADD_NOTIFICATION", notification: TetrisLabNotification }
-  | { type: "ADD_FSS", fss: (number | null)[] }
+  | { type: "ADD_FSS", fss: (ScaleResponseType | null)[] }
   | { type: "ADD_DEBRIEF", debrief: boolean }
   | { type: "ADD_PARTICIPANT_CODE", participantCode: string }
   | { type: "ADD_OVERALL_END" }
@@ -61,14 +61,14 @@ export type TetrisLabState = {
   age: string | null;
   requirements: boolean[];
   consent: boolean[]; 
-  mmtr: (number | null)[];
+  mmtr: (ScaleResponseType | null)[];
   gameStart: number | null;
   gameEnd: number | null;
   gameScore: number | null;
   gameLevel: number | null;
   gameRows: number | null;
   notifications: TetrisLabNotification[];
-  fss: (number | null)[];
+  fss: (ScaleResponseType | null)[];
   debrief: boolean;
   participantCode: string | null;
   overallStart: number | null;
@@ -92,4 +92,15 @@ export type StudyStepType = {
 export type StepperContextType = {
   step: number;
   nextStep: () => void;
+}
+
+export type ScaleResponseType = {
+  question: {
+    id: number;
+    text: string;
+  };
+  response: {
+    value: number;
+    label: string;
+  }
 }

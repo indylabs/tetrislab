@@ -18,12 +18,14 @@ import { useStepperContext } from "@/state/StepperContext";
 
 import { FSS_DATA, ACTION_TITLE, ACTION_INFO, ACTION_LABEL } from "@/data/ffs";
 
+import type { ScaleResponseType } from "@/types";
+
 export const FSS = () => {
   const { dispatch } = useTetrisLabContext();
   const { step, nextStep } = useStepperContext();
 
   const [isValid, setIsValid] = useState(false);
-  const [fss, setFSS] = useState<(number | null)[]>(
+  const [fss, setFSS] = useState<(ScaleResponseType | null)[]>(
     new Array(FSS_DATA.length).fill(null)
   );
 
@@ -31,14 +33,26 @@ export const FSS = () => {
     id: number,
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const index = id - 1;
-    const value = parseInt((event.target as HTMLInputElement).value);
+    // Get question
+    const questionIndex = id - 1;
+    const { responses, ...question } = FSS_DATA[questionIndex];
 
-    setFSS((prev) => {
-      const newArr = [...prev];
-      newArr[index] = value;
-      return newArr;
-    });
+    // Get response
+    const responseValue = parseInt((event.target as HTMLInputElement).value);
+    const response = responses.find(
+      (response) => response.value === responseValue
+    );
+
+    if (question && response) {
+      setFSS((prev) => {
+        const newArr = [...prev];
+        newArr[questionIndex] = {
+          question,
+          response,
+        };
+        return newArr;
+      });
+    }
   };
 
   const handleOnComplete = () => {

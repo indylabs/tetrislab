@@ -9,7 +9,7 @@ import { useTetrisLabContext } from "@/state/TetrisLabContext";
 
 export default function FinishPage() {
   const { dispatch, state } = useTetrisLabContext();
-  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [isSaved, setIsSaved] = useState(false);
 
   useEffect(() => {
@@ -17,12 +17,12 @@ export default function FinishPage() {
   }, [dispatch]);
 
   const handleOnComplete = async () => {
-    const { error } = await insertParticipant(state); // Save state data to database
+    const { error: errorMessage } = await insertParticipant(state); // Save state data to database
 
-    if (error) {
-      setIsError(true);
+    if (errorMessage) {
+      setError(JSON.stringify(errorMessage));
       throw new Error(
-        `Error on insertParticipant, Error: ${error.message}, State: ${state}`
+        `Error on insertParticipant, Error: ${errorMessage.message}, State: ${state}`
       );
     }
 
@@ -32,11 +32,7 @@ export default function FinishPage() {
 
   return (
     <Container>
-      <Finish
-        onComplete={handleOnComplete}
-        isError={isError}
-        isSaved={isSaved}
-      />
+      <Finish onComplete={handleOnComplete} error={error} isSaved={isSaved} />
     </Container>
   );
 }
