@@ -38,7 +38,7 @@ export const NAVIGATION: Navigation = [
   },
   {
     segment: "info-sheet",
-    title: "Pilot Study",
+    title: "Join Study",
     icon: <ScienceIcon />,
   },
 ];

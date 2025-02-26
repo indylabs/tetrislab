@@ -104,12 +104,25 @@ export const Particulars = () => {
                       sx={{ width: "200px" }}
                       color="secondary"
                       displayEmpty
+                      data-cy="select-gender"
                     >
                       <MenuItem value="">Select Gender</MenuItem>
-                      <MenuItem value="Male">Male</MenuItem>
-                      <MenuItem value="Female">Female</MenuItem>
-                      <MenuItem value="Non-Binary">Non-Binary</MenuItem>
-                      <MenuItem value="Prefer not to say">
+                      <MenuItem value="Male" data-cy="option-gender-male">
+                        Male
+                      </MenuItem>
+                      <MenuItem value="Female" data-cy="option-gender-female">
+                        Female
+                      </MenuItem>
+                      <MenuItem
+                        value="Non-Binary"
+                        data-cy="option-gender-non-binary"
+                      >
+                        Non-Binary
+                      </MenuItem>
+                      <MenuItem
+                        value="Prefer not to say"
+                        data-cy="option-gender-not-say"
+                      >
                         Prefer not to say
                       </MenuItem>
                     </Select>
@@ -148,6 +161,7 @@ export const Particulars = () => {
                       sx={{ width: "200px" }}
                       color="secondary"
                       displayEmpty
+                      data-cy="select-age"
                     >
                       <MenuItem value="">Select Age</MenuItem>
                       {generateAgeOptions()}
