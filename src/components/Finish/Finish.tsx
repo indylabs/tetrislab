@@ -112,7 +112,11 @@ export const Finish = ({
             }}
           >
             Your participlant code is:
-            <Typography color="primary" component="span">
+            <Typography
+              color="primary"
+              component="span"
+              data-cy="participant-code"
+            >
               &quot;{participantCode}&quot;
             </Typography>
             {isCopied && <CheckCircleIcon color="secondary" />}

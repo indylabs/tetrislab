@@ -1,5 +1,6 @@
 import { CONSENT_DATA } from "../../src/data/consent";
 import { MMTR_DATA } from "../../src/data/mmtr";
+import { FSS_DATA } from "../../src/data/ffs";
 
 describe("TetrisLab spec", () => {
   it("should allow control flow", () => {
@@ -54,5 +55,40 @@ describe("TetrisLab spec", () => {
 
     // Speed through game
     cy.get("body").type(Array(500).fill("{downArrow}").join(""));
+
+    cy.contains("button:visible", "Continue").click();
+
+    // 6. FSS
+    FSS_DATA.forEach(({ text, responses }) => {
+      const randomResponse =
+        responses[Math.floor(Math.random() * responses.length)];
+
+      cy.contains("label", text)
+        .parent() // Get the parent element that contains the radio buttons
+        .find(`input[type="radio"][value="${randomResponse.value}"]`) // Find the radio button with the desired value
+        .check(); // Check the radio button
+    });
+
+    // continue
+    cy.contains("button:visible", "Submit Responses").click();
+
+    // 7. Debrief
+    // Confirm read
+    cy.contains("I have read all sections of this debrief sheet").click();
+    // continue
+    cy.contains("button:visible", "Continue").click();
+
+    // 8. Finish
+    // Confirm participant code
+    cy.get(`[data-cy = "participant-code"]`)
+      .invoke("text")
+      .then((text) => {
+        expect(text).not.to.be.empty;
+      });
+
+    // save and finish
+    cy.contains("button:visible", "Save and Finish").click();
+
+    cy.contains("Your data has been saved.").should("be.visible");
   });
 });
