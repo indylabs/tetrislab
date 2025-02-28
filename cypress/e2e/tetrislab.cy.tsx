@@ -3,11 +3,8 @@ import { MMTR_DATA } from "../../src/data/mmtr";
 
 describe("TetrisLab spec", () => {
   it("should allow control flow", () => {
-    // Home
-    cy.visit("http://localhost:3000/");
-    cy.contains("button:visible", "Join Study").click();
-
     // 1. INFO SHEET
+    cy.visit("http://localhost:3000/info-sheet");
     // Confirm read
     cy.contains("I have read all sections of this information sheet").click();
     // continue
@@ -55,9 +52,7 @@ describe("TetrisLab spec", () => {
     // 5. Tetris
     cy.contains("button:visible", "Start Tetris").click();
 
-    cy.get(`[data-cy = "tetris-button"]`).first().focus();
-    cy.document().trigger("keydown", { keyCode: 40 });
-    cy.wait(10000);
-    cy.document().trigger("keyup", { keyCode: 40 });
+    // Speed through game
+    cy.get("body").type(Array(500).fill("{downArrow}").join(""));
   });
 });
