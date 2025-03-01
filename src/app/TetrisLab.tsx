@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 
+import { useTheme, useMediaQuery } from "@mui/material";
 import { NextAppProvider } from "@toolpad/core/nextjs";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 
@@ -10,7 +11,6 @@ import Withdraw from "@/components/Withdraw/Withdraw";
 import { TetrisLabContextProvider } from "@/state/TetrisLabContext";
 import getIsStudy from "@/utils/getIsStudy";
 import { BRANDING, NAVIGATION } from "@/constants";
-import useIsDesktop from "@/hooks/useIsDesktop";
 
 import { StepperContextProvider } from "@/state/StepperContext";
 
@@ -19,7 +19,8 @@ import "./normalize.css";
 export default function TetrisLab({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isStudy = getIsStudy(pathname);
-  const isDesktop = useIsDesktop();
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <NextAppProvider
