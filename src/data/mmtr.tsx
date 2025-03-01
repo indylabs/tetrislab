@@ -4,18 +4,6 @@ export const ACTION_INFO = "Please answer all questions to continue.";
 
 export const ACTION_LABEL = "Submit Responses";
 
-const MMTR_RESPONSES_DEFAULT = [
-  { value: 1, label: "Not at all" },
-  { value: 2.5, label: "Somewhat" },
-  { value: 5, label: "Very much" },
-];
-
-const MMTR_RESPONSES_REVERSE = [
-  { value: 5, label: "Not at all" },
-  { value: 2.5, label: "Somewhat" },
-  { value: 1, label: "Very much" },
-];
-
 const MMTR_RESPONSES_HOW_OFTEN = [
   { value: 1, label: "Never" },
   { value: 2, label: "Rarely" },
@@ -28,7 +16,13 @@ export const MMTR_DATA = [
   {
     id: 1,
     text: "When you sit down to do work or homework, how successful are you at avoiding distraction?",
-    responses: MMTR_RESPONSES_REVERSE,
+    responses: [
+      { value: 1, label: "Not at all Successful" },
+      { value: 2, label: "Not Successful" },
+      { value: 3, label: "Somewhat Successful" },
+      { value: 4, label: "Successful" },
+      { value: 5, label: "Very successful" },
+    ],
   },
   {
     id: 2,
@@ -43,7 +37,13 @@ export const MMTR_DATA = [
   {
     id: 4,
     text: "How urgently do you feel the need to check for possible text messages or emails?",
-    responses: MMTR_RESPONSES_DEFAULT,
+    responses: [
+      { value: 1, label: "Not at all urgently" },
+      { value: 2, label: "Not urgently" },
+      { value: 3, label: "Somewhat urgently" },
+      { value: 4, label: "Urgently" },
+      { value: 5, label: "Very urgently" },
+    ],
   },
   {
     id: 5,
@@ -53,7 +53,13 @@ export const MMTR_DATA = [
   {
     id: 6,
     text: "How distracted are you by alerts or notifications on your phone’s lock screen?",
-    responses: MMTR_RESPONSES_DEFAULT,
+    responses: [
+      { value: 1, label: "Not at all distracted" },
+      { value: 2, label: "Not distracted" },
+      { value: 3, label: "Somewhat distracted" },
+      { value: 4, label: "Distracted" },
+      { value: 5, label: "Very distracted" },
+    ],
   },
   {
     id: 7,
@@ -83,7 +89,13 @@ export const MMTR_DATA = [
   {
     id: 12,
     text: "If you are in the middle of a conversation and receive a notification for a new text or email, how likely are you to check it?",
-    responses: MMTR_RESPONSES_DEFAULT,
+    responses: [
+      { value: 1, label: "Not at all likely" },
+      { value: 2, label: "Not likely" },
+      { value: 3, label: "Somewhat likely" },
+      { value: 4, label: "Likely" },
+      { value: 5, label: "Very likely" },
+    ],
   },
   {
     id: 13,
@@ -108,7 +120,13 @@ export const MMTR_DATA = [
   {
     id: 17,
     text: "How much would other people describe you as being easily distracted?",
-    responses: MMTR_RESPONSES_DEFAULT,
+    responses: [
+      { value: 1, label: "Not at all" },
+      { value: 2, label: "Not much" },
+      { value: 3, label: "Somewhat" },
+      { value: 4, label: "Much" },
+      { value: 5, label: "Very much" },
+    ],
   },
   {
     id: 18,
