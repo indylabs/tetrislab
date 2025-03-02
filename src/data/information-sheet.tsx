@@ -21,9 +21,8 @@ export const INFORMATION_DATA = [
         <Typography sx={{ mb: 2 }}>
           You are invited to take part in research to investigate the impact of
           passive and active notifications on flow state and performance within
-          the context of a task-based user interface (UI). This project is being
-          undertaken by Des McDonnell for our major research project as part of
-          the{" "}
+          the context of a task-based user interface (UI). This research project
+          is being undertaken by Des McDonnell as part of the{" "}
           <Link
             href="https://iadt.ie/courses/cyberpsychology/"
             target="_blank"
@@ -54,11 +53,9 @@ export const INFORMATION_DATA = [
     title: "What is the purpose of the project?",
     content: (
       <Typography>
-        As digital information systems become more prevalent in our lives, the
-        need to receive status updates and other forms of notifications from the
-        applications we rely on has increased significantly. As autonomous AI
-        agents become more prevalent, it is expected that this requirement will
-        only increase. This study aims to investigate the impact of these
+        Media multitasking has become ubiquitous as individuals engage with
+        multiple digital media forms simultaneously, driven by constant alerts
+        and notifications. This study aims to investigate the impact of these
         notifications on flow state and the performance of primary cognitive
         tasks.
       </Typography>
@@ -69,10 +66,9 @@ export const INFORMATION_DATA = [
     title: "Why are you being invited to take part?",
     content: (
       <Typography>
-        You are invited to participate in this study because you are a graduate
-        student at IADT and as such meet the minimum age requirement of 18 years
-        and have a competent level of computer literacy and familiarity with
-        common UI patterns and conventions.
+        You are invited to participate in this study as you meet the minimum age
+        requirement of 18 years, have a competent level of computer literacy and
+        are familiar with common UI patterns and conventions.
       </Typography>
     ),
   },
@@ -126,14 +122,15 @@ export const INFORMATION_DATA = [
         </Typography>
         <Typography sx={{ mb: 2 }}>
           Passive notifications may periodically appear in the bottom right
-          corner of your screen and do not require any interaction.
+          corner of your screen and <strong>do not require</strong> any
+          interaction.
         </Typography>
         <Typography sx={{ mb: 2 }}>
           Active notifications may periodically appear in the middle of your
           screen. While this notifications are visible, the primary task will be
-          paused. Active notifications will require a response to continue. You
-          can response by clicking either &quot;Yes&quot; or &quot;No&quot; with
-          your mouse.
+          paused. Active notifications will <strong>require a response</strong>{" "}
+          to continue. You can response by clicking either &quot;Yes&quot; or
+          &quot;No&quot; with your mouse.
         </Typography>
 
         <Typography variant="h6" sx={{ mb: 2 }} color="primary">
@@ -166,12 +163,11 @@ export const INFORMATION_DATA = [
     content: (
       <Typography>
         You are free to decide whether you wish to take part or not. If you do
-        decide to take part, you will be asked to sign a consent form that lets
-        us know you have read this information sheet and understand what is
-        involved in the research. You are free to withdraw from this study at
-        any time and without giving reasons. Your decision to partake or abstain
-        in this study will have no impact on your marks, assessments or future
-        studies.
+        decide to take part, you will be asked to confirm that you have read
+        this information sheet, understand what is involved in the research and
+        give consent. You are free to withdraw from this study at any time and
+        without giving reasons. Your decision to partake or abstain in this
+        study will have no impact on your marks, assessments or future studies.
       </Typography>
     ),
   },
@@ -227,7 +223,7 @@ export const INFORMATION_DATA = [
           Liam.Challenor@iadt.ie
         </Link>
         . This study may also be published in an academic journal article and
-        may be written about for blog posts or media articles which can be
+        may be written about in blog posts or media articles which can be
         requested from the researcher.
       </Typography>
     ),
@@ -258,7 +254,7 @@ export const INFORMATION_DATA = [
           As the supervisor on this project, I, Dr Liam Challenor, am
           responsible for ensuring that all datasets will be stored in
           accordance with GDPR regulations and those which are not submitted to
-          a journal will be fully deleted on or before April 30th 2032.
+          a journal will be fully deleted on or before March 3th 2032.
         </Typography>
         <Typography sx={{ mb: 2 }}>
           Throughout the study and during the thesis evaluation period data
@@ -274,10 +270,10 @@ export const INFORMATION_DATA = [
           be fully anonymous with no identifiable properties.
         </Typography>
         <Typography>
-          On or before the 30th of April 2032, copies of data held by the
-          researcher and supervisor will be fully deleted. You will find contact
-          information for IADT&apos;s Data Protection Officer, Mr Bernard
-          Mullarkey, and more information on your rights concerning your data at{" "}
+          On or before March 3rd 2032, copies of data held by the researcher and
+          supervisor will be fully deleted. You will find contact information
+          for IADT&apos;s Data Protection Officer, Mr Bernard Mullarkey, and
+          more information on your rights concerning your data at{" "}
           <Link
             href="https://iadt.ie/about/your-rights-entitlements/gdpr/"
             color="secondary"
@@ -294,7 +290,8 @@ export const INFORMATION_DATA = [
     title: "Who has reviewed the study?",
     content: (
       <Typography>
-        This study has been approved by the IADT Psychology Ethics Committee.
+        This study has been reviewed and approved by the IADT Psychology Ethics
+        Committee.
       </Typography>
     ),
   },
@@ -305,11 +302,11 @@ export const INFORMATION_DATA = [
       <>
         <Typography>
           If you have a concern about any aspect of this study, you may wish to
-          speak to the researcher who will do their best to answer your
-          questions.
+          speak to the researcher or their supervisor who will do their best to
+          answer your questions.
         </Typography>
         <Typography>
-          You should contact Des McDonnell via email at{" "}
+          You can contact Des McDonnell via email at{" "}
           <Link href="mailto:N00236157@student.iadt.ie" color="secondary">
             N00236157@student.iadt.ie
           </Link>{" "}
