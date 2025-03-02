@@ -20,19 +20,24 @@ import {
   ACTION_LABEL,
 } from "@/data/consent";
 
+import { ConsentType } from "@/types";
+
 export const Consent = () => {
   const { dispatch } = useTetrisLabContext();
   const { step, nextStep } = useStepperContext();
 
   const [isValid, setIsValid] = useState(false);
-  const [consent, setConsent] = useState<boolean[]>(
-    new Array(CONSENT_DATA.length).fill(false)
+  const [consent, setConsent] = useState<(ConsentType | null)[]>(
+    new Array(CONSENT_DATA.length).fill(null)
   );
 
-  const handleChange = (id: number) => {
+  const handleChange = (id: number, index: number) => {
     setConsent((prev) => {
       const newArr = [...prev];
-      newArr[id] = !prev[id];
+      newArr[index] = {
+        id,
+        response: true,
+      };
       return newArr;
     });
   };
@@ -67,7 +72,7 @@ export const Consent = () => {
                     required
                     control={
                       <Checkbox
-                        onChange={() => handleChange(index)}
+                        onChange={() => handleChange(id, index)}
                         color="secondary"
                       />
                     }

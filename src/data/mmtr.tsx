@@ -17,9 +17,9 @@ export const MMTR_DATA = [
     id: 1,
     text: "When you sit down to do work or homework, how successful are you at avoiding distraction?",
     responses: [
-      { value: 1, label: "Not at all Successful" },
-      { value: 2, label: "Not Successful" },
-      { value: 3, label: "Somewhat Successful" },
+      { value: 1, label: "Not at all successful" },
+      { value: 2, label: "Not successful" },
+      { value: 3, label: "Somewhat successful" },
       { value: 4, label: "Successful" },
       { value: 5, label: "Very successful" },
     ],

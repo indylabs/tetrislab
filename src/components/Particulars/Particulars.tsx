@@ -26,6 +26,8 @@ import {
 
 import { generateAgeOptions } from "./helpers/generateAgeOptions";
 
+import { RequirementsType } from "@/types";
+
 export const Particulars = () => {
   const { dispatch } = useTetrisLabContext();
   const { step, nextStep } = useStepperContext();
@@ -33,14 +35,17 @@ export const Particulars = () => {
   const [isValid, setIsValid] = useState(false);
   const [age, setAge] = useState<string>("");
   const [gender, setGender] = useState<string>("");
-  const [requirements, setRequirements] = useState<boolean[]>(
-    new Array(PARTICULARS_DATA.length).fill(false)
+  const [requirements, setRequirements] = useState<(RequirementsType | null)[]>(
+    new Array(PARTICULARS_DATA.length).fill(null)
   );
 
-  const handleChange = (id: number) => {
+  const handleChange = (id: number, index: number) => {
     setRequirements((prev) => {
       const newArr = [...prev];
-      newArr[id] = !prev[id];
+      newArr[index] = {
+        id,
+        response: true,
+      };
       return newArr;
     });
   };
@@ -190,7 +195,7 @@ export const Particulars = () => {
                     required
                     control={
                       <Checkbox
-                        onChange={() => handleChange(index)}
+                        onChange={() => handleChange(id, index)}
                         color="secondary"
                       />
                     }
