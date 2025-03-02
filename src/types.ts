@@ -43,8 +43,8 @@ export type TetrisLabAction =
   { type: "INIT_PARTICIPANT", variant: VARIANTS, participantCode: string }
   | { type: "RESET_STATE" }
   | { type: "ADD_INFO_SHEET", infoSheet: boolean }
-  | { type: "ADD_PARTICULARS", gender: string, age: string, requirements: boolean[] }
-  | { type: "ADD_CONSENT", consent: boolean[] }
+  | { type: "ADD_PARTICULARS", gender: string, age: string, requirements: (RequirementsType | null)[] }
+  | { type: "ADD_CONSENT", consent: (ConsentType | null)[] }
   | { type: "ADD_MMTR", mmtr: (ScaleResponseType | null)[] }
   | { type: "ADD_GAME_START" }
   | { type: "ADD_GAME_END", game: EndGame }
@@ -60,8 +60,8 @@ export type TetrisLabState = {
   infoSheet: boolean;
   gender: string | null;
   age: string | null;
-  requirements: boolean[];
-  consent: boolean[]; 
+  requirements: (RequirementsType | null)[];
+  consent: (ConsentType | null)[];
   mmtr: (ScaleResponseType | null)[];
   gameStart: number | null;
   gameEnd: number | null;
@@ -113,4 +113,14 @@ export type IntervalMetricsType = {
   score: number;
   level: number;
   rows: number;
+}
+
+export type RequirementsType = {
+  id: number;
+  response: boolean;
+}
+
+export type ConsentType = {
+  id: number;
+  response: boolean;
 }

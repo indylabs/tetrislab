@@ -34,9 +34,6 @@ export const MMTR = () => {
     new Array(MMTR_DATA.length).fill(null)
   );
 
-  console.log("mmtr:", mmtr);
-  console.log("isValid:", isValid);
-
   const handleChange = (
     id: number,
     event: React.ChangeEvent<HTMLInputElement>
