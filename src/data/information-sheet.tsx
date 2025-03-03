@@ -112,13 +112,13 @@ export const INFORMATION_DATA = [
           recorded and later analysed.
         </Typography>
         <Typography sx={{ mb: 2 }}>
-          Note that your score and time will not be displayed on screen during
-          the game to avoid additional distractions.
+          When you clear 10 rows, you will move to the next level of the game
+          and the pieces will speed up.
         </Typography>
         <Typography sx={{ mb: 2 }}>
-          If you are randomly assigned to one of two intervention
-          cohorts, you will be exposed to interfering stimuli in the form of
-          either passive or active UI notifications.
+          If you are randomly assigned to one of two intervention cohorts, you
+          will be exposed to interfering stimuli in the form of either passive
+          or active UI notifications.
         </Typography>
         <Typography sx={{ mb: 2 }}>
           Passive notifications may periodically appear in the bottom right
@@ -127,10 +127,10 @@ export const INFORMATION_DATA = [
         </Typography>
         <Typography sx={{ mb: 2 }}>
           Active notifications may periodically appear in the middle of your
-          screen. While these notifications are visible, the primary task will be
-          paused. Active notifications will <strong>require a response</strong>{" "}
-          to continue. You can respond by clicking either &quot;Yes&quot; or
-          &quot;No&quot; with your mouse.
+          screen. While these notifications are visible, the primary task will
+          be paused. Active notifications will{" "}
+          <strong>require a response</strong> to continue. You can respond by
+          clicking either &quot;Yes&quot; or &quot;No&quot; with your mouse.
         </Typography>
 
         <Typography variant="h6" sx={{ mb: 2 }} color="primary">
@@ -164,10 +164,11 @@ export const INFORMATION_DATA = [
       <Typography>
         You are free to decide whether you wish to take part or not. If you do
         decide to take part, you will be asked to confirm that you have read
-        this information sheet, that you understand what is involved in the research and that you
-        give consent. You are free to withdraw from this study at any time and
-        without giving reasons. Your decision to partake or abstain in this
-        study will have no impact on your marks, assessments or future studies.
+        this information sheet, that you understand what is involved in the
+        research and that you give consent. You are free to withdraw from this
+        study at any time and without giving reasons. Your decision to partake
+        or abstain in this study will have no impact on your marks, assessments
+        or future studies.
       </Typography>
     ),
   },
@@ -218,7 +219,7 @@ export const INFORMATION_DATA = [
         <Link href="mailto:N00236157@student.iadt.ie" color="secondary">
           N00236157@student.iadt.ie
         </Link>{" "}
-        or his supervisor at {" "}
+        or his supervisor at{" "}
         <Link href="mailto:Liam.Challenor@iadt.ie" color="secondary">
           Liam.Challenor@iadt.ie
         </Link>

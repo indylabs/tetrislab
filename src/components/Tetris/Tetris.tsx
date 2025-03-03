@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useInterval } from "usehooks-ts";
 
 import Stage from "../Stage/Stage";
+import Scoreboard from "@/components/Scoreboard/Scoreboard";
 
 // custom hooks
 import { usePlayer } from "@/hooks/usePlayer";
@@ -207,6 +208,7 @@ function Tetris({ onComplete }: TetrisProps) {
       onBlur={handleBlur}
       data-cy="tetris-button"
     >
+      <Scoreboard score={score} rows={rows} level={level} />
       <Stage stage={stage} />
     </button>
   );
