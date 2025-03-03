@@ -24,7 +24,7 @@ const ActiveNotification = () => {
   });
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} data-cy="active-notification">
       <DialogContent sx={{ backgroundColor: "primary.main" }}>
         <DialogContentText
           id="alert-dialog-description"
@@ -49,6 +49,7 @@ const ActiveNotification = () => {
           onClick={() => onClose(ResponseType.YES)}
           color="secondary"
           variant="outlined"
+          data-cy="active-notification-yes"
         >
           {ResponseType.YES}
         </Button>

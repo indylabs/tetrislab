@@ -20,12 +20,13 @@ const PassiveNotification = () => {
       autoHideDuration={PASSIVE_NOTIFICATION_AUTO_HIDE_DURATION}
       onClose={() => onClose()}
       anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-      ClickAwayListenerProps={{ onClickAway: () => null }}
+      ClickAwayListenerProps={{ onClickAway: () => null }} 
     >
       <Alert
         severity="info"
         variant="filled"
         sx={{ backgroundColor: "primary.main", color: "white" }}
+        data-cy="passive-notification"
       >
         {notification?.text}
       </Alert>
