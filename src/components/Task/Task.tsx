@@ -82,7 +82,7 @@ export const Task = () => {
         slots={{
           transition: Transition,
         }}
-        sx={{ mt: "65px" }}
+        sx={{ mt: "1.5rem" }}
       >
         <DialogContent
           sx={{

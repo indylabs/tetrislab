@@ -8,6 +8,7 @@ import {
   FormControlLabel,
   Checkbox,
 } from "@mui/material";
+import { Info as InfoIcon } from "@mui/icons-material";
 
 import { StepAction } from "@/components/StepAction/StepAction";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
@@ -46,13 +47,24 @@ export const InformationSheet = () => {
       )}
 
       {isDesktop && (
-        <StepAction
-          title={`Step ${step} - ${ACTION_TITLE}`}
-          info={ACTION_INFO}
-          label={ACTION_LABEL}
-          onAction={handleOnComplete}
-          isValid={isValid}
-        />
+        <>
+          <Alert
+            variant="outlined"
+            severity="info"
+            sx={{ mt: 2, mb: 0, borderColor: "primary.main", color: "white" }}
+            icon={<InfoIcon color="primary" />}
+          >
+            IMPORTANT: You must complete all 8 steps and submit your data at the
+            end to participate in this study.
+          </Alert>
+          <StepAction
+            title={`Step ${step} - ${ACTION_TITLE}`}
+            info={ACTION_INFO}
+            label={ACTION_LABEL}
+            onAction={handleOnComplete}
+            isValid={isValid}
+          />
+        </>
       )}
 
       {INFORMATION_DATA.map(({ id, title, content }) => (
