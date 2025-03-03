@@ -8,6 +8,8 @@ export const useStage = (player: Player, resetPlayer: () => void) => {
   const [rowsCleared, setRowsCleared] = useState<number>(0);
 
   useEffect(() => {
+    setRowsCleared(0);
+    
     const sweepRows = (newStage: Stage) => {
       setRowsCleared(0);
       return newStage.reduce((accumulator: Stage, row: Row) => {

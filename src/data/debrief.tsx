@@ -3,7 +3,7 @@ import { Link, Typography } from "@mui/material";
 export const ACTION_TITLE = "Debrief";
 
 export const ACTION_INFO =
-  "Please read all sections of this debrief sheet and tick the checkbox to continue.";
+  "Please read all sections of this debrief sheet and tick the checkbox at the end to continue.";
 
 export const ACTION_LABEL = "Continue";
 
@@ -64,15 +64,14 @@ export const DEBRIEF_DATA = [
           .
         </Typography>
         <Typography sx={{ mb: 2 }}>
-          In your email let them know your unique participant code provided.
+          In your email let them know your unique participant code which you will be provided with on the next screen. Please take note of this code.
         </Typography>
         <Typography>
           If you submit a request for data removal, all data collected from you
           will be securely deleted. You will be able to remove your data from
-          the study until the 28th of February 2025 when the data will be
+          the study until the 31st of March 2025 when the data will be
           combined and analysed. Data removal will not be possible after that
-          date. Please keep a copy of this information in case you wish to
-          remove your data after leaving this screen.
+          date.
         </Typography>
       </>
     ),
@@ -158,11 +157,11 @@ export const DEBRIEF_DATA = [
         </Typography>
         <Typography sx={{ mb: 2 }}>
           If you have any questions about this study, please contact the
-          researcher or supervisor at{" "}
+          researcher at{" "}
           <Link href="mailto:N00236157@student.iadt.ie" color="secondary">
             N00236157@student.iadt.ie
           </Link>{" "}
-          or{" "}
+          or his supervisor at{" "}
           <Link href="mailto:Liam.Challenor@iadt.ie" color="secondary">
             Liam.Challenor@iadt.ie
           </Link>
