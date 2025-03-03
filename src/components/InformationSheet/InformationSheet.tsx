@@ -51,7 +51,7 @@ export const InformationSheet = () => {
           <Alert
             variant="outlined"
             severity="info"
-            sx={{ mt: 2, mb: 0, borderColor: "primary.main", color: "white" }}
+            sx={{ mt: 4, mb: 0, borderColor: "primary.main", color: "white" }}
             icon={<InfoIcon color="primary" />}
           >
             IMPORTANT: You must complete all 8 steps and submit your data at the
