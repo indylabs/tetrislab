@@ -96,7 +96,7 @@ function Tetris({ onComplete }: TetrisProps) {
       const newLevel = level + 1;
       setLevel((prev) => prev + 1);
       // also increase speed
-      setDroptime(1000 / (newLevel + 1) + 150);
+      setDroptime(1000 / (newLevel + 1));
     }
     if (!checkCollision(player, stage, { x: 0, y: 1 })) {
       updatePlayerPosition({ x: 0, y: 1, collided: false });
@@ -112,7 +112,7 @@ function Tetris({ onComplete }: TetrisProps) {
   const keyUp = ({ keyCode }: { keyCode: number }) => {
     if (!gameover) {
       if (keyCode === 40) {
-        setDroptime(level === 0 ? 1000 : 1000 / (level + 1) + 150);
+        setDroptime(level === 0 ? 1000 : 1000 / (level + 1));
       }
     }
   };
