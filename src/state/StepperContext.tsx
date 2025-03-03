@@ -39,10 +39,10 @@ export const StepperContextProvider = ({
       if (currentStep.id - step > 1) {
         const inititialStep = STUDY_STEPS[0]; // get initial step
 
-        // if (inititialStep) {
-        //   setStep(1); // set step to initial
-        //   router.push(inititialStep.slug); // route to initial step slug
-        // }
+        if (inititialStep) {
+          setStep(1); // set step to initial
+          router.push(inititialStep.slug); // route to initial step slug
+        }
       } else {
         setStep(currentStep.id);
       }
