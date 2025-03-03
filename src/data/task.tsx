@@ -112,12 +112,12 @@ export const TASK_DATA_PRE = [
 
           <Typography sx={{ mb: 2 }}>
             Active notifications may periodically appear in the middle of your
-            screen. While this notifications are visible, the primary task will
+            screen. While these notifications are visible, the primary task will
             be paused.
           </Typography>
           <Typography>
             Active notifications will require a response to continue. You can
-            response by clicking either &quot;Yes&quot; or &quot;No&quot; with
+            respond by clicking either &quot;Yes&quot; or &quot;No&quot; with
             your mouse or trackpad.
           </Typography>
         </Box>

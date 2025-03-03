@@ -2,7 +2,7 @@ import { Link, Typography } from "@mui/material";
 
 export const ACTION_TITLE = "Information Sheet";
 export const ACTION_INFO =
-  "Please read all sections of this information sheet and tick the checkbox to continue.";
+  "Please read all sections of this information sheet and tick the checkbox at the end to continue.";
 export const ACTION_LABEL = "Continue";
 
 export const INFORMATION_DATA = [
@@ -53,7 +53,7 @@ export const INFORMATION_DATA = [
     title: "What is the purpose of the project?",
     content: (
       <Typography>
-        Media multitasking has become ubiquitous as individuals engage with
+        Media Multitasking has become ubiquitous as individuals engage with
         multiple digital media forms simultaneously, driven by constant alerts
         and notifications. This study aims to investigate the impact of these
         notifications on flow state and the performance of primary cognitive
@@ -116,7 +116,7 @@ export const INFORMATION_DATA = [
           the game to avoid additional distractions.
         </Typography>
         <Typography sx={{ mb: 2 }}>
-          If you are randomly selected to be part of one of two intervention
+          If you are randomly assigned to one of two intervention
           cohorts, you will be exposed to interfering stimuli in the form of
           either passive or active UI notifications.
         </Typography>
@@ -127,9 +127,9 @@ export const INFORMATION_DATA = [
         </Typography>
         <Typography sx={{ mb: 2 }}>
           Active notifications may periodically appear in the middle of your
-          screen. While this notifications are visible, the primary task will be
+          screen. While these notifications are visible, the primary task will be
           paused. Active notifications will <strong>require a response</strong>{" "}
-          to continue. You can response by clicking either &quot;Yes&quot; or
+          to continue. You can respond by clicking either &quot;Yes&quot; or
           &quot;No&quot; with your mouse.
         </Typography>
 
@@ -164,7 +164,7 @@ export const INFORMATION_DATA = [
       <Typography>
         You are free to decide whether you wish to take part or not. If you do
         decide to take part, you will be asked to confirm that you have read
-        this information sheet, understand what is involved in the research and
+        this information sheet, that you understand what is involved in the research and that you
         give consent. You are free to withdraw from this study at any time and
         without giving reasons. Your decision to partake or abstain in this
         study will have no impact on your marks, assessments or future studies.
@@ -214,11 +214,11 @@ export const INFORMATION_DATA = [
         analysed. The interpreted results will be presented in the final thesis
         for the MSc Cyberpsychology at the Dun Laoghaire Institute of Art,
         Design & Technology. This can be requested through the library at IADT,
-        or by emailing the researcher or supervisor at{" "}
+        or by emailing the researcher at{" "}
         <Link href="mailto:N00236157@student.iadt.ie" color="secondary">
           N00236157@student.iadt.ie
         </Link>{" "}
-        and{" "}
+        or his supervisor at {" "}
         <Link href="mailto:Liam.Challenor@iadt.ie" color="secondary">
           Liam.Challenor@iadt.ie
         </Link>
@@ -306,7 +306,7 @@ export const INFORMATION_DATA = [
           answer your questions.
         </Typography>
         <Typography>
-          You can contact Des McDonnell via email at{" "}
+          You can contact the researcher Des McDonnell via email at{" "}
           <Link href="mailto:N00236157@student.iadt.ie" color="secondary">
             N00236157@student.iadt.ie
           </Link>{" "}
