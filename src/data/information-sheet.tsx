@@ -53,7 +53,7 @@ export const INFORMATION_DATA = [
     title: "What is the purpose of the project?",
     content: (
       <Typography>
-        Media Multitasking has become ubiquitous as individuals engage with
+        Media multitasking has become ubiquitous as individuals engage with
         multiple digital media forms simultaneously, driven by constant alerts
         and notifications. This study aims to investigate the impact of these
         notifications on flow state and the performance of primary cognitive

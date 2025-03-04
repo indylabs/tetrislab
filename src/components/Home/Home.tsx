@@ -21,7 +21,7 @@ export const Home = () => {
         justifyContent: "center",
         alignItems: "center",
         gap: "2.5rem",
-        maxWidth: "75%",
+        maxWidth: "90%",
         m: "auto",
         mt: "-16px",
         py: 4,
