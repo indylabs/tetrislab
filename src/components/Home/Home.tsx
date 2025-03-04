@@ -20,14 +20,13 @@ export const Home = () => {
         height: "100%",
         justifyContent: "center",
         alignItems: "center",
-        gap: "2.5rem",
+        gap: "1.5rem",
         maxWidth: "90%",
         m: "auto",
-        mt: "-16px",
         py: 4,
       }}
     >
-      <Logo size="140px" />
+      <Logo size="130px" />
 
       <h1
         style={{
