@@ -1,4 +1,5 @@
 import { useRouter } from "next/navigation";
+import { useTheme } from "@mui/material";
 
 import { Box, Link, Typography, Fab } from "@mui/material";
 import { Science as ScienceIcon } from "@mui/icons-material";
@@ -10,6 +11,7 @@ const STUDY_ROUTE = "/info-sheet";
 
 export const Home = () => {
   const router = useRouter();
+  const theme = useTheme();
 
   return (
     <Box
@@ -18,13 +20,14 @@ export const Home = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        gap: "1.5rem",
+        gap: "0.8rem",
+        [theme.breakpoints.up('md')]: { gap: "2rem" },
         maxWidth: "90%",
         m: "auto",
-        py: 4
+        py: 2
       }}
     >
-      <Logo size="130px" />
+      <Logo size="120px" />
 
       <h1
         style={{
