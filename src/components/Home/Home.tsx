@@ -21,7 +21,6 @@ export const Home = () => {
         gap: "1.5rem",
         maxWidth: "90%",
         m: "auto",
-        px: 2,
         py: 4
       }}
     >
@@ -31,12 +30,16 @@ export const Home = () => {
         style={{
           display: "flex",
           flexDirection: "row",
-          gap: "0.25rem",
+          gap: '0.25rem',
+          justifyItems: 'center',
+          alignItems: 'center',
           fontWeight: "normal",
+          fontSize: '1.6rem',
+          margin: 0
         }}
       >
         <span>Welcome to</span>
-        <Title fontSize="2rem" />
+        <Title fontSize="1.6rem" />
       </h1>
 
       <Typography align="center" component="h2">
@@ -69,19 +72,17 @@ export const Home = () => {
       <Box
         sx={{
           display: "flex",
-          gap: "1rem",
           flexWrap: "wrap",
-          justifyContent: "center",
         }}
       >
-        <Typography>
+        <Typography sx={{ textAlign: "center", width: '100%' }}>
           Student:{" "}
           <Link href="mailto:N00236157@student.iadt.ie" color="secondary.main">
             Des McDonnell
           </Link>{" "}
           (#N00236157)
         </Typography>
-        <Typography>
+        <Typography sx={{ textAlign: "center", width: '100%' }}>
           Supervisor:{" "}
           <Link href="mailto:Liam.Challenor@iadt.ie" color="secondary.main">
             Dr Liam Challenor
