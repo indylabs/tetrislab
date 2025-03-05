@@ -128,9 +128,6 @@ const FinishStep = () => {
   .then((text) => {
     expect(text).not.to.be.empty;
   });
-
-  // save and finish
-  cy.contains("button:visible", "Save and Finish").click();
 }
 
 describe("TetrisLab spec", () => {

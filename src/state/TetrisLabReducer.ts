@@ -63,11 +63,6 @@ export const reducer = (state: TetrisLabState, action: TetrisLabAction): TetrisL
         ...state,
         participantCode: action.participantCode
       }
-    case "ADD_OVERALL_END":
-      return {
-        ...state,
-        overallEnd: Date.now()
-      }
     case "ADD_INTERVAL_METRICS":
       return {
         ...state,

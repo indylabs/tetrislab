@@ -87,7 +87,7 @@ export const STUDY_STEPS: StudyStepType[] = [
 ];
 
 export const BRANDING = {
-  logo: <Title />,
+  logo: <Title fontSize="1.6rem" />,
   title: "",
   homeUrl: "/",
 };
