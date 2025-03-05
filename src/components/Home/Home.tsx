@@ -14,7 +14,6 @@ export const Home = () => {
   return (
     <Box
       sx={{
-        position: "relative",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

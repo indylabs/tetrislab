@@ -14,8 +14,6 @@ import { BRANDING, NAVIGATION } from "@/constants";
 
 import { StepperContextProvider } from "@/state/StepperContext";
 
-import "./normalize.css";
-
 export default function TetrisLab({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isStudy = getIsStudy(pathname);
