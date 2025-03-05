@@ -54,8 +54,7 @@ export const InformationSheet = () => {
             sx={{ mt: 4, mb: 0, borderColor: "primary.main", color: "white" }}
             icon={<InfoIcon color="primary" />}
           >
-            IMPORTANT: You must complete all 8 steps and submit your data at the
-            end to participate in this study.
+            IMPORTANT: You must complete all 8 steps to participate in this study.
           </Alert>
           <StepAction
             title={`Step ${step} - ${ACTION_TITLE}`}

@@ -17,7 +17,6 @@ export const Home = () => {
         position: "relative",
         display: "flex",
         flexDirection: "column",
-        height: "100%",
         justifyContent: "center",
         alignItems: "center",
         gap: "1.5rem",

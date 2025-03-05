@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import {
   Alert,
@@ -15,28 +15,22 @@ import {
   ContentCopy as ContentCopyIcon,
 } from "@mui/icons-material";
 
+import insertParticipant from "@/app/actions/insertParticipant";
 import { useTetrisLabContext } from "@/state/TetrisLabContext";
 import { StepAction } from "@/components/StepAction/StepAction";
 import { useStepperContext } from "@/state/StepperContext";
 
-import { ACTION_TITLE, ACTION_INFO, ACTION_LABEL } from "@/data/finish";
+import { ACTION_TITLE } from "@/data/finish";
 
-type FinishProps = {
-  onComplete: () => void;
-  error: string | null;
-  isSaved: boolean;
-};
-
-export const Finish = ({
-  onComplete,
-  error = null,
-  isSaved = false,
-}: FinishProps) => {
+const Finish = () => {
   const { state } = useTetrisLabContext();
   const { step } = useStepperContext();
   const { participantCode } = state;
 
   const [isCopied, setIsCopied] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const hasAttemptedSave = useRef(false);
 
   const handleCopy = async () => {
     try {
@@ -50,55 +44,51 @@ export const Finish = ({
     }
   };
 
-  const handleOnComplete = async () => {
-    onComplete();
-  };
+  useEffect(() => {
+    const saveData = async () => {
+      hasAttemptedSave.current = true;
 
-  if (error) {
-    return (
-      <>
-        <StepAction
-          title={`Step ${step} - ${ACTION_TITLE}`}
-          label={ACTION_LABEL}
-          onAction={handleOnComplete}
-          isValid={true}
-        />
-        <Alert variant="filled" severity="error">
-          An error occurred while saving your participant data.
-          <br />
-          ERROR: {error}
-        </Alert>
-      </>
-    );
-  }
+      const { error: errorMessage } = await insertParticipant({
+        ...state,
+        overallEnd: Date.now()
+      }); // Save state data to database
 
-  if (isSaved) {
-    return (
-      <>
-        <StepAction
-          title={`Step ${step} - ${ACTION_TITLE}`}
-          label={ACTION_LABEL}
-          onAction={handleOnComplete}
-          isValid={false}
-        />
-        <Alert variant="filled" severity="success" sx={{ color: "white" }}>
-          Your data has been saved. Thank you for participating in this study.
-          <br />
-          You may now close this browser tab.
-        </Alert>
-      </>
-    );
-  }
+      if (errorMessage) {
+        setError(JSON.stringify(errorMessage));
+        throw new Error(
+          `Error on insertParticipant, Error: ${errorMessage.message}, State: ${state}`
+        );
+      }
+
+      setIsSaved(true);
+    }
+    if(!hasAttemptedSave.current) {
+      saveData();
+    }
+  }, [hasAttemptedSave.current]);
 
   return (
     <>
       <StepAction
         title={`Step ${step} - ${ACTION_TITLE}`}
-        info={ACTION_INFO}
-        label={ACTION_LABEL}
-        onAction={handleOnComplete}
-        isValid={true}
+        info=""
+        label=""
+        onAction={() => {}}
+        isValid={false}
       />
+      {isSaved && (
+        <Alert variant="filled" severity="success" sx={{ color: "white", mb: 4 }}>
+        Your data has been saved. Thank you for participating in this study.
+      </Alert>
+      )}
+
+      {error && (
+        <Alert variant="filled" severity="error" sx={{ mb: 4 }}>
+        An error occurred while saving your participant data.
+        <br />
+        ERROR: {error}
+      </Alert>
+      )}
 
       <Card sx={{ mb: 4 }}>
         <CardHeader title="Participant Code" sx={{ color: "primary.main" }} />
@@ -145,25 +135,8 @@ export const Finish = ({
           </Alert>
         </CardContent>
       </Card>
-
-      <Card sx={{ mb: 4 }}>
-        <CardHeader title="Save and Finish" sx={{ color: "primary.main" }} />
-        <CardContent>
-          <Typography sx={{ mb: 2 }}>
-            Click &quot;Save and Finish&quot; to submit your data and complete
-            the study.
-          </Typography>
-          <Alert
-            variant="outlined"
-            severity="info"
-            sx={{ mb: 0, borderColor: "primary.main", color: "white" }}
-            icon={<InfoIcon color="primary" />}
-          >
-            You are about to submit data collected during this experiment for
-            use in this study.
-          </Alert>
-        </CardContent>
-      </Card>
     </>
   );
 };
+
+export default React.memo(Finish);

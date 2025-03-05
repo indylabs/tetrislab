@@ -52,7 +52,6 @@ export type TetrisLabAction =
   | { type: "ADD_FSS", fss: (ScaleResponseType | null)[] }
   | { type: "ADD_DEBRIEF", debrief: boolean }
   | { type: "ADD_PARTICIPANT_CODE", participantCode: string }
-  | { type: "ADD_OVERALL_END" }
   | { type: "ADD_INTERVAL_METRICS", intervalMetric: IntervalMetricsType}
 
 export type TetrisLabState = {
