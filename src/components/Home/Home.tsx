@@ -24,7 +24,7 @@ export const Home = () => {
         mx: 'auto',
         my: "0",
         [theme.breakpoints.up('sm')]: { my: "auto" },
-        py: 2
+        py: 4
       }}
     >
       <Logo size="120px" />
