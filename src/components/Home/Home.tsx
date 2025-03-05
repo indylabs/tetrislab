@@ -21,7 +21,8 @@ export const Home = () => {
         gap: "1.5rem",
         maxWidth: "90%",
         m: "auto",
-        p: 4
+        px: 4,
+        py: 2
       }}
     >
       <Logo size="130px" />
