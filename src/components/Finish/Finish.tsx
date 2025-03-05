@@ -62,7 +62,9 @@ const Finish = () => {
 
       setIsSaved(true);
     }
-    !hasAttemptedSave.current && saveData();
+    if(!hasAttemptedSave.current) {
+      saveData();
+    }
   }, [hasAttemptedSave.current]);
 
   return (
