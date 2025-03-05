@@ -18,12 +18,12 @@ export const Home = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
         alignItems: "center",
-        gap: "0.8rem",
-        [theme.breakpoints.up('md')]: { gap: "2rem" },
+        gap: "2rem",
         maxWidth: "90%",
-        m: "auto",
+        mx: 'auto',
+        my: "0",
+        [theme.breakpoints.up('sm')]: { my: "auto" },
         py: 2
       }}
     >
@@ -37,12 +37,12 @@ export const Home = () => {
           justifyItems: 'center',
           alignItems: 'center',
           fontWeight: "normal",
-          fontSize: '1.6rem',
+          fontSize: '2rem',
           margin: 0
         }}
       >
         <span>Welcome to</span>
-        <Title fontSize="1.6rem" />
+        <Title fontSize="2rem" />
       </h1>
 
       <Typography align="center" component="h2">
@@ -76,6 +76,7 @@ export const Home = () => {
         sx={{
           display: "flex",
           flexWrap: "wrap",
+          gap: '0.5rem'
         }}
       >
         <Typography sx={{ textAlign: "center", width: '100%' }}>
@@ -91,8 +92,7 @@ export const Home = () => {
             Dr Liam Challenor
           </Link>
         </Typography>
-      </Box>
-      <Typography align="center" gutterBottom={true} component="p">
+        <Typography align="center" gutterBottom={true} component="p" sx={{ textAlign: "center", width: '100%' }}>
         This study is being conducted as part of the{" "}
         <Link
           href="https://iadt.ie/courses/cyberpsychology/"
@@ -106,6 +106,7 @@ export const Home = () => {
           Institute of Art, Design and Technology (IADT)
         </Link>
       </Typography>
+      </Box>
     </Box>
   );
 };
