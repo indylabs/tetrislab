@@ -19,7 +19,7 @@ export const Home = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "2rem",
+        gap: "1.8rem",
         maxWidth: "90%",
         mx: 'auto',
         my: "0",
@@ -76,7 +76,7 @@ export const Home = () => {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          gap: '0.5rem'
+          gap: '0.4rem'
         }}
       >
         <Typography sx={{ textAlign: "center", width: '100%' }}>
