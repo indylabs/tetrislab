@@ -73,7 +73,7 @@ export const MMTR_DATA = [
   },
   {
     id: 9,
-    text: "How often do you send texts during class?",
+    text: "How often do you send texts during class or work?",
     responses: MMTR_RESPONSES_HOW_OFTEN,
   },
   {
